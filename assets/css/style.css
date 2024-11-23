@@ -1,0 +1,748 @@
+ /* Global styles */
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    font-family: Arial;
+}
+body.login, body.register {
+    background: url('../image/poster.jpg') center / cover;
+    image-rendering: pixelated;
+}
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+
+
+/* Top movies styles ---------------------------------------------------------*/
+.top-movies {
+    display: flex;
+    justify-content: space-between;
+}
+.top-movies .movie {
+    position: relative;
+    width: 32%;
+}
+.top-movies .movie img {
+    width: 100%;
+    height: auto;
+}
+.top-movies .movie .rank {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 148px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.8);
+}
+.top-movies .movie:nth-child(1) .rank {
+    color: red;
+}
+.top-movies .movie:nth-child(2) .rank {
+    color: yellow;
+}
+.top-movies .movie:nth-child(3) .rank {
+    color: blue;
+}
+
+/* Banner styles */
+.banner {
+    margin: 20px 0;
+}
+.banner img {
+    width: 100%;
+    height: auto;
+}
+
+/* Explore styles */
+.explore {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+.explore .category {
+    width: 32%;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    padding: 20px 0;
+    border-radius: 10px;
+    position: relative;
+}
+.explore .category:before,
+.explore .category:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+.explore .category:before {
+    left: -10px;
+}
+.explore .category:after {
+    right: -10px;
+}
+
+/* Upcoming movies styles */
+.upcoming-movies {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+.upcoming-movies .movie {
+    width: 18%;
+}
+.upcoming-movies .movie img {
+    width: 100%;
+    height: auto;
+}
+
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 0 30px;
+    box-shadow: 0px 15px 10px rgb(58, 58, 58) ;
+    color: white;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo img {
+    width: 110px;
+    height: 100px;
+}
+
+.header-left {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+.header-left a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 15px;
+    margin: 0 15px;
+    border-radius: 5px;
+    transition: all 0.5s ease;
+
+}
+
+.header-left a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.button {
+    padding: 15px 30px;
+    font-size: 15px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid white;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.button:hover {
+    background-color: white;
+    color: black;
+}
+/* .operation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.icon-right, .icon-left {
+    display: flex;
+    gap: 10px;
+}
+.operation i {
+    width: 30px;
+    height: 30px;
+} */
+
+.container1 {
+    display: flex;
+    padding: 45px;
+}
+
+.screen {
+    position: relative;
+    width: 80%;
+    padding: 30px;
+    
+}
+
+video {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+
+}
+/* dùng chung với small2-container3 */
+.other {
+   padding: 0px 20px;
+}
+
+.other_movies {
+    width: 270px;
+    height: 170px;
+    padding-bottom: 20px ;
+    transition: transform 0.3s ease;
+
+}
+.other_movies:hover {
+    transform: scale(1.1);
+}
+.other_movies img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.other p {
+    color: aliceblue;
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+/* container2 */
+.container2 {
+    display: flex;
+    color: aliceblue;
+    padding: 20px 65px;
+}
+
+.title-main {
+    font-size: 50px;
+    margin: 0;
+    padding-right: 80px ;
+    font-weight: bold;
+}
+.title-extra {
+    font-size: 26px;
+
+}
+
+
+.star-rating {
+    display: flex;
+    color: yellow;
+    padding-top: 15px;
+
+}
+.star i {
+    font-size: 40px;
+    padding-right: 10px;
+}
+
+/* Big container3 */
+.big-container3 {
+    display: flex;
+    padding: 0px 65px 0px ;
+}
+.describe {
+    display: flex;
+    width: 1450px;
+}
+
+.poster {
+    width: 300px;
+    height: 400px;
+    padding-top: 20px;
+}
+.poster img {
+    width: 100%;
+    height: 100%;
+}
+.poster-content {
+    color: aliceblue;
+    font-size: 15px;
+}
+.title-poster {
+    color: aliceblue;
+    font-size: 20px;
+    text-align: center;
+}
+.content {
+    width: 700px;
+    margin: 20px 50px ;
+    font-size: 18px;
+    
+
+}
+.small1-container3 {
+    width: 1085px;
+}
+
+.follow {
+    padding: 30px 0px;
+}
+.follow a {
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 26px;
+
+}
+.follow a:hover {
+    color: red;
+    transition: all 0.5s ease;
+
+}
+
+/* Comment */
+/* box-cmt1 */
+
+.title-cmt {
+    color: aliceblue;
+    font-size: 20px;
+    padding-top: 100px;
+}
+
+.fill-cmt1 {
+    display: flex;
+}
+.avt {
+    width: 100px;
+    height: 100px;
+}
+.avt img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.input-cmt  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+}
+.input-cmt input {
+    padding: 10px 500px 10px 0px;
+}
+
+/* box-cmt2 */
+.fill-cmt2 {
+    display: flex;
+    padding-top: 40px;
+}
+
+.commented {
+    color: aliceblue;
+    padding-left: 30px;
+}
+
+.commented .name {
+    margin-top: 0px ;
+    font-size: 20px;
+    color: gray;
+}
+.commented .cmt {
+    font-size: 15px;
+
+} 
+
+.star-rating-cmt {
+    display: flex;
+    color: yellow;
+}
+.star-rating-cmt .star-cmt {
+    padding-right: 5px;
+}
+
+/* small2-container3 */
+
+.small2-container3 .other {
+    padding: 0px 35px 0px 15px;
+ }
+ 
+ .small2-container3 .other_movies {
+    width: 270px;
+    height: 170px;
+    padding-bottom: 20px ;
+    transition: transform 0.3s ease;
+ }
+ .small2-container3 .other_movies:hover {
+    transform: scale(1.1);
+
+ }
+
+ .small2-container3 .other_movies img {
+     width: 100%;
+     height: 100%;
+     border-radius: 10px;
+ 
+ }
+ .small2-container3 .other p {
+     color: aliceblue;
+     font-size: 26px;
+ }
+
+ 
+
+/* Container4 */
+.container4 {
+    padding: 150px 0px 35px 65px;
+}
+.recommend {
+    color: aliceblue;
+    font-size: 26px;
+}
+
+.movies {
+    display: flex;
+}
+.movies div {
+    width: 1700px;
+    height: 400px;
+    padding: 10px 65px 50px 0px;
+    display: flex;
+    transition: transform 0.3s ease;
+}
+.movies div:hover {
+    transform: scale(1.1);
+
+}
+.movies img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+
+}
+
+/* Footer ---------------------------------------*/
+.footer {
+    background-color: black;
+    padding-top: 35px;
+    /* transform: scale(1.1); */
+}
+
+/* input */
+.input {
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    margin: 0px 150px 0px 200px ;
+    width: 1100px;
+}
+
+.input input {
+    border: none;
+    outline: none;
+    padding: 20px 20px;
+    border-radius: 50px;
+    flex: 1;
+    font-size: 16px;
+    color: #333;
+}
+
+.input input::placeholder {
+    color: #bbb;
+}
+
+.input button {
+    border: none;
+    outline: none;
+    padding: 20px 30px;
+    background-color: black;
+    color: white;
+    border-radius: 50px ;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.input button:hover {
+    background-color: #646363;
+}
+/* container3 */
+.container3 {
+    display: flex;
+    padding: 0px 70px 0px 120px;
+}
+
+.box {
+    color: aliceblue;
+    font-size: 20px;
+    padding: 20px 50px;
+
+}
+.box a {
+    text-decoration: none;
+    color: gray;
+}
+
+.box-icon {
+    color: aliceblue;
+    font-size: 20px;
+    padding: 20px 40px;
+}
+.box-icon a {
+    text-decoration: none;
+    color: aliceblue;
+}
+.box-icon .icon {
+    display: flex;
+}
+.box-icon .icon a {
+    padding-left: 20px;
+}
+
+/* Footer logo */
+.footer-logo {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+.footer-logo div {
+    width: 150px;
+    height: 150px;
+}
+
+.footer-logo img {
+    width: 100%;
+    height: 100%;
+}
+.footer-logo p {
+    color: aliceblue;
+}
+
+/* category--------------------------- */
+.mb-4 {
+    display: flex;
+    flex-direction: row;
+    perspective: 1000px;
+}
+
+.mb-4 h3 {
+    padding-left: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.mb-4 p{
+    font-size: 15px;
+    color: grey;
+    margin-left: 10px;
+    padding: 5px;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.mb-4:hover p {
+    opacity: 1;
+    display: block;
+}
+
+.row {
+    display: flex; /* Sắp xếp các phần tử theo hàng ngang */
+    padding: 10px 10px;
+    margin-left: 5px;
+    gap: 20px; /*Khoảng cách giữa các cột*/
+    position: relative;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.row .col {
+    width: 300px; /* Chiều rộng cố định của mỗi cột */
+    position: relative; /* Đảm bảo căn chỉnh ảnh theo cột */
+}
+
+.row img {
+    width: 100%; /* Đảm bảo ảnh chiếm toàn bộ chiều rộng cột */
+    height: 100%; /* Đảm bảo ảnh chiếm toàn bộ chiều cao cột */
+    object-fit: cover; /* Cắt và phóng ảnh sao cho vừa với khung mà không méo hình */
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.row img:hover {
+    transform: scale(1.3);
+    transform-origin: center;
+    z-index: 10;
+}
+
+/* login-register--------------------------------------------- */
+.card{
+    margin-bottom:20px;
+    border:none;
+}
+
+.text-muted {
+    color: white;
+}
+
+.box {
+    width: 500px;
+    padding: 40px;
+    position: absolute;
+    top: 10%;
+    left: 33%;
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    transition: 0.25s;
+    margin-top: 50px;
+    border-radius: 20px;
+    border: 2px rgb(14, 91, 89) solid;
+    box-shadow: 0 0 30px rgb(14, 91, 89);
+}
+
+.box input[type="text"],
+.box input[type="password"],
+.box input[type="email"] {
+    font-size: 16px;
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 10px 10px;
+    width: 250px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s
+}
+
+.box h1 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500
+}
+
+.box input[type="text"]:focus,
+.box input[type="password"]:focus,
+.box input[type="email"]:focus {
+    width: 300px;
+    border-color: #2ecc71
+}
+
+.box input[type="submit"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer
+}
+
+.box input[type="submit"]:hover {
+    background: #2ecc71
+}
+
+.forgot {
+    text-decoration: none;
+}
+.forgot:hover {
+    color: #33ccff;
+    transform: scale(1.06);
+}
+
+ul.social-network {
+    list-style: none;
+    display: inline;
+    margin-left: 0 !important;
+    padding: 0
+}
+
+ul.social-network li {
+    display: inline;
+    margin: 0 5px
+}
+
+.social-network a.icoFacebook:hover {
+    background-color: #3B5998
+}
+
+.social-network a.icoTwitter:hover {
+    background-color: #33ccff
+}
+
+.social-network a.icoGoogle:hover {
+    background-color: #BD3518
+}
+
+.social-network a.icoFacebook:hover i,
+.social-network a.icoTwitter:hover i,
+.social-network a.icoGoogle:hover i {
+    color: #fff
+}
+
+a.socialIcon:hover,
+.socialHoverClass {
+    color: #44BCDD
+}
+
+.social-circle li a {
+    display: inline-block;
+    position: relative;
+    margin: 0 auto 0 auto;
+    border-radius: 50%;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    font-size: 20px
+}
+
+.social-circle li i {
+    margin: 0;
+    line-height: 50px;
+    text-align: center
+}
+
+.social-circle li a:hover i,
+.triggeredHover {
+    transform: rotate(360deg);
+    transition: all 0.2s
+}
+
+.social-circle i {
+    color: #fff;
+    transition: all 0.8s;
+    transition: all 0.8s
+}
+
