@@ -8,11 +8,12 @@
 </head>
 <body>
     <?php include('../model/header.php'); ?>
+    <?php include('../model/banner.php'); ?>
+    <?php include('../model/typeMovie.php'); ?>
 
-    <main>
+
     <?php include('../model/category.php'); ?>
     <?php include('../model/movieTop.php'); ?>
-    </main>
 
     <?php include('../model/footer.php'); ?>
 </body>
