@@ -20,14 +20,14 @@ PHP_Project/
 │       ├── home.php         # Trang chủ
 │       └── login.php        # Trang đăng nhập
 │
-├── config/                  # Các tệp cấu hình
+├── config/                   # Các tệp cấu hình
 │   └── config.php           # Các cài đặt cơ bản, kết nối DB, v.v.
 │
-├── public/                  # Thư mục công khai (public), nơi chứa các tệp có thể truy cập qua URL
+├── public/                   # Thư mục công khai (public), nơi chứa các tệp có thể truy cập qua URL
 │   ├── index.php            # Tệp chính để xử lý các yêu cầu từ người dùng
 │   └── .htaccess            # Tệp cấu hình web server (nếu cần)
 │
-├── sql/                     # Các tệp SQL như cấu trúc cơ sở dữ liệu
+├── sql/                      # Các tệp SQL như cấu trúc cơ sở dữ liệu
 │   └── database.sql
 │
 ├── vendor/                   # Các thư viện bên ngoài, nếu sử dụng Composer
@@ -42,7 +42,7 @@ css/, js/, image/: Chứa các tài nguyên tĩnh như CSS, JS, và hình ảnh.
 style.css có thể chứa tất cả các style chung cho dự án.
 script.js chứa các script JavaScript dùng chung cho dự án.
 
-app/:
+
 controllers/: Chứa các controller xử lý logic ứng dụng, ví dụ như HomeController.php để xử lý trang chủ và UserController.php để xử lý đăng nhập.
 models/: Chứa các model, là nơi xử lý các dữ liệu, ví dụ như User.php sẽ quản lý việc kết nối và truy xuất dữ liệu người dùng từ cơ sở dữ liệu.
 views/: Chứa các tệp giao diện (HTML/PHP), ví dụ như header.php, footer.php, các trang HTML khác như home.php và login.php. Các tệp này chỉ chứa mã HTML, không có logic xử lý.
