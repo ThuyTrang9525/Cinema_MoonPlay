@@ -17,7 +17,7 @@
        
             </div>
         </div>
-        <div class="subcribe-button">
+        <div class="submit-button-banner">
                 <button type="submit" value="Đăng ký"><b>Đăng ký ngay</b></button>
         </div>
 
