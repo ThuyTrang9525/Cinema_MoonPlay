@@ -776,13 +776,13 @@ a.socialIcon:hover,
     object-fit:fill;             /* Đảm bảo ảnh không bị méo */
 }
 
-.subcribe-button{
+.submit-button-banner{
     position: absolute;
     bottom: 35%;
     left: 15%;
     text-align: center;
  }
-.subcribe-button button{
+.submit-button-banner button{
     width: 250px;
     height:80px;
     font-size: 30px; 
@@ -793,7 +793,7 @@ a.socialIcon:hover,
     cursor: pointer;
 }
 
-.subcribe-button button:hover{
+.submit-button-banner button:hover{
     color:white;
     background-color: grey;
     transform: scale(1.1); /* Phóng to chữ nhẹ khi hover */
@@ -979,3 +979,234 @@ h2{
 .thien_nhien a:hover img {
     transform: scale(1.05);
 }
+
+
+
+/* ==================================== START CART====================================================== */
+* .cart{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+body.cart {
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+.container.cart{
+    width:100%;
+    height:auto;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: black;  
+}
+
+h2.cart {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color:white;
+}
+.introduce.cart {
+    font-size: 40px;
+    margin-bottom: 30px;
+    color: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    table-layout: fixed; /* Đảm bảo tất cả cột có chiều rộng bằng nhau */
+}
+
+table thead th {
+    font-size: 30px;
+    background-color: #ff4b5c;
+    color: white;
+    padding: 10px;  
+}
+
+
+table tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+table tbody tr td {
+    padding: 10px;
+    text-align: center;
+}
+
+.cart-summary {
+    margin-top: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+
+.price {
+    display: flex;
+    justify-content: flex-end; /* Đẩy nội dung sang phải */
+    gap: 53px; /* Tạo khoảng cách giữa chữ và giá */
+    margin-bottom: 20px;
+}
+
+.total {
+    display: flex;
+    justify-content: flex-end; /* Đẩy nội dung sang phải */
+    gap: 28px; /* Tạo khoảng cách giữa chữ và số lượng */
+}
+
+
+
+#total-price, #total-quantity{
+    margin-left: 100px; /* Tạo khoảng cách giữa chữ và giá trị */
+}
+#total-quantity{
+    text-align: left;
+    /* margin:0px; */
+}
+
+/* ======================================================END CART========================================== */
+
+
+/* ================================================START VOUCHER========================================== */
+*.voucher{
+    font-family: Arial;
+}
+.container.voucher{
+    width:100%;
+    height:auto;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: black;     
+}
+
+.title, .film-rental, .film-upcomming{
+    font-size: 40px;
+    color:white;
+    margin-left: 40px ;
+}
+
+.introduce.voucher{
+    font-size: 40px;
+    color:white;
+    margin-left: 40px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+}
+
+.bigbox{
+    display:grid;
+    grid-template-columns: 80% 20%;
+}
+
+.discount-title,.rcm{
+    font-size: 40px;
+    color:white;
+    margin-left: 40px;
+    margin-bottom: 30px;
+}
+
+.all-discount{
+    margin-left: 40px;   
+}
+
+.voucher{
+    display:grid;
+    grid-template-columns: 40% 40%;
+    gap:80px;
+    margin-bottom: 50px;
+}
+.discount{
+    display:grid;
+    grid-template-columns:1fr 3fr;
+}
+
+.detail-discount{
+    padding-left: 20px; /* Thêm khoảng cách bên trái cho chữ */
+    width: 100%; /* Đảm bảo hộp chứa chiếm hết chiều rộng có sẵn */
+    height: auto; /* Cho phép chiều cao tự động điều chỉnh */
+    background-color: #d1cdcd;
+    border-bottom: 1px solid white;
+    border-right: 1px solid white ;
+    box-shadow: 0 4px 8px white (0, 0, 0, 0.1);
+}
+
+.checked{
+    color:yellow;
+}
+.condition{
+    display:flex;
+    justify-content:space-between;
+    font-size: 30px;
+    cursor: pointer;    
+}
+.condition p:hover{
+    transform: scale(1.1); /* Phóng to chữ nhẹ khi hover */
+}
+.text-voucher{
+    font-size: 30px;
+    /* color:black */
+}
+.box-logo{
+    background-color: white;
+}
+.logo{
+    height: 140px;
+    margin-top:110px;
+    margin-left: 50px;
+}
+.box-recomment {
+    margin-right: 50px; /* Thêm khoảng cách lề phải 40px */
+}
+.rcm{
+    margin-left: 0px;
+    /* font-size: 40px; */
+    
+}
+
+.img-rcm{
+    display:flex;
+    flex-direction:column;
+    gap:50px;
+ 
+}
+.img-rcm img{
+    border-radius: 10px;
+}
+.banner.voucher{
+    width:100%;
+    height:auto;
+    margin-top:50px;
+    margin-bottom: 30px;
+}
+.film-rental{
+    margin-bottom: 30px;
+
+}
+
+.recomment-film, .box-comming-film {
+    display:flex;
+    justify-content: space-evenly;
+    /* gap:10px; */
+    margin-left:40px;
+    margin-right:40px;
+    margin-bottom: 30px;
+    
+}
+.recomment-film img,.box-comming-film img {
+    width:450px;
+    border-radius: 10px;
+}
+
+.recomment-film img:hover{
+    transform: scale(1.1); /* Phóng to chữ nhẹ khi hover */
+
+}
+.box-comming-film img:hover{
+    transform: scale(1.1); /* Phóng to chữ nhẹ khi hover */
+
+}
+/* ==================================END VOUCHER========================================================== */
