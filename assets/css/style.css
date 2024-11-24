@@ -10,6 +10,9 @@ body.login, body.register {
     background: url('../image/poster.jpg') center / cover;
     image-rendering: pixelated;
 }
+body.detail-movie, body.movie-show{
+    background-color: #000;
+}
 .container {
     width: 90%;
     margin: 0 auto;
@@ -1210,3 +1213,424 @@ table tbody tr td {
 
 }
 /* ==================================END VOUCHER========================================================== */
+
+/* =============================Start movie showing======================================================= */
+
+.container1 {
+    display: flex;
+    padding: 45px;
+}
+
+.screen {
+    position: relative;
+    width: 80%;
+    padding: 30px;
+    
+}
+
+video {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+
+}
+/* dùng chung với small2-container3 */
+.other {
+   padding: 0px 20px;
+}
+
+.other_movies {
+    width: 270px;
+    height: 170px;
+    padding-bottom: 20px ;
+    transition: transform 0.3s ease;
+
+}
+.other_movies:hover {
+    transform: scale(1.1);
+}
+.other_movies img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.other p {
+    color: aliceblue;
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+/* container2 */
+.container2 {
+    display: flex;
+    color: aliceblue;
+    padding: 20px 65px;
+}
+
+.title-main {
+    font-size: 50px;
+    margin: 0;
+    padding-right: 80px ;
+    font-weight: bold;
+}
+.title-extra {
+    font-size: 26px;
+
+}
+
+
+.star-rating {
+    display: flex;
+    color: yellow;
+    padding-top: 15px;
+
+}
+.star i {
+    font-size: 40px;
+    padding-right: 10px;
+}
+
+/* Big container3 */
+.big-container3 {
+    display: flex;
+    padding: 0px 65px 0px ;
+}
+.describe {
+    display: flex;
+    width: 1450px;
+}
+
+.poster {
+    width: 300px;
+    height: 400px;
+    padding-top: 20px;
+}
+.poster img {
+    width: 100%;
+    height: 100%;
+}
+.poster-content {
+    color: aliceblue;
+    font-size: 15px;
+}
+.title-poster {
+    color: aliceblue;
+    font-size: 20px;
+    text-align: center;
+}
+.content {
+    width: 700px;
+    margin: 20px 50px ;
+    font-size: 18px;
+    
+
+}
+.small1-container3 {
+    width: 1085px;
+}
+
+.follow {
+    padding: 30px 0px;
+}
+.follow a {
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 26px;
+
+}
+.follow a:hover {
+    color: red;
+    transition: all 0.5s ease;
+
+}
+
+/* Comment */
+/* box-cmt1 */
+
+.title-cmt {
+    color: aliceblue;
+    font-size: 20px;
+    padding-top: 100px;
+}
+
+.fill-cmt1 {
+    display: flex;
+}
+.avt {
+    width: 100px;
+    height: 100px;
+}
+.avt img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.input-cmt  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+}
+.input-cmt input {
+    padding: 10px 500px 10px 0px;
+}
+
+/* box-cmt2 */
+.fill-cmt2 {
+    display: flex;
+    padding-top: 40px;
+}
+
+.commented {
+    color: aliceblue;
+    padding-left: 30px;
+}
+
+.commented .name {
+    margin-top: 0px ;
+    font-size: 20px;
+    color: gray;
+}
+.commented .cmt {
+    font-size: 15px;
+
+} 
+
+.star-rating-cmt {
+    display: flex;
+    color: yellow;
+}
+.star-rating-cmt .star-cmt {
+    padding-right: 5px;
+}
+
+/* small2-container3 */
+
+.small2-container3 .other {
+    padding: 0px 35px 0px 15px;
+ }
+ 
+ .small2-container3 .other_movies {
+    width: 270px;
+    height: 170px;
+    padding-bottom: 20px ;
+    transition: transform 0.3s ease;
+ }
+ .small2-container3 .other_movies:hover {
+    transform: scale(1.1);
+
+ }
+
+ .small2-container3 .other_movies img {
+     width: 100%;
+     height: 100%;
+     border-radius: 10px;
+ 
+ }
+ .small2-container3 .other p {
+     color: aliceblue;
+     font-size: 26px;
+ }
+
+ 
+
+/* Container4 */
+.container4 {
+    padding: 150px 0px 35px 65px;
+}
+.recommend {
+    color: aliceblue;
+    font-size: 26px;
+}
+
+.movies {
+    display: flex;
+}
+.movies div {
+    width: 1700px;
+    height: 450px;
+    padding: 10px 65px 50px 0px;
+    display: flex;
+    transition: transform 0.3s ease;
+}
+.movies div:hover {
+    transform: scale(1.1);
+
+}
+.movies img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+
+}
+/* =============================End movie showing======================================================= */
+
+
+/* =============================Start detail  movie ======================================================= */
+/* background */
+.background {
+    height: 700px;
+    width: 100%;
+    padding-top: 50px;
+    position: absolute;
+}
+.background img {
+    width: 100%;
+    height: 100%;
+}
+
+.type {
+    display: flex;
+    justify-content: flex-end; 
+    color: aliceblue;
+    position: absolute;
+    bottom: 10px; 
+    right: 20px; 
+    gap: 15px; 
+}
+
+.type div {
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin-top: 20px;
+}
+
+/* container*/
+
+.infor-movie {
+    display: flex;
+    position: relative;
+    top: 400px;
+    padding-left: 70px;
+}
+.poster {
+    position: relative; 
+    width: 400px;
+    height: 400px;
+    margin-top: 20px;
+}
+.poster-img {
+    width: 400px;
+    height: 600px;
+}
+.poster-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+.poster button {
+    padding: 13px 20px;
+    margin-top: 20px;
+    font-size: 26px;
+    color: white;
+    background-color: red;
+    border-radius: 10px;
+    width: 100%;
+    height: 60px;
+    border: none;
+    cursor: pointer;
+    position: relative; 
+    z-index: 10; 
+    transition: transform 0.3s ease;
+
+}
+.poster button:hover {
+    background-color: rgb(137, 137, 137);
+    transition: all 0.3s ease;
+    color: black;
+    transform: scale(1.1);
+}
+
+
+.infor {
+    padding-left: 80px;
+}
+.name {
+    font-size: 40px;
+    color: white;
+}
+.name h1 {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+.name .n1 {
+    margin-top: 0;
+    margin-bottom: 40px;
+    font-size: 26px;
+}
+
+.name .time {
+    margin-bottom: 10px;
+    font-size: 35px;
+}
+.detail {
+    padding-top: 100px;
+    font-size: 26px;
+    color: white;
+}
+
+/* describe-movie */
+.describe-movie{
+    color: aliceblue;
+    position: relative; 
+    font-size: 20px;
+    padding: 600px 75px 0px 75px;
+}
+
+/* actor */
+.title-film {
+    font-size: 26px;
+    color: aliceblue;
+    padding: 30px 70px ;
+
+}
+.actor {
+    display: flex;
+}
+
+.performer {
+    padding: 0px 50px 0px 70px;
+}
+
+.performer .img {
+    width: 180px;
+    height: 160px;
+    
+}
+
+.performer .img img {
+    border-radius: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+.voiceover {
+    font-size: 20px;
+    color: aliceblue;
+    text-align: center;
+}
+
+/* Movies */
+.movies {
+    display: flex;
+}
+.movies div {
+    width: 1600px;
+    height: 400px;
+    padding: 10px 50px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+.movies div:hover {
+    transform: scale(1.1);
+}
+.movies img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+/* ============================= End detail  movie ======================================================= */
