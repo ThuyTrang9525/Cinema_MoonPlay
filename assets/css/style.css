@@ -10,6 +10,9 @@ body.login, body.register {
     background: url('../image/poster.jpg') center / cover;
     image-rendering: pixelated;
 }
+body.detail-movie, body.movie-show{
+    background-color: #000;
+}
 .container {
     width: 90%;
     margin: 0 auto;
@@ -745,4 +748,884 @@ a.socialIcon:hover,
     transition: all 0.8s;
     transition: all 0.8s
 }
+/* banner ---------------------------------- */
+/* ============================START SLIDER================================== */
+.slider{
+    width:100%;
+    height:auto;
+    overflow: hidden;/* Chỉ hiển thị vùng bên trong container */
+}
 
+.slideshow {
+    position: relative;
+    left:0;
+    width:400%;
+    animation: 10s slide linear infinite ;
+}
+.slide{
+    position: relative;
+    width:25%;
+    float:left;
+    /* height:100%; */
+}
+.slide img {
+    width:100%;
+    height:800px;
+    object-fit:fill;             /* Đảm bảo ảnh không bị méo */
+}
+
+.submit-button-banner{
+    position: absolute;
+    bottom: 35%;
+    left: 15%;
+    text-align: center;
+ }
+.submit-button-banner button{
+    width: 250px;
+    height:80px;
+    font-size: 30px; 
+    color:white;  
+    border-radius: 10px;
+    border:1px solid white;
+    background-color:red ;
+    cursor: pointer;
+}
+
+.submit-button-banner button:hover{
+    color:white;
+    background-color: grey;
+    transform: scale(1.1); /* Phóng to chữ nhẹ khi hover */
+}
+
+/* Điều chỉnh lại keyframes animation cho slide */
+@keyframes slide{
+    0%{
+        left:0%;
+    }
+    10%{
+        left:0%;
+    }
+    20%{
+        left:-100%;
+    }
+    30%{
+        left:-100%;
+    }
+    40%{
+        left:-200%;
+    }
+    50%{
+        left:-200%;
+    }
+    55%{
+        left:-300%;
+    }
+    65%{
+        left:-300%;
+    }
+    66%{
+        left:-200%;
+    }
+    74%{
+        left:-200%;
+    }
+        
+    75%{
+        left:-100%;
+    }
+    85%{
+        left:-100%;
+    }
+    90%{
+        left:0%;
+    }
+    100%{
+        left:0%;
+    }
+} 
+
+/* ============================END SLIDER================================== */
+
+/* ===================== START Phim Hot================== */
+h2{
+    font-size: 40px;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+.film-img{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:25px;
+    margin:20px 30px 30px 30px;
+    
+}
+.film-img img{
+    width:100%;
+    height:auto;
+}
+
+/* =====================END Phim Hot================== */
+
+
+/* type of Movie --------------------------------------------------------- */
+/* Phim tài liệu thiên nhiên */
+.top {
+    width: 100%;
+    /* Chiều ngang full màn hình */
+    padding: 0 20px;
+    /* Khoảng cách lề trái và phải */
+    box-sizing: border-box;
+    /* Bao gồm cả padding vào kích thước */
+}
+
+.top_phim {
+    display: flex;
+    gap: 10px;
+    /* Khoảng cách giữa các ảnh */
+    justify-content: space-between;
+    /* Giữ khoảng cách bằng nhau giữa các ảnh */
+    width: 100%;
+    margin:20px 30px 30px 30px;
+}
+
+/* Thiết lập cho thẻ a bên trong */
+.top_phim a {
+    flex-grow: 1;
+    /* Cho phép các ảnh giãn đều chiều ngang */
+    height: 300px;
+    /* Chiều cao cố định */
+    overflow: hidden;
+    /* Cắt ảnh nếu kích thước quá lớn */
+}
+
+/* Thiết lập cho hình ảnh */
+.top_phim img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Giữ tỷ lệ ảnh mà vẫn lấp đầy khung */
+    transition: transform 0.3s;
+    /* Hiệu ứng khi hover */
+}
+
+/* Hiệu ứng hover khi rê chuột vào ảnh */
+.top_phim a:hover img {
+    transform: scale(1.05);
+}
+
+
+
+/*  (Phim thuê đặc sắc) */
+.phim_thue{
+    display: flex;
+    gap: 10px;
+}
+
+.phim_thue a img {
+    width: 100%;
+    /* Chỉnh kích thước ảnh */
+    height: 600px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.phim_thue a:hover img {
+    transform: scale(1.05);
+}
+
+/* Phim tài liệu thiên nhiên */
+.thien_nhien {
+    width: 100%;
+    /* Chiều ngang full màn hình */
+    padding: 0 20px;
+    /* Khoảng cách lề trái và phải */
+    box-sizing: border-box;
+    /* Bao gồm cả padding vào kích thước */
+}
+
+.thien_nhien {
+    display: flex;
+    gap: 10px;
+    /* Khoảng cách giữa các ảnh */
+    justify-content: space-between;
+    /* Giữ khoảng cách bằng nhau giữa các ảnh */
+    width: 100%;
+}
+
+/* Thiết lập cho thẻ a bên trong */
+.thien_nhien a {
+    flex-grow: 1;
+    /* Cho phép các ảnh giãn đều chiều ngang */
+    height: 300px;
+    /* Chiều cao cố định */
+    overflow: hidden;
+    /* Cắt ảnh nếu kích thước quá lớn */
+}
+
+/* Thiết lập cho hình ảnh */
+.thien_nhien img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Giữ tỷ lệ ảnh mà vẫn lấp đầy khung */
+    transition: transform 0.3s;
+    /* Hiệu ứng khi hover */
+}
+
+/* Hiệu ứng hover khi rê chuột vào ảnh */
+.thien_nhien a:hover img {
+    transform: scale(1.05);
+}
+
+
+
+/* ==================================== START CART====================================================== */
+* .cart{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+body.cart {
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+.container.cart{
+    width:100%;
+    height:auto;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: black;  
+}
+
+h2.cart {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color:white;
+}
+.introduce.cart {
+    font-size: 40px;
+    margin-bottom: 30px;
+    color: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    table-layout: fixed; /* Đảm bảo tất cả cột có chiều rộng bằng nhau */
+}
+
+table thead th {
+    font-size: 30px;
+    background-color: #ff4b5c;
+    color: white;
+    padding: 10px;  
+}
+
+
+table tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+table tbody tr td {
+    padding: 10px;
+    text-align: center;
+}
+
+.cart-summary {
+    margin-top: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+
+.price {
+    display: flex;
+    justify-content: flex-end; /* Đẩy nội dung sang phải */
+    gap: 53px; /* Tạo khoảng cách giữa chữ và giá */
+    margin-bottom: 20px;
+}
+
+.total {
+    display: flex;
+    justify-content: flex-end; /* Đẩy nội dung sang phải */
+    gap: 28px; /* Tạo khoảng cách giữa chữ và số lượng */
+}
+
+
+
+#total-price, #total-quantity{
+    margin-left: 100px; /* Tạo khoảng cách giữa chữ và giá trị */
+}
+#total-quantity{
+    text-align: left;
+    /* margin:0px; */
+}
+
+/* ======================================================END CART========================================== */
+
+
+/* ================================================START VOUCHER========================================== */
+*.voucher{
+    font-family: Arial;
+}
+.container.voucher{
+    width:100%;
+    height:auto;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: black;     
+}
+
+.title, .film-rental, .film-upcomming{
+    font-size: 40px;
+    color:white;
+    margin-left: 40px ;
+}
+
+.introduce.voucher{
+    font-size: 40px;
+    color:white;
+    margin-left: 40px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+}
+
+.bigbox{
+    display:grid;
+    grid-template-columns: 80% 20%;
+}
+
+.discount-title,.rcm{
+    font-size: 40px;
+    color:white;
+    margin-left: 40px;
+    margin-bottom: 30px;
+}
+
+.all-discount{
+    margin-left: 40px;   
+}
+
+.voucher{
+    display:grid;
+    grid-template-columns: 40% 40%;
+    gap:80px;
+    margin-bottom: 50px;
+}
+.discount{
+    display:grid;
+    grid-template-columns:1fr 3fr;
+}
+
+.detail-discount{
+    padding-left: 20px; /* Thêm khoảng cách bên trái cho chữ */
+    width: 100%; /* Đảm bảo hộp chứa chiếm hết chiều rộng có sẵn */
+    height: auto; /* Cho phép chiều cao tự động điều chỉnh */
+    background-color: #d1cdcd;
+    border-bottom: 1px solid white;
+    border-right: 1px solid white ;
+    box-shadow: 0 4px 8px white (0, 0, 0, 0.1);
+}
+
+.checked{
+    color:yellow;
+}
+.condition{
+    display:flex;
+    justify-content:space-between;
+    font-size: 30px;
+    cursor: pointer;    
+}
+.condition p:hover{
+    transform: scale(1.1); /* Phóng to chữ nhẹ khi hover */
+}
+.text-voucher{
+    font-size: 30px;
+    /* color:black */
+}
+.box-logo{
+    background-color: white;
+}
+.logo{
+    height: 140px;
+    margin-top:110px;
+    margin-left: 50px;
+}
+.box-recomment {
+    margin-right: 50px; /* Thêm khoảng cách lề phải 40px */
+}
+.rcm{
+    margin-left: 0px;
+    /* font-size: 40px; */
+    
+}
+
+.img-rcm{
+    display:flex;
+    flex-direction:column;
+    gap:50px;
+ 
+}
+.img-rcm img{
+    border-radius: 10px;
+}
+.banner.voucher{
+    width:100%;
+    height:auto;
+    margin-top:50px;
+    margin-bottom: 30px;
+}
+.film-rental{
+    margin-bottom: 30px;
+
+}
+
+.recomment-film, .box-comming-film {
+    display:flex;
+    justify-content: space-evenly;
+    /* gap:10px; */
+    margin-left:40px;
+    margin-right:40px;
+    margin-bottom: 30px;
+    
+}
+.recomment-film img,.box-comming-film img {
+    width:450px;
+    border-radius: 10px;
+}
+
+.recomment-film img:hover{
+    transform: scale(1.1); /* Phóng to chữ nhẹ khi hover */
+
+}
+.box-comming-film img:hover{
+    transform: scale(1.1); /* Phóng to chữ nhẹ khi hover */
+
+}
+/* ==================================END VOUCHER========================================================== */
+
+/* =============================Start movie showing======================================================= */
+
+.container1 {
+    display: flex;
+    padding: 45px;
+}
+
+.screen {
+    position: relative;
+    width: 80%;
+    padding: 30px;
+    
+}
+
+video {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+
+}
+/* dùng chung với small2-container3 */
+.other {
+   padding: 0px 20px;
+}
+
+.other_movies {
+    width: 270px;
+    height: 170px;
+    padding-bottom: 20px ;
+    transition: transform 0.3s ease;
+
+}
+.other_movies:hover {
+    transform: scale(1.1);
+}
+.other_movies img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.other p {
+    color: aliceblue;
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+/* container2 */
+.container2 {
+    display: flex;
+    color: aliceblue;
+    padding: 20px 65px;
+}
+
+.title-main {
+    font-size: 50px;
+    margin: 0;
+    padding-right: 80px ;
+    font-weight: bold;
+}
+.title-extra {
+    font-size: 26px;
+
+}
+
+
+.star-rating {
+    display: flex;
+    color: yellow;
+    padding-top: 15px;
+
+}
+.star i {
+    font-size: 40px;
+    padding-right: 10px;
+}
+
+/* Big container3 */
+.big-container3 {
+    display: flex;
+    padding: 0px 65px 0px ;
+}
+.describe {
+    display: flex;
+    width: 1450px;
+}
+
+.poster {
+    width: 300px;
+    height: 400px;
+    padding-top: 20px;
+}
+.poster img {
+    width: 100%;
+    height: 100%;
+}
+.poster-content {
+    color: aliceblue;
+    font-size: 15px;
+}
+.title-poster {
+    color: aliceblue;
+    font-size: 20px;
+    text-align: center;
+}
+.content {
+    width: 700px;
+    margin: 20px 50px ;
+    font-size: 18px;
+    
+
+}
+.small1-container3 {
+    width: 1085px;
+}
+
+.follow {
+    padding: 30px 0px;
+}
+.follow a {
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 26px;
+
+}
+.follow a:hover {
+    color: red;
+    transition: all 0.5s ease;
+
+}
+
+/* Comment */
+/* box-cmt1 */
+
+.title-cmt {
+    color: aliceblue;
+    font-size: 20px;
+    padding-top: 100px;
+}
+
+.fill-cmt1 {
+    display: flex;
+}
+.avt {
+    width: 100px;
+    height: 100px;
+}
+.avt img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.input-cmt  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+}
+.input-cmt input {
+    padding: 10px 500px 10px 0px;
+}
+
+/* box-cmt2 */
+.fill-cmt2 {
+    display: flex;
+    padding-top: 40px;
+}
+
+.commented {
+    color: aliceblue;
+    padding-left: 30px;
+}
+
+.commented .name {
+    margin-top: 0px ;
+    font-size: 20px;
+    color: gray;
+}
+.commented .cmt {
+    font-size: 15px;
+
+} 
+
+.star-rating-cmt {
+    display: flex;
+    color: yellow;
+}
+.star-rating-cmt .star-cmt {
+    padding-right: 5px;
+}
+
+/* small2-container3 */
+
+.small2-container3 .other {
+    padding: 0px 35px 0px 15px;
+ }
+ 
+ .small2-container3 .other_movies {
+    width: 270px;
+    height: 170px;
+    padding-bottom: 20px ;
+    transition: transform 0.3s ease;
+ }
+ .small2-container3 .other_movies:hover {
+    transform: scale(1.1);
+
+ }
+
+ .small2-container3 .other_movies img {
+     width: 100%;
+     height: 100%;
+     border-radius: 10px;
+ 
+ }
+ .small2-container3 .other p {
+     color: aliceblue;
+     font-size: 26px;
+ }
+
+ 
+
+/* Container4 */
+.container4 {
+    padding: 150px 0px 35px 65px;
+}
+.recommend {
+    color: aliceblue;
+    font-size: 26px;
+}
+
+.movies {
+    display: flex;
+}
+.movies div {
+    width: 1700px;
+    height: 450px;
+    padding: 10px 65px 50px 0px;
+    display: flex;
+    transition: transform 0.3s ease;
+}
+.movies div:hover {
+    transform: scale(1.1);
+
+}
+.movies img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+
+}
+/* =============================End movie showing======================================================= */
+
+
+/* =============================Start detail  movie ======================================================= */
+/* background */
+.background {
+    height: 700px;
+    width: 100%;
+    padding-top: 50px;
+    position: absolute;
+}
+.background img {
+    width: 100%;
+    height: 100%;
+}
+
+.type {
+    display: flex;
+    justify-content: flex-end; 
+    color: aliceblue;
+    position: absolute;
+    bottom: 10px; 
+    right: 20px; 
+    gap: 15px; 
+}
+
+.type div {
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin-top: 20px;
+}
+
+/* container*/
+
+.infor-movie {
+    display: flex;
+    position: relative;
+    top: 400px;
+    padding-left: 70px;
+}
+.poster {
+    position: relative; 
+    width: 400px;
+    height: 400px;
+    margin-top: 20px;
+}
+.poster-img {
+    width: 400px;
+    height: 600px;
+}
+.poster-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+.poster button {
+    padding: 13px 20px;
+    margin-top: 20px;
+    font-size: 26px;
+    color: white;
+    background-color: red;
+    border-radius: 10px;
+    width: 100%;
+    height: 60px;
+    border: none;
+    cursor: pointer;
+    position: relative; 
+    z-index: 10; 
+    transition: transform 0.3s ease;
+
+}
+.poster button:hover {
+    background-color: rgb(137, 137, 137);
+    transition: all 0.3s ease;
+    color: black;
+    transform: scale(1.1);
+}
+
+
+.infor {
+    padding-left: 80px;
+}
+.name {
+    font-size: 40px;
+    color: white;
+}
+.name h1 {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+.name .n1 {
+    margin-top: 0;
+    margin-bottom: 40px;
+    font-size: 26px;
+}
+
+.name .time {
+    margin-bottom: 10px;
+    font-size: 35px;
+}
+.detail {
+    padding-top: 100px;
+    font-size: 26px;
+    color: white;
+}
+
+/* describe-movie */
+.describe-movie{
+    color: aliceblue;
+    position: relative; 
+    font-size: 20px;
+    padding: 600px 75px 0px 75px;
+}
+
+/* actor */
+.title-film {
+    font-size: 26px;
+    color: aliceblue;
+    padding: 30px 70px ;
+
+}
+.actor {
+    display: flex;
+}
+
+.performer {
+    padding: 0px 50px 0px 70px;
+}
+
+.performer .img {
+    width: 180px;
+    height: 160px;
+    
+}
+
+.performer .img img {
+    border-radius: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+.voiceover {
+    font-size: 20px;
+    color: aliceblue;
+    text-align: center;
+}
+
+/* Movies */
+.movies {
+    display: flex;
+}
+.movies div {
+    width: 1600px;
+    height: 400px;
+    padding: 10px 50px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+.movies div:hover {
+    transform: scale(1.1);
+}
+.movies img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+/* ============================= End detail  movie ======================================================= */
