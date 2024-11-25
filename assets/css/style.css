@@ -163,6 +163,25 @@ body.detail-movie, body.movie-show{
     align-items: center;
 }
 
+.search {
+    background: white;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    padding-right: 50px; 
+}
+.search input {
+    border: none;
+    outline: none;
+    padding: 15px 60px 15px 10px;
+    border-radius: 50px;
+    font-size: 16px;
+    margin-right: 20px;
+
+}
+.search i {
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+}
 .button {
     padding: 15px 30px;
     font-size: 15px;
@@ -451,7 +470,7 @@ video {
 }
 
 /* Subscribe Section */
-.footer__subscribe {
+.footer__accede {
     display: flex;
     align-items: center;
     background: white;
@@ -461,7 +480,7 @@ video {
     width: 1100px;
 }
 
-.footer__subscribe input {
+.footer__accede input {
     border: none;
     outline: none;
     padding: 20px 20px;
@@ -471,11 +490,11 @@ video {
     color: #333;
 }
 
-.footer__subscribe input::placeholder {
+.footer__accede input::placeholder {
     color: #bbb;
 }
 
-.footer__subscribe button {
+.footer__accede button {
     border: none;
     outline: none;
     padding: 20px 30px;
@@ -487,7 +506,7 @@ video {
     transition: all 0.3s;
 }
 
-.footer__subscribe button:hover {
+.footer__accede button:hover {
     background-color: #646363;
 }
 

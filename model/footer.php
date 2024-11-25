@@ -1,9 +1,9 @@
 <link rel="stylesheet" href="../assets/css/style.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <div class="footer">
-        <div class="footer__subscribe">
+        <div class="footer__accede">
             <input type="text" placeholder="Enter your email address">
-            <button>SUBSCRIBE</button>
+            <button>ACCEDE</button>
         </div>
         <div class="footer__links">
             <div class="footer__column">
