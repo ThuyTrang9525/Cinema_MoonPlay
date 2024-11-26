@@ -15,7 +15,7 @@
         </p>
         <div class="bigbox">
             <div class="box-discount">
-                <h2 class="discount-title">Mã giảm giá</h2>
+                <h2 class="discount-title">Mã giảm gá</h2>
                 <div class="all-discount">
                     <div class="voucher">
                         <div class="discount">
