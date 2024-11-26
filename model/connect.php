@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "123456789";
 $dbname = "moonplaycinema";
 
 // Tạo kết nối
