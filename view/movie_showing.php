@@ -6,8 +6,13 @@
     <title>Movie Screening</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        body.movieShow{
+            background-color: black;
+        }
+    </style>
 </head>
-<body class="movie-show">
+<body class="movieShow">
     <?php include('../model/header.php'); ?>
     <div class="container1">
         <div class="screen">
