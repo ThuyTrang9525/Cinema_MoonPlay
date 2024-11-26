@@ -1083,7 +1083,6 @@ table tbody tr td {
 
 .title, .film-rental, .film-upcomming{
     font-size: 40px;
-    color:white;
     margin-left: 40px ;
 }
 
@@ -1108,14 +1107,15 @@ table tbody tr td {
 }
 
 .all-discount{
-    margin-left: 40px;   
+    margin-left: 40px;
+       
 }
 
 .voucher{
-    display:grid;
-    grid-template-columns: 40% 40%;
-    gap:80px;
-    margin-bottom: 50px;
+    display: flex;
+    gap:5px;
+    margin-bottom: 150px;
+    margin-left: -140px;
 }
 .discount{
     display:grid;
@@ -1124,7 +1124,7 @@ table tbody tr td {
 
 .detail-discount{
     padding-left: 20px; /* Thêm khoảng cách bên trái cho chữ */
-    width: 100%; /* Đảm bảo hộp chứa chiếm hết chiều rộng có sẵn */
+    width: 88%; /* Đảm bảo hộp chứa chiếm hết chiều rộng có sẵn */
     height: auto; /* Cho phép chiều cao tự động điều chỉnh */
     background-color: #d1cdcd;
     border-bottom: 1px solid white;
@@ -1157,7 +1157,8 @@ table tbody tr td {
     margin-left: 50px;
 }
 .box-recomment {
-    margin-right: 50px; /* Thêm khoảng cách lề phải 40px */
+    margin-left: 40px;
+    margin-right: 5px; /* Thêm khoảng cách lề phải 40px */
 }
 .rcm{
     margin-left: 0px;
@@ -1185,11 +1186,16 @@ table tbody tr td {
 
 }
 
+.film-rental {
+    color:black;
+}
+
 .recomment-film, .box-comming-film {
     display:flex;
+    width: 100%;
     justify-content: space-evenly;
     /* gap:10px; */
-    margin-left:40px;
+    margin-left:10px;
     margin-right:40px;
     margin-bottom: 30px;
     
@@ -1197,6 +1203,7 @@ table tbody tr td {
 .recomment-film img,.box-comming-film img {
     width:450px;
     border-radius: 10px;
+    object-fit: cover;
 }
 
 .recomment-film img:hover{
