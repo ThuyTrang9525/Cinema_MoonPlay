@@ -11,7 +11,7 @@
      <?php include('../model/header.php'); ?>
 
 
-     /*--Main content--*/
+     <!-- Main content -->
     <div class="contact">
         <h2>MoonPlay</h2>
 
