@@ -1,40 +1,38 @@
-
 <?php
-    session_start();
-    error_reporting(E_ALL ^ E_DEPRECATED);
-    require_once '../model/connect.php';
+include '../model/connect.php'; // Kết nối đến database
 
-    if (isset($_POST['sign up']))
-    {
-        if (isset($_POST['username'])) {
-            $username = $_POST['username'];
-        }
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Lấy dữ liệu từ form
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $avatar = $_POST['avatar'] ?? ''; // Avatar là tùy chọn
 
-        if (isset($_POST['password'])) {
-            $password = $_POST['password'];
-        }
+    // Mã hóa mật khẩu
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        if (isset($_POST['email'])) {
-            $email = $_POST['email'];
-        }
+    // Kiểm tra email đã tồn tại chưa
+    $check_sql = "SELECT * FROM users WHERE email = ?";
+    $stmt = $conn->prepare($check_sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-        // if (isset($_POST['phone'])) {
-        //     $phone = $_POST['phone'];
-        // }
+    if ($result->num_rows > 0) {
+        echo "Email đã được sử dụng!";
+    } else {
+        // Thêm người dùng vào bảng users
+        $sql = "INSERT INTO users (username, email, password, role, avatar) VALUES (?, ?, ?, 'user', ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ssss", $username, $email, $hashed_password, $avatar);
 
-        $sql = "INSERT INTO users ( username, password, email, role)
-                VALUES ('$username', md5('$password'), '$email', 1)";
-        $res = mysqli_query($conn,$sql);
-        if ($res) 
-        {
-            header("location:login.php?rs=success");
+        if ($stmt->execute()) {
+            // Chuyển hướng đến trang login.php sau khi đăng ký thành công
+            header("Location: ../view/login.php");
             exit();
-        }
-        else 
-        {
-            header("location:login.php?rf=fail");
-            exit();
+        } else {
+            echo "Đã xảy ra lỗi. Vui lòng thử lại.";
         }
     }
+}
 ?>
-

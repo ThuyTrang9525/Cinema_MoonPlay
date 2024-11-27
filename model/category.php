@@ -157,7 +157,7 @@ function getMoviesByCategory($conn, $type) {
         while ($movie = $movies->fetch_assoc()) {
             echo '
             <div class="col">
-                <a href="detail_movie.php?movie_id=' . $movie['movie_id'] . '">  
+                <a href="../model/detail_movie.php?movie_id=' . $movie['movie_id'] . '">  
                     <img src="' . htmlspecialchars($movie['poster_url']) . '" alt="' . htmlspecialchars($movie['title']) . '" class="img-fluid">
                 </a>
             </div>';
