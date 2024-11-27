@@ -1926,6 +1926,9 @@ video {
 
 
  /* =============================Start detail  movie ======================================================= */
+ .detailMovie{
+    background-color: black;
+}
 /* background */
 .background {
     height: 700px;
@@ -1960,12 +1963,15 @@ video {
 .infor-movie {
     display: flex;
     position: relative;
+    top: 400px;
     padding-left: 70px;
     background-color: black;
     margin-bottom: 100px;
 }
 .poster {
     position: relative; 
+}
+.poster-img {
     width: 400px;
     height: 600px;
     margin-top: 20px;
@@ -2029,10 +2035,10 @@ video {
 
 /* describe-movie */
 .describe-movie{
-    color: aliceblue;
+    color: rgb(0, 0, 0);
     position: relative; 
     font-size: 20px;
-    padding: 500px 75px 0px 75px;
+    padding: 50px 75px 0px 75px;
 }
 .describe-movie-infomation {
     margin-top: 100px;

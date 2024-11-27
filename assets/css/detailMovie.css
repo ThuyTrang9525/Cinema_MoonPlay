@@ -1,5 +1,7 @@
-
-        /* =============================Start detail  movie ======================================================= */
+.detailMovie{
+    background-color: black;
+    min-height: 100vh;
+}
 /* background */
 .background {
     height: 700px;
@@ -33,13 +35,14 @@
 
 .infor-movie {
     display: flex;
-    position: relative;
+    position: absolute;
+    top: 400px;
     padding-left: 70px;
-    background-color: black;
-    margin-bottom: 100px;
 }
 .poster {
     position: relative; 
+}
+.poster-img {
     width: 400px;
     height: 600px;
     margin-top: 20px;
@@ -103,10 +106,10 @@
 
 /* describe-movie */
 .describe-movie{
-    color: aliceblue;
+    color: rgb(255, 255, 255);
     position: relative; 
     font-size: 20px;
-    padding: 500px 75px 0px 75px;
+    padding: 1200px 75px 0px 75px;
 }
 .describe-movie-infomation {
     margin-top: 100px;
@@ -163,5 +166,3 @@
     height: 100%;
     border-radius: 15px;
 }
-
-/* ============================= End detail  movie ======================================================= */

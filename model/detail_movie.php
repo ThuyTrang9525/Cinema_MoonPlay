@@ -29,32 +29,58 @@ $stmt_related->execute();
 $result_related = $stmt_related->get_result();
 ?>
 
-<div class="infor-movie">
-    <div class="poster">
-        <div class="poster-img">
-            <img src="<?php echo htmlspecialchars($movie['poster_url']); ?>" alt="<?php echo htmlspecialchars($movie['title']); ?>">
-        </div>
-        <button><i class="fa-solid fa-play"></i> Xem ngay</button>                  
+<div class="detailMovie">
+<!-- Background -->
+<div class="background">
+    <img src="<?php echo htmlspecialchars($movie['trailer_url']); ?>" alt="<?php echo htmlspecialchars($movie['title']); ?>">
+    <div class="type">
+        <div><?php echo htmlspecialchars($movie['type']); ?></div>
     </div>
-    <div class="infor">
-        <div class="name">
-            <h1><?php echo htmlspecialchars($movie['title']); ?></h1>
+<!-- Thông tin phim -->
+
+    <div class="infor-movie">
+        <div class="poster">
+            <div class="poster-img">
+                <img src="<?php echo htmlspecialchars($movie['poster_url']); ?>" alt="<?php echo htmlspecialchars($movie['title']); ?>">
+            </div>
+            <button><i class="fa-solid fa-play"></i> Xem ngay</button>                  
         </div>
-        <div class="detail">
-            <p>Diễn viên: <?php echo htmlspecialchars($movie['actor']); ?></p>
-            <p>Thể loại: <?php echo htmlspecialchars($movie['type']); ?> </p>
-            <p>Thời gian: <?php echo intval($movie['duration']); ?> phút</p>
-            <p>Khởi chiếu: <?php echo intval($movie['release_year']); ?> </p>
+        <div class="infor">
+            <div class="name">
+                <h1><?php echo htmlspecialchars($movie['title']); ?></h1>
+                <p class="time"><i class="fa-regular fa-clock"></i> <?php echo intval($movie['duration']); ?> phút</p>
+            </div>
+            <div class="detail">
+                <p>Thể loại: <?php echo htmlspecialchars($movie['type']); ?> </p>
+                <p>Khởi chiếu: <?php echo intval($movie['release_year']); ?> </p>
+            </div>
         </div>
     </div>
 </div>
 
+<!-- Mô tả phim -->
+<div class="describe-movie">
+    <p><?php echo htmlspecialchars($movie['description']); ?></p>
+</div>
+<div class="title-film"><p>DIỄN VIÊN</p></div>
+<div class="actor">
+        <div class="performer">
+            <div class="voiceover">
+                <p><?php echo htmlspecialchars($movie['actor']); ?></p>
+            </div>
+        </div>
+</div>
+
+ <!-- Phim tương tự -->
+<div class="title-film">
+    <p>Phim liên quan</p>
+</div>
 <div class="movies">
-    <h3>Phim liên quan</h3>
     <?php while ($related = $result_related->fetch_assoc()): ?>
         <div>
             <img src="<?php echo htmlspecialchars($related['poster_url']); ?>" alt="<?php echo htmlspecialchars($related['title']); ?>">
             <p><?php echo htmlspecialchars($related['title']); ?></p>
         </div>
     <?php endwhile; ?>
+</div>
 </div>

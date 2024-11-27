@@ -310,3 +310,37 @@ VALUES
 ('Gói xem phim 1 tháng', 150000),
 ('Gói xem phim 3 tháng', 400000),
 ('Gói xem phim 6 tháng', 750000);
+
+ALTER TABLE movies
+ADD trailer_url VARCHAR(255) AFTER poster_url;
+
+
+UPDATE movies
+SET trailer_url = CASE 
+    WHEN movie_id = 1 THEN 'https://photo2.tinhte.vn/data/attachment-files/2023/02/6316142_ok.jpeg'
+    WHEN movie_id = 2 THEN 'https://www.tourthailan.net.vn/images/diadiem/mieu-tho-Mae-Nak-2.jpg'
+    WHEN movie_id = 3 THEN 'https://vcover-hz-pic.wetvinfo.com/vcover_hz_pic/0/rigkbvj5a6vdcj11730286437019/0'
+    WHEN movie_id = 4 THEN 'https://motchill.se/storage/images/quy-co-seon-ju-phuc-thu/0d48bf417de0adb32b6812145b0ea317.jpg'
+    WHEN movie_id = 5 THEN 'https://motchill.zip/storage/images/men-say-tinh-yeu/86e4894002928b08937ddd6fb891140e.jpg'
+    WHEN movie_id = 6 THEN 'https://www.justwatch.com/images/backdrop/289372060/s640/tom-and-jerry-blast-off-to-mars.%7Bformat%7D'
+    WHEN movie_id = 7 THEN 'https://cdn.tgdd.vn/Files/2023/08/02/1540758/nhung-cau-noi-hay-nhat-trong-phim-tham-tu-lung-danh-conan-202308021125158172.jpg'
+    WHEN movie_id = 8 THEN 'https://pic3.iqiyipic.com/image/20241104/56/8f/a_100592985_m_601_en_m10_720_405.jpg'
+    WHEN movie_id = 9 THEN 'https://i.ytimg.com/vi/-5Ven8OqJ6Q/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCLAs6NaDouzLvIEEQBGxOHEmECoQ'
+    WHEN movie_id = 10 THEN 'https://occ-0-8407-116.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABZfZyMjgZB1YTwmyctlpVDZX9oxTXSyN2zVjeWclnhMBFD99c27RBTqjobTYHa3uuPGp_TE_aSRgVtnYuI81-aSYgupU4B1QT9Wn.jpg?r=a8a'
+    WHEN movie_id = 11 THEN 'https://occ-0-8407-2219.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABXEcGY-yXF4s6KeH5moSqUfeVDVgQKtYnFGVyGcAGpQgcsPEGQE7ke9j_UBjI7ptda5rv1RO94DQe9MI13WrqUzGtP8u9BLv6PwiOl24f8uc3XPl579KGb3Q7Q.jpg?r=a74'
+    WHEN movie_id = 12 THEN 'https://assets.glxplay.io/images/w700/title/mat-cua-quy_web_backdrop_767e9998ebd7f9b832ef57112760a1a1.jpg'
+    WHEN movie_id = 13 THEN 'https://toomva.com/images/videos/2018/05/linh-hon-doi-xac-1---1-1527304815.jpg'
+    WHEN movie_id = 14 THEN 'https://assets.glxplay.io/images/w700/title/pee-nak-3_mobile_backdrop_0e811644e58ec3c01603360a3a504a4f.jpg'
+    WHEN movie_id = 15 THEN 'https://khenphim.com/wp-content/uploads/2023/06/Home-For-Rent-2-doll_KP.webp'
+    WHEN movie_id = 16 THEN 'https://m.media-amazon.com/images/M/MV5BODIyODYwYWItM2VmMi00YmIwLWEyMDktZmNlZGRkNzU0MzE2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg'
+    WHEN movie_id = 17 THEN 'https://i-ione.vnecdn.net/2018/06/17/1-8607-1529223663.jpg'
+    WHEN movie_id = 18 THEN 'https://thanhnien.mediacdn.vn/uploaded/thienminh/2017_05_30/anh2_AEKR.jpg?width=500'
+    WHEN movie_id = 19 THEN 'https://occ-0-8407-114.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABX-6KImVlsu5jf7gOEDcJQK5u7cDw8EJwLqRWA0B6nK57QpKnvc61wH-4XY3BT0HUS9zJ56QEMdV5ZVNYQ1TowkZfb2K723NinI_.jpg?r=249'
+    WHEN movie_id = 20 THEN 'https://static2.vieon.vn/vieplay-image/thumbnail_v4_ntc/2024/02/19/jw7rjasm_1920x1080-changvocuaem-notitle_296_168.jpeg'
+    WHEN movie_id = 21 THEN 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6etonLc8N4XUXwbwhY4BqNxDgLf8dFmpdoQ&s'
+    WHEN movie_id = 22 THEN 'https://tintuc-divineshop.cdn.vccloud.vn/wp-content/uploads/2022/09/trailer-tan-sieu-nhan-dien-quang-tai-hien-tuoi-tho-voi-ky-xao-tien-bo_6336db8b704c2.jpeg'
+    WHEN movie_id = 23 THEN 'https://www.digitaltrends.com/wp-content/uploads/2023/01/Infinity-Pool_Beach_MiaAlexander_courtesyofNEONTopic1.jpg?p=1'
+    WHEN movie_id = 24 THEN 'https://genk.mediacdn.vn/139269124445442048/2022/12/31/1-16724614880141836897514-1672487526175-1672487526356174471554.jpg'
+    WHEN movie_id = 25 THEN 'https://motchill.zip/storage/images/nhung-ke-tham-lam/9a95d55bccbd218a360cc99aff363fa8.jpg'
+    ELSE trailer_url
+END;
