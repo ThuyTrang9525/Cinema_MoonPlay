@@ -299,3 +299,14 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+CREATE TABLE goidangky (
+    id INT AUTO_INCREMENT PRIMARY KEY, -- Mã voucher, tự động tăng
+    ten_goi VARCHAR(255) NOT NULL,    -- Tên gói voucher phim
+    gia DECIMAL(10, 2) NOT NULL       -- Giá của voucher, có thể là số tiền thập phân
+);
+
+INSERT INTO goidangky (ten_goi, gia)
+VALUES 
+('Gói xem phim 1 tháng', 150000),
+('Gói xem phim 3 tháng', 400000),
+('Gói xem phim 6 tháng', 750000);
