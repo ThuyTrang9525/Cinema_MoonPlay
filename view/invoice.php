@@ -34,13 +34,13 @@
     
             <div class="payment-method-options">
                 <label><input type="radio" name="payment" value="credit"> Trực tiếp</label>
-                <label><input type="radio" name="payment" value="paypal"> MoMo</label>
+                <label><input type="radio" name="payment" value="momo"> MoMo</label>
                 <label><input type="radio" name="payment" value="paypal"> ZaloPay</label>
-                <label><input type="radio" name="payment" value="paypal"> Ngân hàng</label>
+                <label><input type="radio" name="payment" value="bank"> Ngân hàng</label>
             </div>
 
             <label for="maxn">Mã xác nhận</label>
-            <input type="text" id="maxn" placeholder="Số điện thoại bạn là">
+            <input type="text" id="maxn" placeholder="Mã xác nhận của bạn là">
     
             <button>Thanh toán</button>
         </div>
