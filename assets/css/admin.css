@@ -1,0 +1,133 @@
+:root {
+    --bg-header: #222831;
+    --bg-main: #393E46;
+    --text-main: #EEEEEE;
+    --highlight: #00ADB5;
+    --danger: #FF5722;
+    --font-main: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-main);
+    background-color: var(--bg-main);
+    color: var(--text-main);
+}
+
+.sidebar {
+    width: 240px;
+    background: var(--bg-header);
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.sidebar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--highlight);
+}
+
+.sidebar .menu a {
+    text-decoration: none;
+    color: var(--text-main);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.sidebar .menu a:hover {
+    background-color: var(--highlight);
+    color: #000;
+}
+
+.main {
+    margin-left: 260px;
+    padding: 20px;
+}
+
+.header {
+    background: var(--bg-header);
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: var(--text-main);
+}
+
+.table th, .table td {
+    border: 1px solid #444;
+    padding: 10px;
+    text-align: left;
+}
+
+.table th {
+    background: var(--highlight);
+    color: #000;
+}
+
+/* Nút chỉnh sửa */
+.btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 60px;
+    margin: 5px;
+}
+
+.btn.edit {
+    background-color: var(--highlight);
+    color: #000;
+    display: inline-block;
+    margin-right: 10px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn.edit:hover {
+    background-color: #00bcd4;
+    transform: scale(1.1);
+}
+
+/* Nút xóa */
+.btn.delete {
+    background-color: var(--danger);
+    color: white;
+    display: inline-block;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn.delete:hover {
+    background-color: #d32f2f;
+    transform: scale(1.1);
+}
+
+/* Footer */
+.footer {
+    margin-top: 20px;
+    text-align: center;
+    padding: 10px;
+    background: var(--bg-header);
+    border-radius: 10px;
+}
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}

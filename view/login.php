@@ -1,9 +1,14 @@
+<?php
+if (isset($_GET['message']) && $_GET['message'] == 'success') {
+    echo 'Đăng ký thành công! Vui lòng đăng nhập.';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Log in</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
@@ -15,6 +20,7 @@
                 <h1>Login</h1>
                     <p class="text-muted"> Please enter your login and password!</p> 
                     <input type="text" name="username" placeholder="Username"> 
+                    <input type="password" name="password" placeholder="Password"> 
                     <input type="password" name="password" placeholder="Password"> 
                     <a class="forgot text-muted" href="#">Forgot password?</a> 
                     <input type="submit" name="login" value="Login"> 
