@@ -44,7 +44,7 @@
         <div class="Social">
             <div class="social_platform">
                 <div>
-                    <img src="../assets/image/Hình ảnh/Group (1).jpg" alt="">
+                    <img src="../assets/image/Hình ảnh/Vector.jpg" alt="">
                     <p>Trang facebook</p>
                 </div>
                 <div>
@@ -52,11 +52,11 @@
                     <p>Instagram</p>
                 </div>
                 <div>
-                    <img src="../assets/image/Hình ảnh/Vector.jpg" alt="">
+                    <img src="../assets/image/Hình ảnh/Vector (1).jpg" alt="">
                     <p>Trang Youtube</p>
                 </div>
                 <div>
-                    <img src="../assets/image/Hình ảnh/Vector (1).jpg" alt="">
+                    <img src="../assets/image/Hình ảnh/Group (1).jpg" alt="">
                     <p>Trang Tiktok</p>
                 </div>
             </div>
