@@ -368,3 +368,11 @@ SET trailer_url = CASE
     WHEN movie_id = 25 THEN 'https://motchill.zip/storage/images/nhung-ke-tham-lam/9a95d55bccbd218a360cc99aff363fa8.jpg'
     ELSE trailer_url
 END;
+----------------------------------------Feedback_table-----------------------------------------
+CREATE TABLE feedback
+(
+  feedback_id INT AUTO_INCREMENT PRIMARY KEY, -- ID duy nhất cho mỗi feedback
+    user_id INT NOT NULL,                       -- ID người dùng để liên kết feedback với user
+    feed_content TEXT NOT NULL,                 -- Nội dung của feedback
+    time TIMESTAMP DEFAULT CURRENT_TIMESTAMP    -- Thời gian tạo feedback
+);
