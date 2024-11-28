@@ -15,15 +15,16 @@ if (isset($_GET['message']) && $_GET['message'] == 'success') {
 <body class="login" >
     <div class="container"> 
         <div class="card"> 
-        <form action="../controllers/login-back.php" method="post" class="box">
+            <form action="../controllers/login-back.php" method="post" class="box"> 
             <h1>Wellcome back</h1>
                 <h1>Login</h1>
                     <p class="text-muted"> Please enter your login and password!</p> 
                     <input type="text" name="username" placeholder="Username"> 
                     <input type="password" name="password" placeholder="Password"> 
+                    <input type="password" name="password" placeholder="Password"> 
                     <a class="forgot text-muted" href="#">Forgot password?</a> 
-                    <input type="submit" name="" value="Login"> 
-                    <p class="registers" name="registers" style="color: white;">Don't have an account? <a style="color: white;" href="register.php">Signup</a></p>
+                    <input type="submit" name="login" value="Login"> 
+                    <P class="registers" name="registers" style="color: white;">Don't have an account? <a style="color: white;" href="register.php">Signup</a></P>
                     <div class="col-md-12"> 
                         <ul class="social-network social-circle"> 
                             <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li> 

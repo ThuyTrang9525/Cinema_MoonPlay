@@ -1,41 +1,53 @@
 <?php
 session_start();
-require_once '../model/connect.php'; // Kết nối đến cơ sở dữ liệu
+error_reporting(E_ALL ^ E_DEPRECATED);
+require_once '../model/connect.php';
+
+// Kiểm tra kết nối
+if (!$conn) {
+    die("Kết nối cơ sở dữ liệu thất bại: " . mysqli_connect_error());
+}
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Lấy dữ liệu từ form
-    $username= $_POST['username'];   // Đảm bảo lấy đúng giá trị từ form
-    $password = $_POST['password'];  // Đảm bảo lấy đúng giá trị từ form
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
 
-    // Kiểm tra xem email có tồn tại trong cơ sở dữ liệu không
-    $check_sql = "SELECT * FROM users WHERE username = ?";
-    $stmt = $conn->prepare($check_sql);
+    // Chuẩn bị truy vấn (Sử dụng Prepared Statements để tránh SQL Injection)
+    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
-    $result = $stmt->get_result();
+    $res = $stmt->get_result();
 
-    if ($result->num_rows > 0) {
-        // Lấy thông tin người dùng
-        $user = $result->fetch_assoc();
+    if ($res && $res->num_rows > 0) {
+        $user = $res->fetch_assoc();
 
-        // Kiểm tra mật khẩu
-        if (password_verify($password, $user['password'])) {
-            // Đăng nhập thành công, lưu thông tin người dùng vào session
-            $_SESSION['user_id'] = $user['user_id'];
+        // So sánh mật khẩu (vì mật khẩu không mã hóa, so sánh trực tiếp)
+        if ($password === $user['password']) {
+            var_dump($password === $user['password']);
+            // Đăng nhập thành công, lưu thông tin vào session
             $_SESSION['username'] = $user['username'];
-            $_SESSION['email'] = $user['email'];
+            // var_dump($_SESSION);
+            // exit();
             $_SESSION['role'] = $user['role'];
 
-            // Chuyển hướng đến trang main.php
-            header("Location: /PHP_Project/view/main.php");
+            // Điều hướng dựa trên vai trò
+            if ($user['role'] == "admin") {
+                header("location: ../view/admin.php");
+            } else {
+                header("location: ../view/main.php");
+            }
             exit();
         } else {
-            // Mật khẩu sai
-            echo "Mật khẩu không đúng.";
+            // Sai mật khẩu
+            header("location: ../view/login.php?rf=wrong_password");
+            exit();
         }
-    } 
-} else {
-    // Nếu không phải POST request
-    echo "Vui lòng gửi form đăng nhập.";
+    } else {
+        // Không tìm thấy tài khoản
+        header("location: ../view/login.php?rf=user_not_found");
+        exit();
+    }
 }
+$conn->close();
 ?>
