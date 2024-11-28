@@ -98,6 +98,30 @@ CREATE TABLE `movies` (
   `actor` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- table discount
+CREATE TABLE discount_codes (
+    discount_code_id INT AUTO_INCREMENT PRIMARY KEY,          -- ID mã giảm giá, tự động tăng
+    code VARCHAR(50) NOT NULL UNIQUE,           -- Tên mã giảm giá (ví dụ: SALE10)
+    discount_percentage DECIMAL(5, 2) NOT NULL, -- Phần trăm giảm giá (10%, 20%, ...)
+    usage_limit INT NOT NULL DEFAULT 1          -- Số lần mã có thể được sử dụng
+);
+INSERT INTO discount_codes (code, discount_percentage, usage_limit)
+VALUES 
+    ('SALE10', 10.00, 100),
+    ('NEWUSER50', 50.00, 50),
+    ('BLACKFRIDAY', 30.00, 500),
+    ('CHRISTMAS20', 20.00, 200),
+    ('SUMMER15', 15.00, 300);
+  -- create payments
+CREATE TABLE payments (
+    payment_id INT AUTO_INCREMENT PRIMARY KEY,          -- ID thanh toán, tự động tăng
+    user_id INT NOT NULL,                       -- ID người dùng thực hiện thanh toán
+    id INT NOT NULL,                    -- ID gói đăng ký đã mua
+    discount_code_id INT DEFAULT NULL,          -- ID mã giảm giá đã áp dụng (nếu có)
+    final_price DECIMAL(10, 2) NOT NULL,        -- Giá sau khi giảm (nếu có)
+    FOREIGN KEY (id) REFERENCES goidangky(id), -- Ràng buộc gói đăng ký
+    FOREIGN KEY (discount_code_id) REFERENCES discount_codes(discount_code_id) -- Ràng buộc mã giảm giá
+);
 --
 -- Dumping data for table `movies`
 --

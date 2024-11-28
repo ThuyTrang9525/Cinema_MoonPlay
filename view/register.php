@@ -17,7 +17,7 @@
                     <input type="text" name="username" placeholder="Username"> 
                     <input type="password" name="password" placeholder="Password"> 
                     <input type="email" name="email" placeholder="Email"> 
-                    <input type="submit" name="sign up" value="Sign Up"> 
+                    <input type="submit" name="signup" value="Sign Up"> 
                     <P class="registers" name="registers" style="color: white;">Aready have an account? <a style="color:white;" href="login.php">Login</a></P>
                     <div class="col-md-12"> 
                         <ul class="social-network social-circle"> 
