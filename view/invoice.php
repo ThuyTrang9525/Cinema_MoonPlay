@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../controllers/invoice-back.php">
 </head>
 <body>
      <!-- Header -->
@@ -22,28 +23,33 @@
 
     <!-- First Content Section -->
     <section class="first-content">
+         <form method="POST" action="/controllers/invoice-back.php">
         <div class="info-hoadon">
             <label for="name">Họ tên</label>
-            <input type="text" id="name" placeholder="Họ tên bạn là">
+            <input type="text" id="name" name="name" placeholder="Họ tên bạn là" value="<?php echo htmlspecialchars($_POST['name'] ?? ''); ?>">
 
             <label for="sdt">Sđt</label>
-            <input type="text" id="sdt" placeholder="Số điện thoại bạn là">
-    
+            <input type="text" id="sdt" name="sdt" placeholder="Số điện thoại bạn là" value="<?php echo htmlspecialchars($_POST['sdt'] ?? ''); ?>">
+
             <label for="email">Email:</label>
-            <input type="text" id="email" placeholder="Email bạn là">
-    
+            <input type="text" id="email" name="email" placeholder="Email bạn là" value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>">
+
             <div class="payment-method-options">
-                <label><input type="radio" name="payment" value="credit"> Trực tiếp</label>
-                <label><input type="radio" name="payment" value="momo"> MoMo</label>
-                <label><input type="radio" name="payment" value="paypal"> ZaloPay</label>
-                <label><input type="radio" name="payment" value="bank"> Ngân hàng</label>
+                <label><input type="radio" name="payment" value="credit" <?php if (!empty($_POST['payment']) && $_POST['payment'] === 'credit') echo 'checked'; ?>> Trực tiếp</label>
+                <label><input type="radio" name="payment" value="momo" <?php if (!empty($_POST['payment']) && $_POST['payment'] === 'momo') echo 'checked'; ?>> MoMo</label>
+                <label><input type="radio" name="payment" value="paypal" <?php if (!empty($_POST['payment']) && $_POST['payment'] === 'paypal') echo 'checked'; ?>> ZaloPay</label>
+                <label><input type="radio" name="payment" value="bank" <?php if (!empty($_POST['payment']) && $_POST['payment'] === 'bank') echo 'checked'; ?>> Ngân hàng</label>
             </div>
 
-            <label for="maxn">Mã xác nhận</label>
-            <input type="text" id="maxn" placeholder="Mã xác nhận của bạn là">
-    
-            <button>Thanh toán</button>
+            <?php if (!isset($_SESSION['confirmation_code'])): ?>
+                <button type="submit" name="send_code">Gửi mã xác nhận</button>
+            <?php else: ?>
+                <label for="maxn">Mã xác nhận</label>
+                <input type="text" id="maxn" name="maxn" placeholder="Mã xác nhận của bạn là">
+                <button type="submit" name="confirm_payment">Xác nhận thanh toán</button>
+            <?php endif; ?>
         </div>
+    </form>
         <div class="suggessted-movies">
             <a href="#"><img src="../assets/image/Hình ảnh/image 31.jpg" alt="Movie Suggestion 1"></a>
             <a href="#"><img src="../assets/image/Hình ảnh/image 29.jpg" alt="Movie Suggestion 3"></a>

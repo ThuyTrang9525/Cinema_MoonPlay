@@ -23,10 +23,11 @@
 
         <div class="comment">
             <div class="input_comment">
-                <b>Góp ý của bạn để chúng tôi phát triển!</b>
-                <label for="">Họ tên <input type="text" placeholder="Họ tên của bạn"></label>
-                <label for="">Góp ý <input type="text" name="gop_y" placeholder="Góp ý của bạn"></label>
-                <button type="submit">Gửi ngay!</button>
+                <form method="POST" action="/controllers/feedback-back.php">
+                    <label for="">Họ tên <input type="text" name="name" placeholder="Họ tên của bạn" required></label>
+                    <label for="">Góp ý <input type="text" name="feedback" placeholder="Góp ý của bạn" required></label>
+                    <button type="submit">Gửi ngay!</button>
+                </form>
             </div>
 
             <div class="film">
