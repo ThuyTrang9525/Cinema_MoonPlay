@@ -18,7 +18,7 @@
         <p>Chúng tôi rất mong muốn lắng nghe từ bạn! Hãy liên hệ với chúng tôi để chia sẻ ý kiến, góp ý hoặc giải đáp mọi câu hỏi
         bạn có về trang web MoonPlay. Chúng tôi luôn sẵn sàng hỗ trợ bạn một cách tốt nhất.</p>
 
-        <p>Bạn có thể liên hệ với chúng tôi thông qua mẫu liên hệ trên trang web hoặc gửi email trực tiếp đến địa chỉ hộp thư của
+        <p>Bạn có thể liên hệ với chúng tôi thông qua mẫu liên hệ trê9n trang web hoặc gửi email trực tiếp đến địa chỉ hộp thư của
         chúng tôi. Chúng tôi sẽ cố gắng phản hồi nhanh chóng và đáp ứng mọi yêu cầu của bạn.</p>
 
         <div class="comment">
