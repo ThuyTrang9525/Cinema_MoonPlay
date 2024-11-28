@@ -10,9 +10,6 @@ body.login, body.register {
     background: url('../image/poster.jpg') center / cover;
     image-rendering: pixelated;
 }
-body.detail-movie, body.movie-show{
-    background-color: #000;
-}
 .container {
     width: 90%;
     margin: 0 auto;
@@ -25,7 +22,7 @@ body.detail-movie, body.movie-show{
 
 
 
-/* Top movies styles -------------------------------------------------------------------------------*/
+/* Top movies styles ---------------------------------------------------------*/
 .top-movies {
     display: flex;
     justify-content: space-between;
@@ -278,25 +275,6 @@ video {
     display: flex;
     width: 1450px;
 }
-
-.poster {
-    width: 300px;
-    height: 400px;
-    padding-top: 20px;
-}
-.poster img {
-    width: 100%;
-    height: 100%;
-}
-.poster-content {
-    color: aliceblue;
-    font-size: 15px;
-}
-.title-poster {
-    color: aliceblue;
-    font-size: 20px;
-    text-align: center;
-}
 .content {
     width: 700px;
     margin: 20px 50px ;
@@ -444,24 +422,25 @@ video {
 
 }
 
-/* Footer */
+/* Footer ---------------------------------------*/
 .footer {
     background-color: black;
     padding-top: 35px;
+    /* transform: scale(1.1); */
 }
 
-/* Subscribe Section */
-.footer__subscribe {
+/* input */
+.input {
     display: flex;
     align-items: center;
     background: white;
     border: 1px solid transparent;
     border-radius: 50px;
-    margin: 0px 150px 0px 200px;
+    margin: 0px 150px 0px 200px ;
     width: 1100px;
 }
 
-.footer__subscribe input {
+.input input {
     border: none;
     outline: none;
     padding: 20px 20px;
@@ -471,83 +450,77 @@ video {
     color: #333;
 }
 
-.footer__subscribe input::placeholder {
+.input input::placeholder {
     color: #bbb;
 }
 
-.footer__subscribe button {
+.input button {
     border: none;
     outline: none;
     padding: 20px 30px;
     background-color: black;
     color: white;
-    border-radius: 50px;
+    border-radius: 50px ;
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s;
 }
 
-.footer__subscribe button:hover {
+.input button:hover {
     background-color: #646363;
 }
-
-/* Links Section */
-.footer__links {
+/* container3 */
+.container3 {
     display: flex;
-    padding: 0px 70px 0px 150px;
+    padding: 0px 70px 0px 120px;
 }
 
-.footer__column {
+.box {
     color: aliceblue;
     font-size: 20px;
     padding: 20px 50px;
-}
 
-.footer__column a {
+}
+.box a {
     text-decoration: none;
     color: gray;
 }
 
-/* Social Section */
-.footer__social {
+.box-icon {
     color: aliceblue;
     font-size: 20px;
     padding: 20px 40px;
 }
-
-.footer__social a {
+.box-icon a {
     text-decoration: none;
     color: aliceblue;
 }
-
-.footer__social-icons {
+.box-icon .icon {
     display: flex;
 }
-
-.footer__social-icons a {
+.box-icon .icon a {
     padding-left: 20px;
 }
 
-/* Branding Section */
-.footer__branding {
+/* Footer logo */
+.footer-logo {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; 
+    align-items: center; 
 }
-
-.footer__logo {
+.footer-logo div {
     width: 150px;
     height: 150px;
 }
 
-.footer__logo img {
+.footer-logo img {
     width: 100%;
     height: 100%;
 }
-
-.footer__branding p {
+.footer-logo p {
     color: aliceblue;
 }
+
 /* category--------------------------- */
 .mb-4 {
     display: flex;
@@ -607,7 +580,7 @@ video {
     z-index: 10;
 }
 
-/* ---------------------------------login-register--------------------------------------------------------------------------------- */
+/* login-register--------------------------------------------- */
 .card{
     margin-bottom:20px;
     border:none;
@@ -885,7 +858,7 @@ h2{
 
 .top_phim {
     display: flex;
-    gap: 10px;
+    gap: 5px;
     /* Khoảng cách giữa các ảnh */
     justify-content: space-between;
     /* Giữ khoảng cách bằng nhau giữa các ảnh */
@@ -905,8 +878,8 @@ h2{
 
 /* Thiết lập cho hình ảnh */
 .top_phim img {
-    width: 100%;
-    height: 100%;
+    width: 260px;
+    height: 300px;
     object-fit: cover;
     /* Giữ tỷ lệ ảnh mà vẫn lấp đầy khung */
     transition: transform 0.3s;
@@ -1088,7 +1061,7 @@ table tbody tr td {
 
 .title, .film-rental, .film-upcomming{
     font-size: 40px;
-    color:white;
+    color:rgb(0, 0, 0);
     margin-left: 40px ;
 }
 
@@ -1113,14 +1086,15 @@ table tbody tr td {
 }
 
 .all-discount{
-    margin-left: 40px;   
+    margin-left: 40px;
+       
 }
 
 .voucher{
-    display:grid;
-    grid-template-columns: 40% 40%;
-    gap:80px;
-    margin-bottom: 50px;
+    display: flex;
+    gap:5px;
+    margin-bottom: 150px;
+    margin-left: -140px;
 }
 .discount{
     display:grid;
@@ -1129,7 +1103,7 @@ table tbody tr td {
 
 .detail-discount{
     padding-left: 20px; /* Thêm khoảng cách bên trái cho chữ */
-    width: 100%; /* Đảm bảo hộp chứa chiếm hết chiều rộng có sẵn */
+    width: 88%; /* Đảm bảo hộp chứa chiếm hết chiều rộng có sẵn */
     height: auto; /* Cho phép chiều cao tự động điều chỉnh */
     background-color: #d1cdcd;
     border-bottom: 1px solid white;
@@ -1162,7 +1136,8 @@ table tbody tr td {
     margin-left: 50px;
 }
 .box-recomment {
-    margin-right: 50px; /* Thêm khoảng cách lề phải 40px */
+    margin-left: 40px;
+    margin-right: 5px; /* Thêm khoảng cách lề phải 40px */
 }
 .rcm{
     margin-left: 0px;
@@ -1190,11 +1165,16 @@ table tbody tr td {
 
 }
 
+.film-rental {
+    color:black;
+}
+
 .recomment-film, .box-comming-film {
     display:flex;
+    width: 100%;
     justify-content: space-evenly;
     /* gap:10px; */
-    margin-left:40px;
+    margin-left:10px;
     margin-right:40px;
     margin-bottom: 30px;
     
@@ -1202,6 +1182,7 @@ table tbody tr td {
 .recomment-film img,.box-comming-film img {
     width:450px;
     border-radius: 10px;
+    object-fit: cover;
 }
 
 .recomment-film img:hover{
@@ -1214,7 +1195,7 @@ table tbody tr td {
 }
 /* ==================================END VOUCHER========================================================== */
 
-<<<<<<< HEAD
+
 
 /* =======================================intro movie =========================================== */
 
@@ -1708,7 +1689,6 @@ button {
 
 
 
-=======
 /* =============================Start movie showing======================================================= */
 
 .container1 {
@@ -1796,24 +1776,6 @@ video {
     width: 1450px;
 }
 
-.poster {
-    width: 300px;
-    height: 400px;
-    padding-top: 20px;
-}
-.poster img {
-    width: 100%;
-    height: 100%;
-}
-.poster-content {
-    color: aliceblue;
-    font-size: 15px;
-}
-.title-poster {
-    color: aliceblue;
-    font-size: 20px;
-    text-align: center;
-}
 .content {
     width: 700px;
     margin: 20px 50px ;
@@ -1963,7 +1925,10 @@ video {
 /* =============================End movie showing======================================================= */
 
 
-/* =============================Start detail  movie ======================================================= */
+ /* =============================Start detail  movie ======================================================= */
+ .detailMovie{
+    background-color: black;
+}
 /* background */
 .background {
     height: 700px;
@@ -2000,20 +1965,21 @@ video {
     position: relative;
     top: 400px;
     padding-left: 70px;
+    background-color: black;
+    margin-bottom: 100px;
 }
 .poster {
     position: relative; 
-    width: 400px;
-    height: 400px;
-    margin-top: 20px;
 }
 .poster-img {
     width: 400px;
     height: 600px;
+    margin-top: 20px;
 }
+
 .poster-img img {
-    width: 100%;
-    height: 100%;
+    width: 400px;
+    height: 600px;
     border-radius: 10px;
 }
 .poster button {
@@ -2069,12 +2035,14 @@ video {
 
 /* describe-movie */
 .describe-movie{
-    color: aliceblue;
+    color: rgb(0, 0, 0);
     position: relative; 
     font-size: 20px;
-    padding: 600px 75px 0px 75px;
+    padding: 50px 75px 0px 75px;
 }
-
+.describe-movie-infomation {
+    margin-top: 100px;
+}
 /* actor */
 .title-film {
     font-size: 26px;
@@ -2129,4 +2097,4 @@ video {
 }
 
 /* ============================= End detail  movie ======================================================= */
->>>>>>> f9d4b5d5655b14a105b0a8dc55033c382e292549
+
