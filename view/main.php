@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+// Kiểm tra nếu người dùng chưa đăng nhập, chuyển hướng về trang đăng nhập
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../view/login.php");
+    exit();
+}
+
+// Nếu người dùng đã đăng nhập, hiển thị nội dung trang chính
+// echo "Chào mừng, " . $_SESSION['username'] . "! Bạn đã đăng nhập thành công.";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

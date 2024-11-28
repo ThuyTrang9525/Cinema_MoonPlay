@@ -10,14 +10,14 @@
 <body class="login" >
     <div class="container"> 
         <div class="card"> 
-            <form action="login.php" method="post" class="box"> 
+            <form action="../controllers/login-back.php" method="post" class="box"> 
             <h1>Wellcome back</h1>
                 <h1>Login</h1>
                     <p class="text-muted"> Please enter your login and password!</p> 
                     <input type="text" name="username" placeholder="Username"> 
-                    <input type="password" name="passwords" placeholder="Password"> 
+                    <input type="password" name="password" placeholder="Password"> 
                     <a class="forgot text-muted" href="#">Forgot password?</a> 
-                    <input type="submit" name="" value="Login"> 
+                    <input type="submit" name="login" value="Login"> 
                     <P class="registers" name="registers" style="color: white;">Don't have an account? <a style="color: white;" href="register.php">Signup</a></P>
                     <div class="col-md-12"> 
                         <ul class="social-network social-circle"> 
