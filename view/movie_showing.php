@@ -11,26 +11,77 @@
             background-color: black;
         }
     </style>
+    <?php
+        require_once('../model/connect.php');
+
+        // Lấy ID phim từ URL
+        if (isset($_GET['id'])) {
+            $movie_id = intval($_GET['id']);
+        } else {
+            die("Không tìm thấy ID phim.");
+        }
+
+        // Truy vấn thông tin chi tiết phim
+        $sql = "SELECT * FROM movies WHERE movie_id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $movie_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $movie = $result->fetch_assoc();
+        } else {
+            die("Không tìm thấy phim.");
+        }
+
+        // Lấy danh sách bình luận
+        $sql_comments = "
+            SELECT comments.content, comments.commented_at, users.username, users.avatar_url 
+            FROM comments 
+            JOIN users ON comments.user_id = users.user_id 
+            WHERE comments.movie_id = ? 
+            ORDER BY comments.commented_at DESC
+        ";
+        $stmt_comments = $conn->prepare($sql_comments);
+        $stmt_comments->bind_param("i", $movie_id);
+        $stmt_comments->execute();
+        $result_comments = $stmt_comments->get_result();
+
+        // Xử lý thêm bình luận
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['comment'])) {
+            $user_id = 1; // ID user giả định (có thể lấy từ session khi làm hệ thống login)
+            $content = trim($_POST['comment']);
+
+            if (!empty($content)) {
+                $sql_insert_comment = "INSERT INTO comments (movie_id, user_id, content) VALUES (?, ?, ?)";
+                $stmt_insert = $conn->prepare($sql_insert_comment);
+                $stmt_insert->bind_param("iis", $movie_id, $user_id, $content);
+                $stmt_insert->execute();
+                header("Location: movie_show.php?id=$movie_id");
+                exit();
+            }
+        }
+    ?>
 </head>
 <body class="movieShow">
     <?php include('../model/header.php'); ?>
     <div class="container1">
         <div class="screen">
-            <video controls class="video" src="../assets/image/movie.mp4"></video>
+            <video controls class="video" src="<?php echo htmlspecialchars($movie['thumb_url']); ?>" type="video/mp4"></video>
         </div>
 
         <div class="other">
             <div><p>Các phim tương tự</p></div>
-            <div class="other_movies"><img src="../assets/image/demon slayer.jpg" alt=""></div>
-            <div class="other_movies"><img src="../assets/image/deadnote.jpg" alt=""></div>
-            <div class="other_movies"><img src="../assets/image/Academi.jpg" alt=""></div>
+            <div class="other_movies"><img src="<?php echo htmlspecialchars($movie['trailer_url']); ?>" alt=""></div>
+            <div class="other_movies"><img src="<?php echo htmlspecialchars($movie['trailer_url']); ?>" alt=""></div>
+            <div class="other_movies"><img src="<?php echo htmlspecialchars($movie['trailer_url']); ?>" alt=""></div>
         </div>
     </div>
     
     <div class="container2">
         <div class="title">
-            <p class="title-main">Chainsaw Man</p>
-            <p class="title-extra">Quỷ Cưa: Thợ Săn Quỷ(2020)</p>
+            <p class="title-main"><?php echo htmlspecialchars($movie['title']); ?></p>
+            <p class="title-extra"><?php echo htmlspecialchars($movie['type']); ?></p>
         </div>
         <div class="star-rating">
             <div class="star"><i class="fa-solid fa-star"></i></div>
@@ -45,77 +96,65 @@
         <div class="small1-container3">
             <div class="describe">
                 <div class="poster">
-                    <img src="../assets/image/poster.png" alt="">
+                    <img src="<?php echo htmlspecialchars($movie['poster_url']); ?>" alt="">
                     <div class="follow">
                         <a href="#"><i class="fa-solid fa-heart"></i> Theo dõi</a>
                     </div>
                 </div>
                 <div class="poster-content">
                     <div class="title-poster">
-                        <p class="title-pos-main">Chainsaw Man</p>
-                        <p class="title-pos-extra">Quỷ Cưa: Thợ Săn Quỷ(2020)</p>
+                        <p class="title-pos-main"><?php echo htmlspecialchars($movie['title']); ?></p>
+                        <p class="title-pos-extra"><?php echo htmlspecialchars($movie['type']); ?></p>
                     </div>
                     <div>
                         <p class="content">
-                            Chainsaw Man là câu chuyện về Denji, một chàng trai nghèo khổ làm thợ săn quỷ để trả nợ, sống cùng chú chó quỷ cưa máy Pochita. 
-                            Sau khi bị phản bội và giết chết, Pochita hy sinh bản thân để cứu Denji, biến cậu thành Chainsaw Man với sức mạnh quỷ cưa máy. 
-                            Denji sau đó gia nhập tổ chức săn quỷ công, chiến đấu với quỷ dữ và khám phá ý nghĩa của tự do, tình yêu, cũng như khát vọng sống. 
-                            Bộ truyện nổi bật với sự kết hợp giữa hành động, kinh dị, hài hước và những khoảnh khắc xúc động sâu sắc.
+                        <?php echo htmlspecialchars($movie['description']); ?>
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="title-cmt">
-                <p>1 bình luận</p>
+            <!-- Form thêm bình luận -->
+        <div class="comment">
+            <div class="box-cmt1">
+                <form method="POST">
+                    <input type="text" name="comment" placeholder="Viết bình luận của bạn..." required>
+                    <button class="submit" type="submit">Gửi</button>
+                </form>
             </div>
-            <div class="comment">
-                <div class="box-cmt1">
-                    <div class="fill-cmt1">
-                        <div class="avt">
-                            <img src="../assets/image/Kikunosuke_Toya.webp" alt="">
-                        </div>
-                        <div class="input-cmt">
-                            <input type="text" placeholder = "Viết bình luận của bạn..." >
-                        </div>
-                    </div>
-                </div>
+            <!-- Hiển thị bình luận -->
+            <?php while ($comment = $result_comments->fetch_assoc()) : ?>
                 <div class="box-cmt2">
                     <div class="fill-cmt2">
                         <div class="avt">
-                            <img src="../assets/image/Kikunosuke_Toya.webp" alt="">
+                            <img src="<?php echo htmlspecialchars($comment['avatar']); ?>" alt="">
                         </div>
                         <div class="commented">
-                            <p class="name">Hồ Đức Thiện</p>
-                            <p class="cmt">Phim rất hay !</p>
-                            <div class="star-rating-cmt">
-                                <div class="star-cmt"><i class="fa-solid fa-star"></i></div>
-                                <div class="star-cmt"><i class="fa-solid fa-star"></i></div>
-                                <div class="star-cmt"><i class="fa-solid fa-star"></i></div>
-                                <div class="star-cmt"><i class="fa-solid fa-star"></i></div>
-                                <div class="star-cmt"><i class="fa-regular fa-star"></i></div>
-                            </div>
+                            <p class="name"><?php echo htmlspecialchars($comment['username']); ?></p>
+                            <p class="cmt"><?php echo htmlspecialchars($comment['content']); ?></p>
+                            <small><?php echo htmlspecialchars($comment['commented_at']); ?></small>
                         </div>
                     </div>
                 </div>
-            </div>
+            <?php endwhile; ?>
+        </div>
         </div>
         <div  class="small2-container3">
             <div class="other">
                 <div><p>Các phim tương tự</p></div>
-                <div class="other_movies"><img src="../assets/image/demon slayer.jpg" alt=""></div>
-                <div class="other_movies"><img src="../assets/image/deadnote.jpg" alt=""></div>
-                <div class="other_movies"><img src="../assets/image/Academi.jpg" alt=""></div>
-                <div class="other_movies"><img src="../assets/image/dandadan-1728028147188432692569-17292205553731588090856.jpg" alt=""></div>
+                <div class="other_movies"><img src="<?php echo htmlspecialchars($movie['trailer_url']); ?>" alt=""></div>
+                <div class="other_movies"><img src="<?php echo htmlspecialchars($movie['trailer_url']); ?>" alt=""></div>
+                <div class="other_movies"><img src="<?php echo htmlspecialchars($movie['trailer_url']); ?>" alt=""></div>
+                <div class="other_movies"><img src="<?php echo htmlspecialchars($movie['trailer_url']); ?>" alt=""></div>
             </div>
         </div>
     </div>
     <div class="container4">
         <p class="recommend">Có thể bạn muốn xem</p>
         <div class="movies">
-            <div><img src="../assets/image/kaiju-no-8.avif" alt=""></div>
-            <div><img src="../assets/image/demon-slayer.avif" alt=""></div>
-            <div><img src="../assets/image/attack-on-titan-eren-yeager-i195752.jpg" alt=""></div>
-            <div><img src="../assets/image/61L74z3bhXS._AC_UF894,1000_QL80_.jpg" alt=""></div>
+            <div><img src="<?php echo htmlspecialchars($movie['poster_url']); ?>" alt=""></div>
+            <div><img src="<?php echo htmlspecialchars($movie['poster_url']); ?>"  alt=""></div>
+            <div><img src="<?php echo htmlspecialchars($movie['poster_url']); ?>"  alt=""></div>
+            <div><img src="<?php echo htmlspecialchars($movie['poster_url']); ?>"  alt=""></div>
         </div>
     </div>
     <!-- Footer -->
