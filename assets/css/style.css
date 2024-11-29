@@ -158,9 +158,26 @@ body.login, body.register {
 .header-right {
     display: flex;
     align-items: center;
+    gap: 50px;
 }
 
-.button {
+.search {
+    background: white;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    padding-right: 50px; 
+}
+.search input {
+    border: none;
+    outline: none;
+    padding: 15px 60px 15px 10px;
+    border-radius: 50px;
+    font-size: 16px;
+    margin-right: 20px;
+
+}
+
+.login-btn {
     padding: 15px 30px;
     font-size: 15px;
     color: white;
@@ -171,7 +188,7 @@ body.login, body.register {
     transition: all 0.5s ease;
 }
 
-.button:hover {
+.login-btn:hover {
     background-color: white;
     color: black;
 }
@@ -1776,6 +1793,24 @@ video {
     width: 1450px;
 }
 
+.poster {
+    width: 300px;
+    height: 400px;
+    padding-top: 20px;
+}
+.poster img {
+    width: 100%;
+    height: 100%;
+}
+.poster-content {
+    color: aliceblue;
+    font-size: 15px;
+}
+.title-poster {
+    color: aliceblue;
+    font-size: 20px;
+    text-align: center;
+}
 .content {
     width: 700px;
     margin: 20px 50px ;
@@ -1831,7 +1866,26 @@ video {
     padding-left: 20px;
 }
 .input-cmt input {
-    padding: 10px 500px 10px 0px;
+    padding: 15px 500px 15px 0px;
+    border: none;
+    border-radius: 5px;
+
+
+}
+.input-cmt .submit {
+    border: none;
+    outline: none;
+    padding: 14px 30px;
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-left: 20px;
+}
+.input-cmt .submit:hover {
+    background-color: #646363;
 }
 
 /* box-cmt2 */
@@ -1855,13 +1909,6 @@ video {
 
 } 
 
-.star-rating-cmt {
-    display: flex;
-    color: yellow;
-}
-.star-rating-cmt .star-cmt {
-    padding-right: 5px;
-}
 
 /* small2-container3 */
 

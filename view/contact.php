@@ -18,15 +18,16 @@
         <p>Chúng tôi rất mong muốn lắng nghe từ bạn! Hãy liên hệ với chúng tôi để chia sẻ ý kiến, góp ý hoặc giải đáp mọi câu hỏi
         bạn có về trang web MoonPlay. Chúng tôi luôn sẵn sàng hỗ trợ bạn một cách tốt nhất.</p>
 
-        <p>Bạn có thể liên hệ với chúng tôi thông qua mẫu liên hệ trên trang web hoặc gửi email trực tiếp đến địa chỉ hộp thư của
+        <p>Bạn có thể liên hệ với chúng tôi thông qua mẫu liên hệ trê9n trang web hoặc gửi email trực tiếp đến địa chỉ hộp thư của
         chúng tôi. Chúng tôi sẽ cố gắng phản hồi nhanh chóng và đáp ứng mọi yêu cầu của bạn.</p>
 
         <div class="comment">
             <div class="input_comment">
-                <b>Góp ý của bạn để chúng tôi phát triển!</b>
-                <label for="">Họ tên <input type="text" placeholder="Họ tên của bạn"></label>
-                <label for="">Góp ý <input type="text" name="gop_y" placeholder="Góp ý của bạn"></label>
-                <button type="submit">Gửi ngay!</button>
+                <form method="POST" action="/controllers/feedback-back.php">
+                    <label for="">Họ tên <input type="text" name="name" placeholder="Họ tên của bạn" required></label>
+                    <label for="">Góp ý <input type="text" name="feedback" placeholder="Góp ý của bạn" required></label>
+                    <button type="submit">Gửi ngay!</button>
+                </form>
             </div>
 
             <div class="film">
@@ -43,7 +44,7 @@
         <div class="Social">
             <div class="social_platform">
                 <div>
-                    <img src="../assets/image/Hình ảnh/Group (1).jpg" alt="">
+                    <img src="../assets/image/Hình ảnh/Vector.jpg" alt="">
                     <p>Trang facebook</p>
                 </div>
                 <div>
@@ -51,11 +52,11 @@
                     <p>Instagram</p>
                 </div>
                 <div>
-                    <img src="../assets/image/Hình ảnh/Vector.jpg" alt="">
+                    <img src="../assets/image/Hình ảnh/Vector (1).jpg" alt="">
                     <p>Trang Youtube</p>
                 </div>
                 <div>
-                    <img src="../assets/image/Hình ảnh/Vector (1).jpg" alt="">
+                    <img src="../assets/image/Hình ảnh/Group (1).jpg" alt="">
                     <p>Trang Tiktok</p>
                 </div>
             </div>

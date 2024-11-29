@@ -1,38 +1,52 @@
 <?php
-include '../model/connect.php'; // Kết nối đến database
+session_start();
+error_reporting(E_ALL ^ E_DEPRECATED);
+require_once '../model/connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Lấy dữ liệu từ form
     $username = $_POST['username'];
-    $email = $_POST['email'];
     $password = $_POST['password'];
-    $avatar = $_POST['avatar'] ?? ''; // Avatar là tùy chọn
+    $email = $_POST['email'];
 
     // Mã hóa mật khẩu
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    // $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    // Kiểm tra email đã tồn tại chưa
-    $check_sql = "SELECT * FROM users WHERE email = ?";
-    $stmt = $conn->prepare($check_sql);
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    // Kiểm tra email hợp lệ
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $_SESSION['error'] = "Email không hợp lệ!";
+        header("location:../view/register.php");
+        exit();
+    }
 
-    if ($result->num_rows > 0) {
-        alert("Email đã được sử dụng!") ;
+    // Kiểm tra xem đã có admin hay chưa
+    $check_admin_sql = "SELECT * FROM users WHERE role = 'admin'";
+    $admin_res = mysqli_query($conn, $check_admin_sql);
+
+    if (!$admin_res) {
+        $_SESSION['error'] = "Lỗi truy vấn: " . mysqli_error($conn);
+        header("location:../view/register.php");
+        exit();
+    }
+
+    if (mysqli_num_rows($admin_res) > 0) {
+        $role = "user";
     } else {
-        // Thêm người dùng vào bảng users
-        $sql = "INSERT INTO users (username, email, password, role, avatar) VALUES (?, ?, ?, 'user', ?)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ssss", $username, $email, $hashed_password, $avatar);
+        $role = "admin"; // Gán admin nếu chưa có admin
+    }
 
-        if ($stmt->execute()) {
-            // Chuyển hướng đến trang login.php sau khi đăng ký thành công
-            header("Location: ../view/login.php");
-            exit();
-        } else {
-            alert( "Đã xảy ra lỗi. Vui lòng thử lại.");
-        }
+    // Thêm người dùng vào cơ sở dữ liệu
+    $stmt = $conn->prepare("INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $username, $email, $password, $role);
+    $res = $stmt->execute();
+
+    if ($res) {
+        $_SESSION['success'] = "Đăng ký thành công!";
+        header("location:../view/login.php");
+        exit();
+    } else {
+        $_SESSION['error'] = "Lỗi khi đăng ký: " . $stmt->error;
+        header("location:../view/register.php");
+        exit();
     }
 }
 ?>
