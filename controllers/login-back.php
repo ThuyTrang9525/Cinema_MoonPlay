@@ -32,10 +32,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['role'] = $user['role'];
 
             // Điều hướng dựa trên vai trò
-            if ($user['role'] == "admin") {
-                header("location: ../view/admin.php");
-            } else {
+            if ($user['role'] == "user") {
                 header("location: ../view/main.php");
+                exit();
+            } else if ($user['role'] == "admin") {
+                header("location: ../view/admin.php");
+                exit();
+            } else {
+                header("location: ../view/login.php");
             }
             exit();
         } else {

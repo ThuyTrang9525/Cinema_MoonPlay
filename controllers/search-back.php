@@ -63,43 +63,45 @@ $suggest_movies_result = $suggest_stmt->get_result();
          <p>Kết quả tìm kiếm của bạn</p>
     
     <?php if ($result->num_rows > 0): ?>
-        <div class="movies-list">
-            <!-- <p>Phim khớp và liên quan</p> -->
-            <?php while ($row = $result->fetch_assoc()): ?>
-                <div class="movie-item">
+    <div class="movies-list">
+        <?php while ($row = $result->fetch_assoc()): ?>
+            <div class="movie-item">
+                <a href="../model/detail_movie.php? htmlspecialchars($row['movie_id']) ?>">
                     <img src="<?= htmlspecialchars($row['poster_url']) ?>" alt="<?= htmlspecialchars($row['title']) ?>">
                     <h3><?= htmlspecialchars($row['title']) ?></h3>
+                </a>
+                <input type="checkbox" class="toggle-checkbox" id="toggle-<?= $row['movie_id'] ?>" style="display: none;">
+                <div class="movie-description">
+                    <?= htmlspecialchars($row['description']) ?>
+                </div>
+                <label for="toggle-<?= $row['movie_id'] ?>" class="toggle-label">Xem thêm</label>
+            </div>
+        <?php endwhile; ?>
+    </div>
+<?php else: ?>
+    <p>Không tìm thấy kết quả nào cho từ khóa.</p>
+<?php endif; ?>
 
-                    <input type="checkbox" class="toggle-checkbox" id="toggle-<?= $row['movie_id'] ?>" style="display: none;">
+<?php if ($suggest_movies_result->num_rows > 0): ?>
+    <div class="suggest-movies">
+        <h2>Hãy tham khảo phim khác</h2>
+        <div class="movies-list">
+            <?php while ($row = $suggest_movies_result->fetch_assoc()): ?>
+                <div class="movie-item">
+                    <a href="../model/detail_movie.php?id=<?= htmlspecialchars($row['movie_id']) ?>">
+                        <img src="<?= htmlspecialchars($row['poster_url']) ?>" alt="<?= htmlspecialchars($row['title']) ?>">
+                        <h3><?= htmlspecialchars($row['title']) ?></h3>
+                    </a>
+                    <input type="checkbox" class="toggle-checkbox" id="toggle-<?= $row['movie_id'] ?>-suggest" style="display: none;">
                     <div class="movie-description">
                         <?= htmlspecialchars($row['description']) ?>
                     </div>
-                    <label for="toggle-<?= $row['movie_id'] ?>" class="toggle-label">Xem thêm</label>
+                    <label for="toggle-<?= $row['movie_id'] ?>-suggest" class="toggle-label">Xem thêm</label>
                 </div>
             <?php endwhile; ?>
         </div>
-    <?php else: ?>
-        <p>Không tìm thấy kết quả nào cho từ khóa.</p>
-    <?php endif; ?>
-
-    <?php if ($suggest_movies_result->num_rows > 0): ?>
-        <div class="suggest-movies">
-            <h2>Hãy tham khảo phim khác</h2>
-            <div class="movies-list">
-                <?php while ($row = $suggest_movies_result->fetch_assoc()): ?>
-                    <div class="movie-item">
-                        <img src="<?= htmlspecialchars($row['poster_url']) ?>" alt="<?= htmlspecialchars($row['title']) ?>">
-                        <h3><?= htmlspecialchars($row['title']) ?></h3>
-                        <input type="checkbox" class="toggle-checkbox" id="toggle-<?= $row['movie_id'] ?>-suggest" style="display: none;">
-                        <div class="movie-description">
-                            <?= htmlspecialchars($row['description']) ?>
-                        </div>
-                        <label for="toggle-<?= $row['movie_id'] ?>-suggest" class="toggle-label">Xem thêm</label>
-                    </div>
-                <?php endwhile; ?>
-            </div>
-        </div>
-    <?php endif; ?>
+    </div>
+<?php endif; ?>
     </main>
 
      <!-- footer -->

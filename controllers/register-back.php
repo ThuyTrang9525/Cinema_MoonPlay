@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($res) {
         $_SESSION['success'] = "Đăng ký thành công!";
-        header("location:../view/register.php");
+        header("location:../view/login.php");
         exit();
     } else {
         $_SESSION['error'] = "Lỗi khi đăng ký: " . $stmt->error;
