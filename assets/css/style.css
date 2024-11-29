@@ -109,8 +109,7 @@ body.login, body.register {
     height: auto;
 }
 
-
-
+/*=======================================Header===============================================*/
 .header {
     display: flex;
     justify-content: space-between;
@@ -158,9 +157,55 @@ body.login, body.register {
 .header-right {
     display: flex;
     align-items: center;
+    /* Center items vertically */
 }
 
-.button {
+.header-right form {
+    display: flex;
+    /* Use flexbox for alignment */
+    margin: 20px 50px;
+    /* Space between form and login button */
+}
+
+.header-right input[type="text"] {
+    padding: 10px;
+    /* Space inside the input */
+    border: 2px solid #000306;
+    /* Border color */
+    border-radius: 8px;
+    /* Rounded corners */
+    font-size: 16px;
+    /* Font size */
+    outline: none;
+    /* Remove default outline */
+    transition: border-color 0.3s;
+    /* Smooth transition for border color */
+}
+
+.header-right input[type="text"]:focus {
+    border-color: #000306;
+    /* Darker blue when focused */
+}
+
+.header-right button[type="submit"] {
+    padding: 10px 15px;
+    /* Space inside the button */
+    border: 2px solid #000306;
+    /* Remove default border */
+    border-radius: 8px;
+    /* Rounded corners */
+    background-color: white;
+    /* Button color */
+    color: #000306;
+    /* Text color */
+    font-size: 16px;
+    /* Font size */
+    cursor: pointer;
+}
+
+
+
+.login-btn {
     padding: 15px 30px;
     font-size: 15px;
     color: white;
@@ -171,10 +216,16 @@ body.login, body.register {
     transition: all 0.5s ease;
 }
 
-.button:hover {
+.login-btn:hover {
     background-color: white;
     color: black;
 }
+
+
+
+
+/*=======================================End Header===============================================*/
+
 /* .operation {
     display: flex;
     justify-content: space-between;
@@ -1776,6 +1827,24 @@ video {
     width: 1450px;
 }
 
+.poster {
+    width: 300px;
+    height: 400px;
+    padding-top: 20px;
+}
+.poster img {
+    width: 100%;
+    height: 100%;
+}
+.poster-content {
+    color: aliceblue;
+    font-size: 15px;
+}
+.title-poster {
+    color: aliceblue;
+    font-size: 20px;
+    text-align: center;
+}
 .content {
     width: 700px;
     margin: 20px 50px ;
@@ -1831,7 +1900,26 @@ video {
     padding-left: 20px;
 }
 .input-cmt input {
-    padding: 10px 500px 10px 0px;
+    padding: 15px 500px 15px 0px;
+    border: none;
+    border-radius: 5px;
+
+
+}
+.input-cmt .submit {
+    border: none;
+    outline: none;
+    padding: 14px 30px;
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-left: 20px;
+}
+.input-cmt .submit:hover {
+    background-color: #646363;
 }
 
 /* box-cmt2 */
@@ -1855,13 +1943,6 @@ video {
 
 } 
 
-.star-rating-cmt {
-    display: flex;
-    color: yellow;
-}
-.star-rating-cmt .star-cmt {
-    padding-right: 5px;
-}
 
 /* small2-container3 */
 
