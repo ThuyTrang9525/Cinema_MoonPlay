@@ -15,9 +15,11 @@
         </nav>
 
         <div class="header-right">
-            <div class="search">
-                <input type="text" placeholder="Tìm kiếm phim...">
-            </div>
+            <form method="POST" action="/controllers/search-back.php">
+                <input type="text" name="search_query" placeholder="Nhập tên phim cần tìm..." required>
+                <button type="submit">Tìm kiếm</button>
+            </form>
+
             <button class="login-btn">Đăng nhập</button>
         </div>
     </header>

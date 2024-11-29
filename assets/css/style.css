@@ -109,8 +109,7 @@ body.login, body.register {
     height: auto;
 }
 
-
-
+/*=======================================Header===============================================*/
 .header {
     display: flex;
     justify-content: space-between;
@@ -158,6 +157,56 @@ body.login, body.register {
 .header-right {
     display: flex;
     align-items: center;
+<<<<<<< HEAD
+    /* Center items vertically */
+}
+
+.header-right form {
+    display: flex;
+    /* Use flexbox for alignment */
+    margin: 20px 50px;
+    /* Space between form and login button */
+}
+
+.header-right input[type="text"] {
+    padding: 10px;
+    /* Space inside the input */
+    border: 2px solid #000306;
+    /* Border color */
+    border-radius: 8px;
+    /* Rounded corners */
+    font-size: 16px;
+    /* Font size */
+    outline: none;
+    /* Remove default outline */
+    transition: border-color 0.3s;
+    /* Smooth transition for border color */
+}
+
+.header-right input[type="text"]:focus {
+    border-color: #000306;
+    /* Darker blue when focused */
+}
+
+.header-right button[type="submit"] {
+    padding: 10px 15px;
+    /* Space inside the button */
+    border: 2px solid #000306;
+    /* Remove default border */
+    border-radius: 8px;
+    /* Rounded corners */
+    background-color: white;
+    /* Button color */
+    color: #000306;
+    /* Text color */
+    font-size: 16px;
+    /* Font size */
+    cursor: pointer;
+}
+
+
+
+=======
     gap: 50px;
 }
 
@@ -177,6 +226,7 @@ body.login, body.register {
 
 }
 
+>>>>>>> c86aa91a0622082191158345d4c7ff292748d042
 .login-btn {
     padding: 15px 30px;
     font-size: 15px;
@@ -192,6 +242,12 @@ body.login, body.register {
     background-color: white;
     color: black;
 }
+
+
+
+
+/*=======================================End Header===============================================*/
+
 /* .operation {
     display: flex;
     justify-content: space-between;
