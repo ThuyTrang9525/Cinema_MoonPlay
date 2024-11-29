@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // So sánh mật khẩu (vì mật khẩu không mã hóa, so sánh trực tiếp)
         if ($password === $user['password']) {
+            $_SESSION['user_id'] = $user['user_id'];
             var_dump($password === $user['password']);
             // Đăng nhập thành công, lưu thông tin vào session
             $_SESSION['username'] = $user['username'];
@@ -32,10 +33,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['role'] = $user['role'];
 
             // Điều hướng dựa trên vai trò
-            if ($user['role'] == "admin") {
-                header("location: ../view/admin.php");
-            } else {
+            if ($user['role'] == "user") {
                 header("location: ../view/main.php");
+                exit();
+            } else if ($user['role'] == "admin") {
+                header("location: ../view/admin.php");
+                exit();
+            } else {
+                header("location: ../view/login.php");
             }
             exit();
         } else {

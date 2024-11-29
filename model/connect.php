@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "123456789";
 $dbname = "moonplaycinema";
 
 // Tạo kết nối
@@ -12,7 +12,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 else {
-    echo "Kết nối đến cơ sở dữ liệu thành công!";
+    // echo "Kết nối đến cơ sở dữ liệu thành công!";
 }
 
 // Đóng kết nối
