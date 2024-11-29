@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        echo "Email đã được sử dụng!";
+        alert("Email đã được sử dụng!") ;
     } else {
         // Thêm người dùng vào bảng users
         $sql = "INSERT INTO users (username, email, password, role, avatar) VALUES (?, ?, ?, 'user', ?)";
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header("Location: ../view/login.php");
             exit();
         } else {
-            echo "Đã xảy ra lỗi. Vui lòng thử lại.";
+            alert( "Đã xảy ra lỗi. Vui lòng thử lại.");
         }
     }
 }
