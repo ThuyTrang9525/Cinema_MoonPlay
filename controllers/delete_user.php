@@ -16,9 +16,9 @@ if (isset($_GET['id'])) {
         exit();
     } else {
         // Thông báo lỗi nếu xóa không thành công
-        echo "Error: Could not delete user. Please try again.";
+        alert( "Error: Could not delete user. Please try again.");
     }
 } else {
-    echo "Invalid Request: No user ID provided.";
+    alert("Invalid Request: No user ID provided.") ;
 }
 ?>
