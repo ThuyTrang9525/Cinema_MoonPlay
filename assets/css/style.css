@@ -119,7 +119,9 @@ body.login, body.register {
     box-shadow: 0px 15px 10px rgb(58, 58, 58) ;
     color: white;
 }
-
+.header .list{
+    display:flex;
+}
 .header-logo {
     display: flex;
     align-items: center;
@@ -133,7 +135,7 @@ body.login, body.register {
 .header-left {
     display: flex;
     list-style: none;
-    padding: 0;
+    padding: 16px;
     margin: 0;
 }
 
@@ -155,9 +157,11 @@ body.login, body.register {
 }
 
 .header-right {
+    background-color: #000;
+    color: white;
     display: flex;
-    align-items: center;
-<<<<<<< HEAD
+    justify-content: flex-end;
+
     /* Center items vertically */
 }
 
@@ -166,6 +170,7 @@ body.login, body.register {
     /* Use flexbox for alignment */
     margin: 20px 50px;
     /* Space between form and login button */
+    gap: 20px;
 }
 
 .header-right input[type="text"] {
@@ -202,11 +207,6 @@ body.login, body.register {
     font-size: 16px;
     /* Font size */
     cursor: pointer;
-}
-
-
-
-=======
     gap: 50px;
 }
 
@@ -225,8 +225,6 @@ body.login, body.register {
     margin-right: 20px;
 
 }
-
->>>>>>> c86aa91a0622082191158345d4c7ff292748d042
 .login-btn {
     padding: 15px 30px;
     font-size: 15px;
@@ -236,6 +234,7 @@ body.login, body.register {
     border-radius: 30px;
     cursor: pointer;
     transition: all 0.5s ease;
+    width: 200px;
 }
 
 .login-btn:hover {
