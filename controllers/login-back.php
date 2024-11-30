@@ -25,7 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // So sánh mật khẩu (vì mật khẩu không mã hóa, so sánh trực tiếp)
         if ($password === $user['password']) {
-            $_SESSION['user_id'] = $user['user_id'];
             var_dump($password === $user['password']);
             // Đăng nhập thành công, lưu thông tin vào session
             $_SESSION['username'] = $user['username'];
