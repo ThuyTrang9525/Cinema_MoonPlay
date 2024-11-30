@@ -43,7 +43,7 @@ $result_related = $stmt_related->get_result();
             <div class="poster-img">
                 <img src="<?php echo htmlspecialchars($movie['poster_url']); ?>" alt="<?php echo htmlspecialchars($movie['title']); ?>">
             </div>
-            <button><i class="fa-solid fa-play"></i> Xem ngay</button>                  
+            <button onclick="window.location.href='../view/movie_showing.php?id=<?php echo $movie_id; ?>'"><i class="fa-solid fa-play"></i> Xem ngay</button>             
         </div>
         <div class="infor">
             <div class="name">

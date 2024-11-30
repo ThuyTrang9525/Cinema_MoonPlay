@@ -145,7 +145,6 @@ body.login, body.register {
     color: white;
     font-size: 20px;
     font-weight: bold;
-    padding: 10px 15px;
     margin: 0 15px;
     border-radius: 5px;
     transition: all 0.5s ease;
@@ -275,12 +274,6 @@ body.login, body.register {
     
 }
 
-video {
-    width: 100%;
-    margin-bottom: 10px;
-    border-radius: 10px;
-
-}
 /* dùng chung với small2-container3 */
 .other {
    padding: 0px 20px;
@@ -492,105 +485,6 @@ video {
     height: 100%;
     border-radius: 15px;
 
-}
-
-/* Footer ---------------------------------------*/
-.footer {
-    background-color: black;
-    padding-top: 35px;
-    /* transform: scale(1.1); */
-}
-
-/* input */
-.input {
-    display: flex;
-    align-items: center;
-    background: white;
-    border: 1px solid transparent;
-    border-radius: 50px;
-    margin: 0px 150px 0px 200px ;
-    width: 1100px;
-}
-
-.input input {
-    border: none;
-    outline: none;
-    padding: 20px 20px;
-    border-radius: 50px;
-    flex: 1;
-    font-size: 16px;
-    color: #333;
-}
-
-.input input::placeholder {
-    color: #bbb;
-}
-
-.input button {
-    border: none;
-    outline: none;
-    padding: 20px 30px;
-    background-color: black;
-    color: white;
-    border-radius: 50px ;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.input button:hover {
-    background-color: #646363;
-}
-/* container3 */
-.container3 {
-    display: flex;
-    padding: 0px 70px 0px 120px;
-}
-
-.box {
-    color: aliceblue;
-    font-size: 20px;
-    padding: 20px 50px;
-
-}
-.box a {
-    text-decoration: none;
-    color: gray;
-}
-
-.box-icon {
-    color: aliceblue;
-    font-size: 20px;
-    padding: 20px 40px;
-}
-.box-icon a {
-    text-decoration: none;
-    color: aliceblue;
-}
-.box-icon .icon {
-    display: flex;
-}
-.box-icon .icon a {
-    padding-left: 20px;
-}
-
-/* Footer logo */
-.footer-logo {
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-}
-.footer-logo div {
-    width: 150px;
-    height: 150px;
-}
-
-.footer-logo img {
-    width: 100%;
-    height: 100%;
-}
-.footer-logo p {
-    color: aliceblue;
 }
 
 /* category--------------------------- */
@@ -1133,7 +1027,7 @@ table tbody tr td {
 
 .title, .film-rental, .film-upcomming{
     font-size: 40px;
-    color:rgb(0, 0, 0);
+    color:rgb(255, 255, 255);
     margin-left: 40px ;
 }
 
@@ -1633,12 +1527,13 @@ button {
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 30px;
-    margin-top: 40px;
+    margin-top: 70px;
 }
 
 .input_comment {
     flex: 1;
     padding: 20px;
+    gap: 20px;
 }
 
 .input_comment b {
@@ -1895,53 +1790,38 @@ video {
 /* Comment */
 /* box-cmt1 */
 
-.title-cmt {
-    color: aliceblue;
-    font-size: 20px;
-    padding-top: 100px;
-}
-
-.fill-cmt1 {
-    display: flex;
-}
-.avt {
-    width: 100px;
-    height: 100px;
-}
-.avt img {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-}
-
-.input-cmt  {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-left: 20px;
-}
-.input-cmt input {
-    padding: 15px 500px 15px 0px;
+.comment .box-cmt1 input[type="text"] {
+    width: calc(100% - 60px);
+    padding: 10px;
+    margin-bottom: 20px;
     border: none;
-    border-radius: 5px;
-
-
-}
-.input-cmt .submit {
-    border: none;
+    border-radius: 20px;
+    background-color: #444;
+    color: #fff;
     outline: none;
-    padding: 14px 30px;
-    background-color: white;
-    color: black;
-    font-size: 16px;
-    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 20px;
+    transition: background-color 0.3s;
+    margin-top: 70px;
+}
+.comment .box-cmt1 input[type="text"]:focus {
+    background-color: #555;
+}
+.comment .box-cmt1 button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #f56;
+    color: #fff;
+    font-size: 14px;
     cursor: pointer;
-    transition: all 0.3s;
-    margin-left: 20px;
+    transition: background-color 0.3s;
 }
-.input-cmt .submit:hover {
-    background-color: #646363;
+.comment .box-cmt1 button:hover {
+    background-color: #f33;
 }
+
+
 
 /* box-cmt2 */
 .fill-cmt2 {
