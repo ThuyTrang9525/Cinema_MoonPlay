@@ -333,7 +333,8 @@ INSERT INTO goidangky (ten_goi, gia)
 VALUES 
 ('Gói xem phim 1 tháng', 150000),
 ('Gói xem phim 3 tháng', 400000),
-('Gói xem phim 6 tháng', 750000);
+('Gói xem phim 7 tháng', 750000),
+('Gói xem phim 12 tháng', 1200000);
 
 ALTER TABLE movies
 ADD trailer_url VARCHAR(255) AFTER poster_url;

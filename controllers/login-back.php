@@ -13,14 +13,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
 
-    // Chuẩn bị truy vấn (Sử dụng Prepared Statements để tránh SQL Injection)
+    // Truy vấn người dùng theo tên đăng nhập
     $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
-    $res = $stmt->get_result();
+    $result = $stmt->get_result();
 
-    if ($res && $res->num_rows > 0) {
-        $user = $res->fetch_assoc();
+    if ($result->num_rows > 0) {
+        // Tìm thấy người dùng, kiểm tra mật khẩu
+        $user = $result->fetch_assoc();
 
         // So sánh mật khẩu (vì mật khẩu không mã hóa, so sánh trực tiếp)
         if ($password === $user['password']) {

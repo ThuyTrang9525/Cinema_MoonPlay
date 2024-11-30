@@ -42,25 +42,54 @@
         require_once('../model/connect.php');
         session_start();
 
-        // Lấy ID phim từ URL
-        if (isset($_GET['id'])) {
-            $movie_id = intval($_GET['id']);
-        } else {
-            die("Không tìm thấy ID phim.");
-        }
+    // Kiểm tra và lấy ID phim từ URL
+    if (isset($_GET['id'])) {
+        $movie_id = intval($_GET['id']);
+    } 
+    else {
+        die("Không tìm thấy ID phim.");
+    }
 
-        // Truy vấn thông tin chi tiết phim
-        $sql = "SELECT * FROM movies WHERE movie_id = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $movie_id);
-        $stmt->execute();
-        $result = $stmt->get_result();
+    // Lấy thông tin chi tiết phim
+    $sql = "SELECT * FROM movies WHERE movie_id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $movie_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-        if ($result->num_rows > 0) {
-            $movie = $result->fetch_assoc();
-        } else {
-            die("Không tìm thấy phim.");
-        }
+    if ($result->num_rows > 0) {
+        $movie = $result->fetch_assoc();
+    } 
+    else {
+        die("Không tìm thấy phim.");
+    }
+
+    // Lấy danh sách phim liên quan container1
+    $sql_related1 = "SELECT * FROM movies WHERE type = ? AND movie_id != ? LIMIT 3";
+    $stmt_related1 = $conn->prepare($sql_related1);
+    $stmt_related1->bind_param("i", $movie_id);
+    $stmt_related1->execute();
+    $result_related1 = $stmt_related1->get_result();
+    
+    // Lấy danh sách phim liên quan 
+    $sql_related = "SELECT * FROM movies WHERE type = ? AND movie_id != ? LIMIT 4";
+    $stmt_related = $conn->prepare($sql_related);
+    $stmt_related->bind_param("si", $movie['type'], $movie_id);
+    $stmt_related->execute();
+    $result_related = $stmt_related->get_result();
+
+
+    // Kiểm tra trạng thái yêu thích
+    $user_id = 1; // ID user giả định (thay bằng ID từ session)
+    $sql_favorite = "SELECT * FROM favorites WHERE user_id = ? AND movie_id = ?";
+    $stmt_favorite = $conn->prepare($sql_favorite);
+    $stmt_favorite->bind_param("ii", $user_id, $movie_id);
+    $stmt_favorite->execute();
+    $is_favorite = $stmt_favorite->get_result()->num_rows > 0;
+
+    // Xử lý thêm hoặc xóa yêu thích
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action'])) {
+        $action = $_POST['action'];
 
         // Lấy danh sách phim tương tự
         $sql_similar = "
@@ -130,9 +159,12 @@
                 exit();
             }
         }
-    ?>
+    }
+    
+?>
 </head>
 <body class="movieShow">
+    <!-- header -->
     <?php include('../model/header.php'); ?>
     <div class="container1">
         <iframe class="video" src="<?php echo htmlspecialchars($movie['thumb_url']); ?>" frameborder="0" allowfullscreen></iframe>
@@ -211,17 +243,18 @@
             <?php endwhile; ?>
         </div>
     </div>
+
     </div>
     <div class="container4">
         <p class="recommend">Có thể bạn muốn xem</p>
         <div class="movies">
         <?php while ($related = $result_related->fetch_assoc()): ?>
-        <div>
-        <img src="<?php echo htmlspecialchars($related['trailer_url']); ?>" alt="<?php echo htmlspecialchars($related['title']); ?>">
 
-
-        </div>
-    <?php endwhile; ?>
+            <div>
+                <img src="<?php echo htmlspecialchars($related['poster_url']); ?>" alt="<?php echo htmlspecialchars($related['title']); ?>">
+                <p><?php echo htmlspecialchars($related['title']); ?></p>
+            </div>
+        <?php endwhile; ?>
         </div>
     </div>
     <?php include('../model/footer.php'); ?>
