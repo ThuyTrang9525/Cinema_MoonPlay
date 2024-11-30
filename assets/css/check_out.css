@@ -1,0 +1,151 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+  }
+      .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-left: 29px;
+      margin-right: 29px;
+      padding-bottom: 10px; /* Khoảng cách với đường kẻ */
+      border-bottom: 2px solid black; /* Đường kẻ */
+  }
+
+  .exit{
+      font-size: 20px;
+      margin-top: 25px;
+  }
+  .logo img {
+      width:90px;
+
+      
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+  }
+
+  .form-section, .order-section {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
+  .form-section {
+    flex: 2;
+  }
+
+  .order-section {
+    flex: 1;
+  }
+
+  h2 {
+    margin-top: 0;
+    color: #d90000;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+
+  textarea {
+    resize: none;
+    height: 100px;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #d90000;
+    outline: none;
+  }
+
+  .order-summary {
+    border-top: 2px solid #d90000;
+    padding-top: 15px;
+    margin-top: 15px;
+  }
+
+  .order-summary p {
+    margin: 10px 0;
+    font-size: 14px;
+  }
+
+  .price {
+    color: #d90000;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .payment-options {
+    margin-top: 15px;
+  }
+
+  .payment-options label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .order-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #d90000;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  .order-button:hover {
+    background-color: #b30000;
+  }
+
+  .note {
+    font-size: 12px;
+    color: #666;
+    margin-top: 10px;
+    line-height: 1.4;
+  }
+.discount_button{
+    background-color: red;
+    border-radius: 3px;
+    border: none;
+    font-size: 15px;
+    color:white;
+}
+.discount_button:hover{
+     transform: scale(1,1);
+     background-color:blue;
+}
