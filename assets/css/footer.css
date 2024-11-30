@@ -7,17 +7,18 @@
 /* Subscribe Section */
 .footer__subscribe {
     display: flex;
-    align-items: center;
+    margin-left: 220px !important;
     background: white;
     border: 1px solid transparent;
     border-radius: 50px;
-    width: 1100px;
+    width: 900px;
+    
 }
 
 .footer__subscribe input {
     border: none;
     outline: none;
-    padding: 20px 20px;
+    width: 200px;
     border-radius: 50px;
     flex: 1;
     font-size: 16px;
@@ -48,6 +49,7 @@
 .footer__links {
     display: flex;
     padding: 0px 70px 0px 150px;
+    gap: 50px;
 }
 
 .footer__column {
@@ -65,7 +67,7 @@
 .footer__social {
     color: aliceblue;
     font-size: 20px;
-    padding: 20px 40px;
+    /* padding: 20px 40px; */
 }
 
 .footer__social a {
