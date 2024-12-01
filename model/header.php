@@ -6,10 +6,10 @@
 
     <nav class="list">
         <ul class="header-left">
+            <li><a href="../view/Intro.php">Giới thiệu</a></li>
             <li><a href="../view/main.php">Trang chủ</a></li>
             <li><a href="../model/category.php">Kho phim</a></li>
             <li><a href="../model/voucher.php">Khuyến mãi</a></li>
-            <li><a href="../view/Intro.php">Giới thiệu</a></li>
             <li><a href="#">Yêu thích</a></li>
             <li><a href="../view/history.php">Lịch sử</a></li>
             <li><a href="../view/contact.php">Liên hệ</a></li>

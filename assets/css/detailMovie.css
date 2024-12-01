@@ -121,6 +121,7 @@
     padding: 30px 70px ;
 
 }
+
 .actor {
     display: flex;
 }
@@ -165,4 +166,74 @@
     width: 100%;
     height: 100%;
     border-radius: 15px;
+}
+/* Loại bỏ gạch chân khỏi tên phim */
+.movie-item a {
+    text-decoration: none;
+    color: white; /* Đặt màu chữ theo ý thích */
+}
+
+.movie-item a:hover {
+    color: #ff4d4d; /* Màu sắc nổi bật khi hover */
+}
+
+/* Cải thiện giao diện danh sách phim */
+.movies-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    background-color: #1c1c1c; /* Màu nền tối cho danh sách phim */
+    border-radius: 10px;
+}
+
+/* Giao diện từng mục phim */
+.movie-item {
+    width: 250px;
+    background-color: #282828; /* Nền từng mục */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.movie-item img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-bottom: 3px solid #ff4d4d;
+}
+
+.movie-item h3 {
+    font-size: 20px;
+    margin: 10px;
+    text-align: center;
+    font-weight: 600;
+    color: white;
+}
+
+.movie-description {
+    font-size: 14px;
+    color: #d1d1d1;
+    padding: 10px;
+    text-align: justify;
+    max-height: 100px;
+    overflow: hidden;
+    position: relative;
+}
+
+.movie-description::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(to bottom, transparent, #282828);
 }
