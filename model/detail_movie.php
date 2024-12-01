@@ -80,8 +80,8 @@ $result_related = $stmt_related->get_result();
         <div>
             <a href="detail_movie.php?movie_id=<?php echo $related['movie_id']; ?>">
                 <img src="<?php echo htmlspecialchars($related['poster_url']); ?>" alt="<?php echo htmlspecialchars($related['title']); ?>">
-                <p><?php echo htmlspecialchars($related['title']); ?></p>
             </a>
+            <p><?php echo htmlspecialchars($related['title']); ?></p>
         </div>
     <?php endwhile; ?>
 </div>

@@ -359,3 +359,63 @@ body {
 .table a:hover {
     color: #ffffff; /* Giữ chữ màu trắng */
 }
+/* Định nghĩa cho modal */
+.modal {
+    display: none; /* Ẩn mặc định */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Nền mờ cho modal */
+    z-index: 9999; /* Đảm bảo modal hiển thị trên tất cả các phần tử khác */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Nội dung modal */
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+}
+
+/* Các nút trong modal */
+.modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hiệu ứng hover cho nút */
+.modal-buttons button:hover {
+    background-color: #ff3d00;
+}
+
+/* Cài đặt cho nút "Hủy" */
+.modal-buttons button:last-child {
+    background-color: #ccc;
+    color: #333;
+}
+
+.modal-buttons button:last-child:hover {
+    background-color: #bbb;
+}
+
+/* Modal khi hiển thị */
+.hidden {
+    display: none;
+}

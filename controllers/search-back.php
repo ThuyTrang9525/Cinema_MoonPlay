@@ -66,10 +66,10 @@ $suggest_movies_result = $suggest_stmt->get_result();
     <div class="movies-list">
         <?php while ($row = $result->fetch_assoc()): ?>
             <div class="movie-item">
-                <a href="../model/detail_movie.php? htmlspecialchars($row['movie_id']) ?>">
+            <a href="../model/detail_movie.php?movie_id=<?= htmlspecialchars($row['movie_id']) ?>">
                     <img src="<?= htmlspecialchars($row['poster_url']) ?>" alt="<?= htmlspecialchars($row['title']) ?>">
-                    <h3><?= htmlspecialchars($row['title']) ?></h3>
                 </a>
+                <h3><?= htmlspecialchars($row['title']) ?></h3>
                 <input type="checkbox" class="toggle-checkbox" id="toggle-<?= $row['movie_id'] ?>" style="display: none;">
                 <div class="movie-description">
                     <?= htmlspecialchars($row['description']) ?>
@@ -88,10 +88,10 @@ $suggest_movies_result = $suggest_stmt->get_result();
         <div class="movies-list">
             <?php while ($row = $suggest_movies_result->fetch_assoc()): ?>
                 <div class="movie-item">
-                    <a href="../model/detail_movie.php?id=<?= htmlspecialchars($row['movie_id']) ?>">
+                    <a href="../model/detail_movie.php?movie_id=<?= htmlspecialchars($row['movie_id']) ?>">
                         <img src="<?= htmlspecialchars($row['poster_url']) ?>" alt="<?= htmlspecialchars($row['title']) ?>">
-                        <h3><?= htmlspecialchars($row['title']) ?></h3>
                     </a>
+                    <h3><?= htmlspecialchars($row['title']) ?></h3>
                     <input type="checkbox" class="toggle-checkbox" id="toggle-<?= $row['movie_id'] ?>-suggest" style="display: none;">
                     <div class="movie-description">
                         <?= htmlspecialchars($row['description']) ?>
