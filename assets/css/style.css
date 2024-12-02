@@ -95,19 +95,7 @@ body.login, body.register {
     right: -10px;
 }
 
-/* Upcoming movies styles */
-.upcoming-movies {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
-}
-.upcoming-movies .movie {
-    width: 18%;
-}
-.upcoming-movies .movie img {
-    width: 100%;
-    height: auto;
-}
+
 
 /*=======================================Header===============================================*/
 .header {
@@ -282,17 +270,22 @@ body.login, body.register {
 }
 
 .row {
-    display: flex; /* Sắp xếp các phần tử theo hàng ngang */
-    padding: 10px 10px;
-    margin-left: 5px;
-    gap: 20px; /*Khoảng cách giữa các cột*/
+    /* margin-left: 5px; */
     position: relative;
     justify-content: space-between;
     box-sizing: border-box;
+    display: grid; /* Sử dụng Grid Layout */
+    grid-template-columns: repeat(5, 1fr); /* Chia thành 5 cột, mỗi cột chiếm 1 phần */
+    gap: 5px; /* Khoảng cách giữa các cột và hàng */
+    /* margin-top: 20px; Khoảng cách giữa các thể loại */
 }
 
+
+
+.container-category .col img:hover {
+    transform: scale(1.05); /* Tùy chọn hiệu ứng khi di chuột */
+}
 .row .col {
-    width: 300px; /* Chiều rộng cố định của mỗi cột */
     position: relative; /* Đảm bảo căn chỉnh ảnh theo cột */
 }
 
@@ -305,7 +298,12 @@ body.login, body.register {
     position: relative;
     z-index: 1;
 }
-
+.container-category .col img {
+    width: 97%; /* Đảm bảo hình ảnh chiếm toàn bộ chiều rộng cột */
+    border-radius: 8px; /* Tùy chọn bo góc ảnh */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tùy chọn đổ bóng */
+    transition: transform 0.2s ease-in-out; /* Tùy chọn hiệu ứng khi hover */
+}
 .row img:hover {
     transform: scale(1.3);
     transform-origin: center;
@@ -460,99 +458,6 @@ a.socialIcon:hover,
 }
 /* banner ---------------------------------- */
 /* ============================START SLIDER================================== */
-.slider{
-    width:100%;
-    height:auto;
-    overflow: hidden;/* Chỉ hiển thị vùng bên trong container */
-}
-
-.slideshow {
-    position: relative;
-    left:0;
-    width:400%;
-    animation: 10s slide linear infinite ;
-}
-.slide{
-    position: relative;
-    width:25%;
-    float:left;
-    /* height:100%; */
-}
-.slide img {
-    width:100%;
-    height:800px;
-    object-fit:fill;             /* Đảm bảo ảnh không bị méo */
-}
-
-.submit-button-banner{
-    position: absolute;
-    bottom: 35%;
-    left: 15%;
-    text-align: center;
- }
-.submit-button-banner button{
-    width: 250px;
-    height:80px;
-    font-size: 30px; 
-    color:white;  
-    border-radius: 10px;
-    border:1px solid white;
-    background-color:red ;
-    cursor: pointer;
-}
-
-.submit-button-banner button:hover{
-    color:white;
-    background-color: grey;
-    transform: scale(1.1); /* Phóng to chữ nhẹ khi hover */
-}
-
-/* Điều chỉnh lại keyframes animation cho slide */
-@keyframes slide{
-    0%{
-        left:0%;
-    }
-    10%{
-        left:0%;
-    }
-    20%{
-        left:-100%;
-    }
-    30%{
-        left:-100%;
-    }
-    40%{
-        left:-200%;
-    }
-    50%{
-        left:-200%;
-    }
-    55%{
-        left:-300%;
-    }
-    65%{
-        left:-300%;
-    }
-    66%{
-        left:-200%;
-    }
-    74%{
-        left:-200%;
-    }
-        
-    75%{
-        left:-100%;
-    }
-    85%{
-        left:-100%;
-    }
-    90%{
-        left:0%;
-    }
-    100%{
-        left:0%;
-    }
-} 
 
 /* ============================END SLIDER================================== */
 
@@ -793,7 +698,7 @@ table tbody tr td {
 
 .title, .film-rental, .film-upcomming{
     font-size: 40px;
-    color:rgb(255, 255, 255);
+    color:rgb(0, 0, 0);
     margin-left: 40px ;
 }
 

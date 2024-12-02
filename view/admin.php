@@ -19,6 +19,7 @@ $movie_result = $movie_stmt->get_result();
     <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
 <body>
+<?php include('../view/manage_movies.php'); ?>
     <!-- Sidebar -->
     <aside class="sidebar">
         <div class="logo">MoonPlay Cinema</div>
@@ -27,47 +28,34 @@ $movie_result = $movie_stmt->get_result();
             <a href="manage_users.php"><i class="fa-solid fa-users"></i> Manage Users</a>
             <a href="#"><i class="fa-solid fa-comments"></i> Reviews</a>
             <a href="#" class="logout" onclick="showLogoutConfirmation(event)"><i class="fa-solid fa-sign-out-alt"></i> Logout</a>
-            <div id="logout-modal" class="modal hidden">
-                <div class="modal-content">
-                    <p>Bạn có muốn đăng xuất không?</p>
-                    <div class="modal-buttons">
-                        <button onclick="logout()">Đồng ý</button>
-                        <button onclick="hideLogoutConfirmation()">Hủy</button>
-                        <?php
-                            session_start();
-
-                            // Xóa toàn bộ session
-                            session_unset();
-                            session_destroy();
-
-                            // Chuyển hướng về trang login
-                            header("Location: ../view/login.php");
-                            exit();
-                            ?>
-                    </div>
-                </div>
-            </div>
-
         </nav>
     </aside>
 
-    <!-- Main Content -->
-    <?php include('../view/manage_movies.php'); ?>
+    <!-- Logout Confirmation Modal -->
+    <div id="logout-modal" class="modal hidden">
+    <div class="modal-content">
+        <p>Bạn có muốn đăng xuất không?</p>
+        <div class="modal-buttons">
+            <button onclick="logout()">Đồng ý</button>
+            <button onclick="hideLogoutConfirmation()">Hủy</button>
+        </div>
+    </div>
+</div>
+
     <script>
-        function showLogoutConfirmation(event) {
-            event.preventDefault();
-            document.getElementById('logout-modal').classList.remove('hidden');
+       function showLogoutConfirmation(event) {
+            event.preventDefault(); // Ngừng hành động mặc định của liên kết
+            document.getElementById('logout-modal').classList.remove('hidden'); // Hiển thị modal
         }
 
         function hideLogoutConfirmation() {
-            document.getElementById('logout-modal').classList.add('hidden');
+            document.getElementById('logout-modal').classList.add('hidden'); // Ẩn modal
         }
 
         function logout() {
             // Gửi yêu cầu logout đến server
-            window.location.href = "../controller/logout.php";
+            window.location.href = "../controller/logout.php"; // Điều hướng đến controller logout
         }
-
     </script>
 </body>
 </html>

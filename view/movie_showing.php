@@ -6,6 +6,8 @@
     <title>Movie Screening</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <style>
         body.movieShow {
             background-color: black;
@@ -37,10 +39,18 @@
         .comment .box-cmt2 .commented .name {
             font-weight: bold;
         }
-    </style>
-    <?php
-        require_once('../model/connect.php');
-        session_start();
+        .video {
+            width: 100%; /* Chiều ngang 100% */
+            height: 100%; /* Tự động điều chỉnh chiều cao theo tỷ lệ khung hình */
+            border-radius: 10px; /* Tùy chọn: bo tròn các góc */
+            margin-bottom: 20px; /* Khoảng cách dưới */
+        }
+        
+</style>
+
+<?php
+require_once('../model/connect.php');
+session_start();
 
         // Lấy ID phim từ URL
         if (isset($_GET['id'])) {
@@ -56,10 +66,9 @@
         $stmt->execute();
         $result = $stmt->get_result();
 
-    if ($result->num_rows > 0) {
-        $movie = $result->fetch_assoc();
-    } 
-    else {
+    if ($result_movie->num_rows > 0) {
+        $movie = $result_movie->fetch_assoc();
+    } else {
         die("Không tìm thấy phim.");
     }
 
@@ -128,18 +137,17 @@
         $stmt_related->execute();
         $result_related = $stmt_related->get_result();
 
-        // Lấy danh sách bình luận
-        $sql_comments = "
-            SELECT comments.content, comments.commented_at, users.username, users.avatar 
-            FROM comments 
-            JOIN users ON comments.user_id = users.user_id 
-            WHERE comments.movie_id = ? 
-            ORDER BY comments.commented_at DESC
-        ";
-        $stmt_comments = $conn->prepare($sql_comments);
-        $stmt_comments->bind_param("i", $movie_id);
-        $stmt_comments->execute();
-        $result_comments = $stmt_comments->get_result();
+    // Lấy danh sách bình luận
+    $sql_comments = "
+        SELECT comments.content, comments.commented_at, users.username, users.avatar
+        FROM comments 
+        JOIN users ON comments.user_id = users.user_id 
+        WHERE comments.movie_id = ?
+    ";
+    $stmt_comments = $conn->prepare($sql_comments);
+    $stmt_comments->bind_param("i", $movie_id);
+    $stmt_comments->execute();
+    $result_comments = $stmt_comments->get_result();
 
         // Xử lý thêm bình luận
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['comment'])) {
@@ -228,8 +236,7 @@
                     <button class="submit" type="submit">Gửi</button>
                 </form>
             </div>
-            <!-- Hiển thị bình luận -->
-            <?php while ($comment = $result_comments->fetch_assoc()) : ?>
+            <?php while ($comment = $result_comments->fetch_assoc()): ?>
                 <div class="box-cmt2">
                     <div class="fill-cmt2">
                         <div class="avt">
@@ -260,4 +267,5 @@
     </div>
     <?php include('../model/footer.php'); ?>
 </body>
+
 </html>
