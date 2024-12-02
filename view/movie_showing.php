@@ -64,11 +64,11 @@
     }
 
     // Lấy danh sách phim liên quan container1
-    $sql_related1 = "SELECT * FROM movies WHERE type = ? AND movie_id != ? LIMIT 3";
-    $stmt_related1 = $conn->prepare($sql_related1);
-    $stmt_related1->bind_param("i", $movie_id);
-    $stmt_related1->execute();
-    $result_related1 = $stmt_related1->get_result();
+    // $sql_related1 = "SELECT * FROM movies WHERE type = ? AND movie_id != ? LIMIT 3";
+    // $stmt_related1 = $conn->prepare($sql_related1);
+    // $stmt_related->bind_param("si", $movie['type'], $movie_id);
+    // $stmt_related1->execute();
+    // $result_related1 = $stmt_related1->get_result();
     
     // Lấy danh sách phim liên quan 
     $sql_related = "SELECT * FROM movies WHERE type = ? AND movie_id != ? LIMIT 4";
@@ -89,7 +89,7 @@
     // Xử lý thêm hoặc xóa yêu thích
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action'])) {
         $action = $_POST['action'];
-
+    }
         // Lấy danh sách phim tương tự
         $sql_similar = "
             SELECT movie_id, poster_url, title 
@@ -102,20 +102,20 @@
         $result_similar = $stmt_similar->get_result();
 
         // Kiểm tra trạng thái yêu thích
-    $user_id = 1; // ID user giả định (thay bằng ID từ session)
-    $sql_favorite = "SELECT * FROM favorites WHERE user_id = ? AND movie_id = ?";
-    $stmt_favorite = $conn->prepare($sql_favorite);
-    $stmt_favorite->bind_param("ii", $user_id, $movie_id);
-    $stmt_favorite->execute();
-    $is_favorite = $stmt_favorite->get_result()->num_rows > 0;
+        $user_id = 1; // ID user giả định (thay bằng ID từ session)
+        $sql_favorite = "SELECT * FROM favorites WHERE user_id = ? AND movie_id = ?";
+        $stmt_favorite = $conn->prepare($sql_favorite);
+        $stmt_favorite->bind_param("ii", $user_id, $movie_id);
+        $stmt_favorite->execute();
+        $is_favorite = $stmt_favorite->get_result()->num_rows > 0;
 
-    $type = $movie['type']; // Gán giá trị cho $type từ phim hiện tại
+        $type = $movie['type']; // Gán giá trị cho $type từ phim hiện tại
 
-    $sql_related1 = "SELECT * FROM movies WHERE type = ?";
-    $stmt_related1 = $conn->prepare($sql_related1);
-    $stmt_related1->bind_param("s", $type);
-    $stmt_related1->execute();
-    $result_related1 = $stmt_related1->get_result();
+        $sql_related1 = "SELECT * FROM movies WHERE type = ?";
+        $stmt_related1 = $conn->prepare($sql_related1);
+        $stmt_related1->bind_param("s", $type);
+        $stmt_related1->execute();
+        $result_related1 = $stmt_related1->get_result();
     
 
         // Fetch other related movies excluding the current one
@@ -164,7 +164,7 @@
     <?php include('../model/header.php'); ?>
     <div class="container1">
         <iframe class="video" src="<?php echo htmlspecialchars($movie['thumb_url']); ?>" frameborder="0" allowfullscreen></iframe>
-       <div class="other">
+        <div class="other">
             <p>Các phim tương tự</p>
             <?php if ($result_similar->num_rows > 0) : ?>
                 <?php while ($similar = $result_similar->fetch_assoc()) : ?>
@@ -184,6 +184,12 @@
         <div class="title">
             <p class="title-main"><?php echo htmlspecialchars($movie['title']); ?></p>
             <p class="title-extra"><?php echo htmlspecialchars($movie['type']); ?></p>
+        </div>
+        <div class="star-rating">
+            <?php for ($i = 1; $i <= 4; $i++) : ?>
+                <div class="star"><i class="fa-solid fa-star"></i></div>
+            <?php endfor; ?>
+            <div class="star"><i class="fa-regular fa-star"></i></div>
         </div>
     </div>
 
@@ -244,13 +250,12 @@
     <div class="container4">
         <p class="recommend">Có thể bạn muốn xem</p>
         <div class="movies">
-        <?php while ($related = $result_related->fetch_assoc()): ?>
-
-            <div>
-                <img src="<?php echo htmlspecialchars($related['poster_url']); ?>" alt="<?php echo htmlspecialchars($related['title']); ?>">
-                <p><?php echo htmlspecialchars($related['title']); ?></p>
-            </div>
-        <?php endwhile; ?>
+            <?php while ($related = $result_related->fetch_assoc()): ?>
+                <div>
+                    <img src="<?php echo htmlspecialchars($related['poster_url']); ?>" alt="<?php echo htmlspecialchars($related['title']); ?>">
+                    <!-- <p><?php echo htmlspecialchars($related['title']); ?></p> -->
+                </div>
+            <?php endwhile; ?>
         </div>
     </div>
     <?php include('../model/footer.php'); ?>
