@@ -149,7 +149,7 @@ function getMoviesByCategory($conn, $type) {
     <?php
     $categories = ['Phim tình cảm', 'Phim hoạt hình', 'Phim kinh dị', 'Phim hài', 'Khoa học viễn tưởng']; // Các thể loại phim
     foreach ($categories as $category) {
-        echo '<div class="mb-4">';
+        echo '<div class="mb-4" >';
         echo '<div>';
         echo '<h3>' . htmlspecialchars($category) . '</h3>'; // Tiêu đề thể loại
         echo '</div>';
@@ -159,7 +159,7 @@ function getMoviesByCategory($conn, $type) {
         $movies = getMoviesByCategory($conn, $category); // Lấy phim theo thể loại
         while ($movie = $movies->fetch_assoc()) {
             echo '
-            <div class="col">
+            <div class="col" >
                 <a href="../model/detail_movie.php?movie_id=' . $movie['movie_id'] . '">  
                     <img src="' . htmlspecialchars($movie['poster_url']) . '" alt="' . htmlspecialchars($movie['title']) . '" class="img-fluid">
                 </a>
