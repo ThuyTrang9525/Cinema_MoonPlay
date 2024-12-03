@@ -1,47 +1,54 @@
 <?php
-// Start the session
+// Bắt đầu phiên
 session_start();
 
-// Database connection parameters
-include '../model/connect.php';
+// Bật hiển thị lỗi để phát hiện vấn đề
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-// Check if the form is submitted
+// Kết nối cơ sở dữ liệu
+include '../model/connect.php'; // Đảm bảo đường dẫn đúng đến tệp kết nối
+
+// Kiểm tra nếu form đã được gửi
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve and sanitize input data
+    // Lấy và làm sạch dữ liệu đầu vào
     $name = trim($_POST['name']);
     $feedback = trim($_POST['feedback']);
     
-    // Validate input data
+    // Kiểm tra dữ liệu đầu vào
     if (empty($name) || empty($feedback)) {
         echo "Please fill in all fields.";
         exit;
     }
 
-    // Assuming user_id is stored in session after login
+    // Kiểm tra người dùng đã đăng nhập
     if (isset($_SESSION['user_id'])) {
         $user_id = $_SESSION['user_id'];
+        echo "User  ID: " . htmlspecialchars($user_id) . "<br>"; // Kiểm tra user_id
 
-        // Prepare SQL statement to insert feedback into the database
-        $stmt = $pdo->prepare("INSERT INTO feedback (feedback_id,user_id, content, time) VALUES :feedback_id,:user_id, :content, NOW())");
+        // Chuẩn bị câu lệnh SQL để thêm feedback vào cơ sở dữ liệu
+        $stmt = $pdo->prepare("INSERT INTO feedback (user_id, feed_content, time) VALUES (:user_id, :content, NOW())");
 
-        // Bind parameters
-        $stmt->bindParam(':feedback_id', $feedback_id);
+        // Liên kết tham số
         $stmt->bindParam(':user_id', $user_id);
         $stmt->bindParam(':content', $feedback);
 
-        // Execute the statement
+        // Thực thi câu lệnh
         if ($stmt->execute()) {
             echo "Feedback submitted successfully!";
         } else {
-            echo "Error submitting feedback. Please try again.";
+            // Lấy thông tin lỗi
+            $errorInfo = $stmt->errorInfo();
+            echo "Error submitting feedback: " . $errorInfo[2]; // In ra thông báo lỗi
         }
     } else {
-        echo "Người dùng chưa đăng nhập.";
+        echo "User  is not logged in.";
     }
 } else {
     echo "Invalid request method.";
 }
 
-// Close the database connection
+// Đóng kết nối cơ sở dữ liệu
 $pdo = null;
 ?>

@@ -13,7 +13,7 @@ if (!$conn) {
 
 // Kiểm tra nếu chưa đăng nhập
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
+    header("Location: profile.php");
     exit();
 }
 
@@ -31,6 +31,16 @@ if ($result->num_rows > 0) {
 } else {
     die("Không tìm thấy thông tin người dùng.");
 }
+$avatar ='';
+if (isset($_POST['submit'])) {
+    $avatar = "image/" . basename($_FILES['avatar']['name']);
+    move_uploaded_file($_FILES['avatar']['tmp_name'],$avatar);
+}
+    // Chèn dữ liệu vào bảng
+    $sql = "UPDATE users SET avatar = '$avatar' WHERE user_id = $user_id";
+    $result = mysqli_query($conn, $sql);
+
+    
 ?>
 
 
@@ -46,7 +56,7 @@ if ($result->num_rows > 0) {
 <body>
 <div class="container">
     <div class="profile-card">
-        <img alt="Profile picture of John Doe" height="100" src="https://storage.googleapis.com/a1aa/image/apby9UVdvqYcCtrnfNldHiffV0pIsdIp0qfkPPE8GrZO41WPB.jpg" width="100">
+        <img src="<?php echo htmlspecialchars($user['avatar']); ?>" alt="Profile Picture" width="100" height="100">
     </div>
     <div class="profile-details">
         <h3>Thông tin tài khoản</h3>
@@ -54,6 +64,11 @@ if ($result->num_rows > 0) {
             <p><span>Tên:</span><?php echo htmlspecialchars($user['username']); ?></p>
             <p><span>Email:</span><?php echo htmlspecialchars($user['email']); ?></p>
         </div>
+        <form method="POST" enctype="multipart/form-data"> 
+            <label for="profile_picture">Cập nhật ảnh đại diện:</label> 
+            <input type="file" name="avatar" required> 
+            <button type="submit">Cập nhật</button> 
+        </form>
     </div>
 </div>
 </body>

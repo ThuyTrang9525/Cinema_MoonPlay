@@ -1,3 +1,12 @@
+<?php
+
+
+// Kiểm tra xem người dùng đã đăng nhập hay chưa
+$isLoggedIn = isset($_SESSION['user_id']);
+$isLoggedIn = isset($_SESSION['username']);
+// $username = $isLoggedIn ? $_SESSION['username'] : null;
+?>
+
 <link rel="stylesheet" href="../assets/css/style.css<?php echo time(); ?>">
 <header class="header">
     <div class="header-logo">
@@ -14,7 +23,19 @@
             <li><a href="../view/history.php">Lịch sử</a></li>
             <li><a href="../view/contact.php">Liên hệ</a></li>
         </ul>
-        <button class="login-btn" id="loginButton">Đăng nhập</button>
+        <?php 
+            // Kiểm tra trạng thái đăng nhập
+           if ($isLoggedIn): ?>
+                <!-- Hiển thị thông tin người dùng nếu đã đăng nhập -->
+                <div class="user-info" style="margin-top: 15px; font-size: 18px;">
+                    <i><a href="../view/profile.php" class="fas fa-user"> </a></i>
+                    <span> <a href="../view/profile.php"> </a></span>
+                </div>
+            <?php else: ?>
+                <!-- Nút đăng nhập nếu chưa đăng nhập -->
+                <button class="login-btn" id="loginButton">Đăng nhập</button>
+            <?php endif; 
+            ?>
     </nav>    
 </header>
     <div class="header-right">
