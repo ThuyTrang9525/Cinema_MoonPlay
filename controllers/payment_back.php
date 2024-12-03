@@ -17,20 +17,14 @@ if( ($_SERVER['REQUEST_METHOD'] == 'POST')){
   }
    
    
-    $name=$_POST['package_name'];
-    // echo '$name'; 
-    $price=$_POST['package_price'];
-    // echo '$price';
-    $quality=$_POST['package_quality'];
-    // echo '$quality';
-
+  $name = isset($_POST['package_name']) ? $_POST['package_name'] : null;
+  $price = isset($_POST['package_price']) ? $_POST['package_price'] : null;
+  $quality = isset($_POST['package_quality']) ? $_POST['package_quality'] : null;
+  
 
     if ($name && $price > 0 && $quality > 0) {
       $packages=[$name,$price,$quality];
       $_SESSION['package']=$packages;
-  } else {
-      echo "Dữ liệu không hợp lệ. Vui lòng nhập lại.";
-    // Lưu gói vào session
+  } 
 }
-}
-?>
+
