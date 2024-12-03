@@ -1,0 +1,59 @@
+    /* Định dạng toàn bộ trang */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      
+      /* Giao diện của trang thông báo */
+      .success-page {
+        text-align: center;
+        background-color:black;
+        padding: 40px 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        width: 90%;
+      }
+      
+      /* Icon */
+      .icon img {
+        width: 64px;
+        margin-bottom: 20px;
+      }
+      
+      /* Tiêu đề */
+      .success-page h1 {
+        color: red;
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      
+      /* Nội dung */
+      .success-page p {
+        color:white;
+        font-size: 16px;
+        margin: 10px 0;
+      }
+      
+      /* Nút đi đến trang chủ*/
+      .home-btn {
+        background-color:red;
+        color: #fff;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px;
+      }
+      
+      .home-btn:hover {
+        background-color: blue;
+      }
+      
