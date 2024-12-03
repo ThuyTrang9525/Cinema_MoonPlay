@@ -76,10 +76,10 @@ if (!empty($email)) {
       <div class="icon">
         <img src="../assets/image/image_prev_ui.png" alt="Success Icon">
       </div>
-      <h1>ĐĂNG KÝ THÀNH CÔNG</h1>
-      <p>Bạn đã đăng ký tài khoản thành công!</p>
+      <h1>ĐĂNG KÝ GÓI THÀNH CÔNG</h1>
+      <p>Bạn đã đăng ký gói thành công!</p>
       <p>Bạn có thể cập nhật và chỉnh sửa thông tin trong phần quản lý thông tin.</p>
-      <button class="home-btn" onclick="window.location.href='profile.html'">ĐI ĐẾN TRANG CHỦ</button>
+      <button class="home-btn" onclick="window.location.href='../view/main.php'">ĐI ĐẾN TRANG CHỦ</button>
     </div>
   </div>
 </body>
