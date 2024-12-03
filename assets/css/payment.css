@@ -34,7 +34,8 @@ body {
   }
 
   .form-section, .order-section {
-    background: #fff;
+    background:black;
+    color:white;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -134,7 +135,7 @@ body {
 
   .note {
     font-size: 12px;
-    color: #666;
+    color:white;
     margin-top: 10px;
     line-height: 1.4;
   }
