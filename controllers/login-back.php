@@ -22,14 +22,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($result->num_rows > 0) {
         // Tìm thấy người dùng, kiểm tra mật khẩu
         $user = $result->fetch_assoc();
-
         // So sánh mật khẩu (vì mật khẩu không mã hóa, so sánh trực tiếp)
         if ($password === $user['password']) {
-            var_dump($password === $user['password']);
+            // var_dump($password === $user['password']);
             // Đăng nhập thành công, lưu thông tin vào session
             $_SESSION['username'] = $user['username'];
-            // var_dump($_SESSION);
-            // exit();
+            $_SESSION['user_id'] = $user['user_id'];
             $_SESSION['role'] = $user['role'];
 
             // Điều hướng dựa trên vai trò
