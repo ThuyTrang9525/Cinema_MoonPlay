@@ -63,8 +63,8 @@
       </div>
       <div class="member">
         <img src="https://via.placeholder.com/150" alt="Thành viên 5">
-        <h3>Phạm Văn C</h3>
-        <p>Product Manager</p>
+        <h3>Hồ Thị Ơn</h3>
+        <p>Mệt thôi đừng nản</p>
       </div>
     </div>
   </section>
