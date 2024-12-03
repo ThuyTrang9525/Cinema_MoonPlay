@@ -68,7 +68,7 @@ $suggest_movies_result = $suggest_stmt->get_result();
             <div class="movie-item">
             <a href="../model/detail_movie.php?movie_id=<?= htmlspecialchars($row['movie_id']) ?>">
                     <img src="<?= htmlspecialchars($row['poster_url']) ?>" alt="<?= htmlspecialchars($row['title']) ?>">
-                </a>
+            </a>
                 <h3><?= htmlspecialchars($row['title']) ?></h3>
                 <input type="checkbox" class="toggle-checkbox" id="toggle-<?= $row['movie_id'] ?>" style="display: none;">
                 <div class="movie-description">
