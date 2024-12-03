@@ -378,17 +378,17 @@ CREATE TABLE feedback (
 CREATE TABLE discount_codes (
     discount_code_id INT AUTO_INCREMENT PRIMARY KEY,          -- ID mã giảm giá, tự động tăng
     code VARCHAR(50) NOT NULL UNIQUE,           -- Tên mã giảm giá (ví dụ: SALE10)
-    discount_percentage DECIMAL(5, 2) NOT NULL, -- Phần trăm giảm giá (10%, 20%, ...)
+    discount_percentage DECIMAL(5) NOT NULL, -- Phần trăm giảm giá (10%, 20%, ...)
     usage_limit INT NOT NULL DEFAULT 1          -- Số lần mã có thể được sử dụng
 );
 INSERT INTO discount_codes (code, discount_percentage, usage_limit)
 VALUES 
-    ('SALE10', 10.00, 100),
-    ('NEWUSER50', 50.00, 50),
-    ('BLACKFRIDAY', 30.00, 500),
-    ('CHRISTMAS20', 20.00, 200),
-    ('SUMMER15', 15.00, 300);
-    
+    ('SALE10', 10, 100),
+    ('NEWUSER50', 50, 50),
+    ('BLACKFRIDAY', 30, 500),
+    ('CHRISTMAS20', 20, 200),
+    ('SUMMER15', 15, 300);
+
 CREATE TABLE payments (
     payment_id INT AUTO_INCREMENT PRIMARY KEY,          -- ID thanh toán, tự động tăng
     user_id INT NOT NULL,                       -- ID người dùng thực hiện thanh toán
@@ -397,4 +397,12 @@ CREATE TABLE payments (
     final_price DECIMAL(10, 2) NOT NULL,        -- Giá sau khi giảm (nếu có)
     FOREIGN KEY (id) REFERENCES goidangky(id), -- Ràng buộc gói đăng ký
     FOREIGN KEY (discount_code_id) REFERENCES discount_codes(discount_code_id) -- Ràng buộc mã giảm giá
+);
+CREATE TABLE orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,       -- ID tự động tăng, là khóa chính
+    order_name VARCHAR(255) NOT NULL,              -- Tên người đặt hàng
+    phone VARCHAR(15) NOT NULL,              -- Số điện thoại
+    email VARCHAR(255),                      -- Email
+    note TEXT,                               -- Ghi chú đơn hàng
+    total DECIMAL(15, 2) NOT NULL,           -- Tổng tiền (số có 2 chữ số thập phân)
 );

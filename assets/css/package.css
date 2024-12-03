@@ -64,7 +64,7 @@ body{
     box-shadow: 5px 5px 10px 2px #dde0dd;
 }
 .box_header {
-    background-color: #4267B2;
+    background-color: black;
     color: white;
     padding: 7px;
     border-radius: 5px 5px 0 0;
