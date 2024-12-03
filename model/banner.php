@@ -4,7 +4,6 @@
 .slider {
     position: relative;
     width: 100%;
-
     margin: auto;
     overflow: hidden; /* Ẩn các phần vượt quá slider */
 }
@@ -104,7 +103,7 @@
         <img src="../assets/image/Hình ảnh/banner con 1.jpg" />
     </div>
     <script>
-document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function () {
     const slideshow = document.querySelector(".slideshow");
     const slides = document.querySelectorAll(".slide");
     const totalSlides = slides.length;
@@ -128,6 +127,4 @@ document.addEventListener("DOMContentLoaded", function () {
     // Hiển thị slide đầu tiên khi trang tải
     slides[currentIndex].classList.add('active');
 });
-
-
 </script>
