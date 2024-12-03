@@ -7,19 +7,15 @@
     margin: auto;
     overflow: hidden; /* Ẩn các phần vượt quá slider */
 }
-
-/* Slideshow chứa các slide */
 .slideshow {
     display: flex;
-    transition: transform 0.5s ease-in-out; /* Hiệu ứng chuyển động mượt */
+    width: 500%; /* Tổng chiều rộng là số lượng slide nhân 100% */
 }
 
-/* Mỗi slide chiếm 100% chiều rộng của slider */
 .slide {
-   
-    box-sizing: border-box;
+    width: 100%; /* Mỗi slide chiếm toàn bộ chiều rộng slider */
+    flex-shrink: 0; /* Đảm bảo kích thước không co lại */
 }
-
 /* Cập nhật ảnh cho phù hợp với chiều rộng và chiều cao */
 .slide img {
     height: 1200px; /* Chiều cao cố định 1000px */
@@ -30,8 +26,8 @@
 /* Nút đăng ký */
 .submit-button-banner {
     position: absolute;
-    bottom: 10%;
-    left: 20%;
+    bottom: 400px;
+    left: 400px;
     transform: translateX(-50%);
     align-items: center;
     display: flex;
@@ -103,28 +99,29 @@
         <img src="../assets/image/Hình ảnh/banner con 1.jpg" />
     </div>
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
-    const slideshow = document.querySelector(".slideshow");
-    const slides = document.querySelectorAll(".slide");
-    const totalSlides = slides.length;
+    // Chọn các phần tử cần thiết
+    const slideshow = document.querySelector('.slideshow');
+    const slides = document.querySelectorAll('.slide');
     let currentIndex = 0;
 
-    // Hàm hiển thị slide tiếp theo
-    function showNextSlide() {
-        // Ẩn slide hiện tại
-        slides[currentIndex].classList.remove('active');
+    // Tổng số slide
+    const totalSlides = slides.length;
 
-        // Cập nhật chỉ số slide hiện tại
-        currentIndex = (currentIndex + 1) % totalSlides;
+    // Hàm chuyển đến slide tiếp theo
+    function nextSlide() {
+        // Tăng chỉ số hiện tại
+        currentIndex++;
 
-        // Hiển thị slide mới
-        slides[currentIndex].classList.add('active');
+        // Nếu vượt quá số slide, quay lại slide đầu tiên
+        if (currentIndex >= totalSlides) {
+            currentIndex = 0;
+        }
+
+        // Di chuyển slideshow
+        slideshow.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
 
-    // Tự động chuyển slide mỗi 3 giây
-    setInterval(showNextSlide, 3000);
-
-    // Hiển thị slide đầu tiên khi trang tải
-    slides[currentIndex].classList.add('active');
-});
+    // Tự động chuyển slide sau mỗi 3 giây
+    setInterval(nextSlide, 3000);
 </script>
+

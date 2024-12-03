@@ -45,7 +45,7 @@ $movie_result = $movie_stmt->get_result();
             </button>
             
             <div id="createModal" class="modal">
-                <div class="modal-content">
+                <div class="modal-content" style = "width: 700px">
                     <span class="close">&times;</span>
                     <h2>Insert Movie</h2>
                     <form id="createMovieForm" action="../controllers/createMovies.php" method="POST">
@@ -61,9 +61,9 @@ $movie_result = $movie_stmt->get_result();
                         <label>Poster URL:</label>
                         <input type="text" name="poster_url" id="create_poster_url">
                         <label>Trailer URL:</label>
-                        <input type="text" name="poster_url" id="create_trailer_url">
+                        <input type="text" name="trailer_url" id="create_trailer_url">
                         <label>Video URL:</label>
-                        <input type="text" name="poster_url" id="create_video_url">
+                        <input type="text" name="thumb_url" id="create_video_url">
                         
                         <label>Duration (min):</label>
                         <input type="number" name="duration" id="create_duration" required>

@@ -18,6 +18,7 @@
 
 .upcoming-movies .movie img {
     width: 435px;
+    height: 100%;
 }
 
 
@@ -30,15 +31,63 @@
         <div class="section-title">TOP PHIM ĐẶC SẮC</div>
         <div class="top-movies">
             <div class="movie">
-                <img alt="Movie poster of Trận Chiến Thời Tiền Sử" src="https://storage.googleapis.com/a1aa/image/ilhEifGsW4WpbSaZTg36SbCFU4Lliv0WhInWefsevjPksPOPB.jpg" />
+            <?php
+                    $query = "SELECT movie_id, poster_url FROM movies WHERE movie_id % 9 = 0 AND poster_url IS NOT NULL LIMIT 1";
+                    $result = $conn->query($query);
+
+                    if ($result && $result->num_rows > 0) {
+                        while ($movie = $result->fetch_assoc()) {
+                            echo '
+                            
+                                <a href="../model/detail_movie.php?movie_id=' . $movie['movie_id'] . '">
+                                    <img src="' . htmlspecialchars($movie['poster_url']) . '" alt="Phim" >
+                                </a>
+                            ';
+                        }
+                    } else {
+                        echo '<p>Không có phim nào để hiển thị.</p>';
+                    }
+                ?>
                 <div class="rank">1</div>
             </div>
             <div class="movie">
-                <img alt="Movie poster of Người Con Trai" src="https://storage.googleapis.com/a1aa/image/tWNvagzevmQgQquJK7fEi8hheLQL2pbTcZxaEEuLkOZB2HnnA.jpg" />
+            <?php
+                    $query = "SELECT movie_id, poster_url FROM movies WHERE movie_id % 17 = 0 AND poster_url IS NOT NULL LIMIT 1";
+                    $result = $conn->query($query);
+
+                    if ($result && $result->num_rows > 0) {
+                        while ($movie = $result->fetch_assoc()) {
+                            echo '
+                            
+                                <a href="../model/detail_movie.php?movie_id=' . $movie['movie_id'] . '">
+                                    <img src="' . htmlspecialchars($movie['poster_url']) . '" alt="Phim" >
+                                </a>
+                            ';
+                        }
+                    } else {
+                        echo '<p>Không có phim nào để hiển thị.</p>';
+                    }
+                ?>
                 <div class="rank">2</div>
             </div>
             <div class="movie">
-                <img alt="Movie poster of Knights of Zodiac" src="https://storage.googleapis.com/a1aa/image/fsgN91a69X1WciJw8sgrCn3LOBhbzuE4Lwf6DQUvZ9CM7jzTA.jpg" />
+            <?php
+                    $query = "SELECT movie_id, poster_url FROM movies WHERE movie_id % 23 = 0 AND poster_url IS NOT NULL LIMIT 1";
+                    $result = $conn->query($query);
+
+                    if ($result && $result->num_rows > 0) {
+                        while ($movie = $result->fetch_assoc()) {
+                            echo '
+                            
+                                <a href="../model/detail_movie.php?movie_id=' . $movie['movie_id'] . '">
+                                    <img src="' . htmlspecialchars($movie['poster_url']) . '" alt="Phim" >
+                                </a>
+                            ';
+                        }
+                    } else {
+                        echo '<p>Không có phim nào để hiển thị.</p>';
+                    }
+                ?>
                 <div class="rank">3</div>
             </div>
         </div>
@@ -68,7 +117,7 @@
                         while ($movie = $result->fetch_assoc()) {
                             echo '
                             
-                                <a href="../model/detail_movie.php?movie_id=' . $movie['movie_id'] . '">
+                                <a href="../model/detail_movie.php?movie_id=' . $movie['movie_id'] . '" >
                                     <img src="' . htmlspecialchars($movie['poster_url']) . '" alt="Phim" >
                                 </a>
                             ';

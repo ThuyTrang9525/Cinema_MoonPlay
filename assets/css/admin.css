@@ -165,7 +165,7 @@ body {
     margin: 10% auto;
     padding: 20px;
     border-radius: 8px;
-    width: 900px; /* Độ rộng modal */
+    width: 700px; /* Độ rộng modal */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     animation: slide-down 0.3s ease-out;
 }
