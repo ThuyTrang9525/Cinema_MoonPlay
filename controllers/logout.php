@@ -5,7 +5,10 @@ session_start();
 session_unset();
 session_destroy();
 
-// Chuyển hướng về trang login
-header("Location: ../view/login.php");
+header("Location: ../view/main.php");
 exit();
+
+// Chuyển hướng về trang login
+// header("Location: ../view/login.php");
+// exit();
 ?>
