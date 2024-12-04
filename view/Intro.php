@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Giới Thiệu MoonPlay Cinema  </title>
   <link rel="stylesheet" href="../assets/css/intro.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
 <?php include('../model/header.php'); ?>
@@ -12,7 +13,7 @@
   <section class="hero">
     <h1>MoonPlay Cinema - Nền tảng xem phim trực tuyến hàng đầu!</h1>
     <p>Thưởng thức những bộ phim chất lượng cao mọi lúc, mọi nơi.</p>
-    <a href="/phim" class="cta-button">Khám Phá Ngay</a>
+    <a href="../model/category.php" class="cta-button">Khám Phá Ngay</a>
   </section>
 
   <!-- Giới thiệu -->
@@ -42,29 +43,29 @@
     <h2>Đội Ngũ Của Chúng Tôi</h2>
     <div class="team-members">
       <div class="member">
-        <img src="https://via.placeholder.com/150" alt="Thành viên 1">
-        <h3>Nguyễn Văn A</h3>
-        <p>Founder & CEO</p>
+        <img src="../assets/image/Hình ảnh/Kim.jpg" alt="Thành viên 1">
+        <h3>Hồ Thị kim</h3>
       </div>
+
       <div class="member">
-        <img src="https://via.placeholder.com/150" alt="Thành viên 2">
-        <h3>Trần Thị B</h3>
-        <p>CTO</p>
+        <img src="../assets/image/Hình ảnh/Thiện.jpg" alt="Thành viên 2">
+        <h3>Hồ Đức Thiện</h3>
       </div>
+
       <div class="member">
-        <img src="https://via.placeholder.com/150" alt="Thành viên 3">
-        <h3>Phạm Văn C</h3>
-        <p>Product Manager</p>
+        <img src="../assets/image/Hình ảnh/Trang.img.jpg" alt="Thành viên 3">
+        <h3>Bùi Thị Thùy Trang</h3>
       </div>
+
       <div class="member">
-        <img src="https://via.placeholder.com/150" alt="Thành viên 4">
-        <h3>Phạm Văn C</h3>
-        <p>Product Manager</p>
+        <img src="../assets/image/Hình ảnh/Hà.img.jpg" alt="Thành viên 4">
+        <h3>Hồ Thị Duyên Hà</h3>
       </div>
+
       <div class="member">
-        <img src="https://via.placeholder.com/150" alt="Thành viên 5">
+        <img src="../assets/image/Hình ảnh/On.jpg" alt="Thành viên 5">
         <h3>Hồ Thị Ơn</h3>
-        <p>Mệt thôi đừng nản</p>
+
       </div>
     </div>
   </section>
