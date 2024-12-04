@@ -5,18 +5,7 @@ body {
     color: #333;
     line-height: 1.6;
   }
-  .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: black;
-  padding: 0 30px;
-  box-shadow: 0px 15px 10px rgb(58, 58, 58) ;
-  color: white;
-}
-.header .list{
-  display:flex;
-}
+  
 .header-logo {
   display: flex;
   align-items: center;
@@ -137,20 +126,24 @@ body {
 }
 
 
-  h1, h2 {
-    color: #1d1d1d;
+  h1 {
+    color:white;
+  }
+  h2{
+    color: black;
   }
   section {
     padding: 40px 20px;
     margin: 0 auto;
-    max-width: 1200px;
+    width:90%;
   }
   .hero {
-    background: url('https://cdn-media.sforum.vn/storage/app/media/wp-content/uploads/2023/11/phim-viet-nam-thumbnail.jpg') center/cover no-repeat;
+    background: url('../image/Background.gif') center/cover no-repeat;
     color: #fff;
     text-align: center;
-    padding: 100px 20px;
+    padding: 100px 100px;
   }
+  
   .hero h1 {
     font-size: 3em;
   }
@@ -200,8 +193,10 @@ body {
     text-align: center;
   }
   .member img {
+    height: 300px;
     max-width: 100%;
     border-radius: 50%;
+    object-fit: cover;
   }
   .contact form {
     display: flex;
