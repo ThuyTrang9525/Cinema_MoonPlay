@@ -10,7 +10,7 @@ body {
 }
 .container {
     display: flex;
-    width: 600px;
+    width: 700px;
     height: 300px;
     background: rgba(0, 0, 0, 0.8);
     padding: 20px;
@@ -22,7 +22,7 @@ body {
     border-radius: 20px;
     padding: 20px;
     color: white;
-    margin: 10px;
+    margin: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     flex-grow: 1;
 }
@@ -33,6 +33,7 @@ body {
     border-radius: 50%;
     width: 150px;
     height: 150px;
+    margin-top: 10px;
 }
 .details {
     display: flex;
@@ -60,4 +61,32 @@ body {
 }
 .profile-details span {
     color: #ff416c;
+}
+
+.profile_image img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+}
+
+/* #avatarInput {
+    display: none;
+} */
+
+/* Định dạng icon upload */
+.upload-icon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#uploadForm {
+    margin-top: 50px;
 }

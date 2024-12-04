@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 // Kiểm tra xem người dùng đã đăng nhập hay chưa
 $isLoggedIn = isset($_SESSION['user_id']);
@@ -28,7 +28,7 @@ $isLoggedIn = isset($_SESSION['username']);
            if ($isLoggedIn): ?>
                 <!-- Hiển thị thông tin người dùng nếu đã đăng nhập -->
                 <div class="user-info" style="margin-top: 15px; font-size: 18px;">
-                    <i><a href="../view/profile.php" class="fas fa-user"> </a></i>
+                    <i><a href="../view/profile.php" class="fas fa-user" style="font-size: 20px; color: white;"></a></i>
                     <span> <a href="../view/profile.php"> </a></span>
                 </div>
             <?php else: ?>
