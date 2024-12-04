@@ -20,11 +20,12 @@ body {
 .profile-card, .profile-details {
     background-color: #1a1a1a;
     border-radius: 20px;
-    padding: 20px;
+    padding: 15px;
     color: white;
     margin: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     flex-grow: 1;
+    box-sizing: border-box;
 }
 .profile-card {
     text-align: center;
@@ -58,6 +59,7 @@ body {
 }
 .profile-details p {
     margin: 5px 0;
+    font-size: 18px;
 }
 .profile-details span {
     color: #ff416c;
@@ -76,8 +78,8 @@ body {
 /* Định dạng icon upload */
 .upload-icon {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    bottom: 300px;
+    right: 830px;
     font-size: 24px;
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
@@ -90,3 +92,41 @@ body {
 #uploadForm {
     margin-top: 50px;
 }
+
+#avatarInput {
+    display:none;
+}
+
+/* .back-logout {
+    display:flex;
+    width: 300pxp;
+} */
+
+
+.back a {
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.back .btt_back {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.log-out .btt_logout {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.btt_back:hover{
+    transform: scale(1.05);
+}
+
+.btt_logout:hover {
+    transform:scale(1.05);
+}
+

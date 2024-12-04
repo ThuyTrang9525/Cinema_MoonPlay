@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['avatar'])) {
         // echo "Duong dan anh " . htmlspecialchars($user['avatar']);
         ?>
         <!-- Icon tải ảnh -->
-        <i class="fas fa-camera upload-icon" onclick="triggerFileInput()"></i>
+        <i style="position: absolute; bottom: 300px; right: 900px;" class="fas fa-camera upload-icon" onclick="triggerFileInput()"></i>
         <!-- Trường tải tệp -->
         <form method="POST" enctype="multipart/form-data" id="uploadForm">
             <input type="file" name="avatar" id="avatarInput" onchange="submitForm()" accept="image/*" required>
@@ -103,9 +103,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['avatar'])) {
         <div class="details">
             <p><span>Tên: </span><?php echo htmlspecialchars($user['username']); ?></p>
             <p><span>Email: </span><?php echo htmlspecialchars($user['email']); ?></p>
+            <p><span>Số điện thoại: </span><?php echo "0345671230" ?></p>
         </div>
     </div>
 </div>
+<div class="logout-back" style="position: relative;">
+    <div class="back" style="width: 150px; position: absolute; top: 200px; right: 300px;">
+        <a href="../view/main.php"><button class="btt_back">Quay lại</button></a>
+    </div>
+    <div class="log-out" style="width: 150px; position: absolute; top: 200px; right: 200px;">
+        <a href="../controllers/logout.php"><button class="btt_logout">Đăng xuất</button></a>
+    </div>
+</div>
+
 <script>
     // Kích hoạt input file
     function triggerFileInput() {
