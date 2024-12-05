@@ -12,12 +12,12 @@
 }
 
 .upcoming-movies .movie a {
-    width: 450px;
+    width: 290px;
 
 }
 
 .upcoming-movies .movie img {
-    width: 435px;
+    width: 290px;
     height: 100%;
 }
 
@@ -110,7 +110,7 @@
         <div class="upcoming-movies">
             <div class="movie">
                 <?php
-                    $query = "SELECT movie_id, poster_url FROM movies WHERE movie_id % 7 = 0 AND poster_url IS NOT NULL LIMIT 5";
+                    $query = "SELECT movie_id, poster_url FROM movies WHERE movie_id % 7 = 0 AND poster_url IS NOT NULL LIMIT 4";
                     $result = $conn->query($query);
 
                     if ($result && $result->num_rows > 0) {
