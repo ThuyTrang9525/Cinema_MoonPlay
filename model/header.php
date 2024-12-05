@@ -6,7 +6,8 @@ $isLoggedIn = isset($_SESSION['username']);
 // $username = $isLoggedIn ? $_SESSION['username'] : null;
 ?>
 
-<link rel="stylesheet" href="../assets/css/style.css<?php echo time(); ?>">
+<link rel="stylesheet" href="../assets/css/style.css <?php echo time(); ?>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <header class="header">
     <div class="header-logo">
         <img src="../assets/image/logo.png" alt="Logo">
@@ -38,10 +39,14 @@ $isLoggedIn = isset($_SESSION['username']);
     </nav>    
 </header>
     <div class="header-right">
-        <form method="get" class="search-form" action="../controllers/search-back.php">
-            <!-- <input type="text" name="search_query" placeholder="Nhập tên phim cần tìm..." required> -->
-            <input type="text" name="keyword" placeholder="Tìm kiếm phim..." required>
-            <button type="submit">Tìm kiếm</button>
+        <form method="POST" action="../controllers/search-back.php">
+            <div class="container-search" style="position: relative;">
+            <input style="border:2px grey solid;width:250px;height: 20px; border-radius: 100px;" type="text" name="search_query" placeholder="Nhập tên phim cần tìm..." required>
+                <div style="height: 43px; align-items:center;border-radius:100px; position: absolute;bottom: 2px; right:0px;width: 45px; background-color: #222222;">
+                    <i style=" font-size: 20px; color:grey; margin-top:13px; margin-left: 14px;" class="fas fa-search"></i>
+                </div>
+            </div>
+            <button style="border:2px grey solid; height:45px; font-size: 15px;border-radius: 100px;" type="submit">Tìm kiếm</button>
         </form>
         
     </div>

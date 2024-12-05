@@ -197,6 +197,12 @@ body.login, body.register {
     gap: 50px;
 }
 
+.header-right button[type="submit"]:hover{
+    transform: scale(1.05);
+    background-color: grey;
+    color: white;
+}
+
 .search {
     background: white;
     border: 1px solid transparent;
