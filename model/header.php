@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 // Kiểm tra xem người dùng đã đăng nhập hay chưa
 $isLoggedIn = isset($_SESSION['user_id']);
