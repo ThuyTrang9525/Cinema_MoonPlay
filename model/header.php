@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 // Kiểm tra xem người dùng đã đăng nhập hay chưa
 $isLoggedIn = isset($_SESSION['user_id']);
@@ -39,8 +38,9 @@ $isLoggedIn = isset($_SESSION['username']);
     </nav>    
 </header>
     <div class="header-right">
-        <form method="POST" action="../controllers/search-back.php">
-            <input type="text" name="search_query" placeholder="Nhập tên phim cần tìm..." required>
+        <form method="get" class="search-form" action="../controllers/search-back.php">
+            <!-- <input type="text" name="search_query" placeholder="Nhập tên phim cần tìm..." required> -->
+            <input type="text" name="keyword" placeholder="Tìm kiếm phim..." required>
             <button type="submit">Tìm kiếm</button>
         </form>
         
