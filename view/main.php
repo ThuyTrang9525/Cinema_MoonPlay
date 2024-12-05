@@ -9,9 +9,10 @@
 <body>
     <?php include('../model/header.php'); ?>
     <?php include('../model/banner.php'); ?>
+   
     <?php include('../model/typeMovie.php'); ?>
 
-
+    <?php include('../model/newMovie.php'); ?>
     <?php include('../model/category.php'); ?>
     <?php include('../model/movieTop.php'); ?>
 

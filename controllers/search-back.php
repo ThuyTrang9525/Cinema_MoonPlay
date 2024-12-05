@@ -1,118 +1,158 @@
-<?php
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-include "../model/connect.php";
-
-// Lấy dữ liệu từ form
-$search_query = isset($_POST['search_query']) ? trim($_POST['search_query']) : '';
-
-if ($search_query === '') {
-    echo "Bạn chưa nhập từ khóa tìm kiếm.";
-    exit;
+<style>
+    <style>
+/* Tạo kiểu cho form tìm kiếm */
+.search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
-// Tìm kiếm trong bảng `movies`
-$sql = "
-    SELECT * 
-    FROM movies 
-    WHERE title LIKE ? OR type LIKE ?
-    ORDER BY 
-        CASE 
-            WHEN title LIKE ? THEN 1 -- Ưu tiên tiêu đề khớp trước
-            WHEN type LIKE ? THEN 2  -- Sau đó là thể loại
-            ELSE 3                   -- Cuối cùng là các kết quả khác
-        END
-";
-$stmt = $conn->prepare($sql);
-$search_param = "%" . $search_query . "%";
-$stmt->bind_param("ssss", $search_param, $search_param, $search_param, $search_param);
-$stmt->execute();
-$result = $stmt->get_result();
+.search-form input {
+    padding: 8px;
+    font-size: 14px;
+    margin-right: 10px;
+    width: 200px;
+}
 
-/*Gợi ý phim*/
-$suggest_movies_sql = "
-    SELECT * 
-    FROM movies 
-    WHERE type != (SELECT type FROM movies WHERE title LIKE ? LIMIT 1)
-    LIMIT 10
-";
-$suggest_stmt = $conn->prepare($suggest_movies_sql);
-$suggest_stmt->bind_param("s", $search_param);
-$suggest_stmt->execute();
-$suggest_movies_result = $suggest_stmt->get_result();
-?>
+.search-form button {
+    padding: 8px 12px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kết quả tìm kiếm</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/search-back.css">
-</head>
-<body>
-  
-    <?php
-        include "../model/header.php"
-    ?>
-    <main>
-         <p>Kết quả tìm kiếm của bạn</p>
-    
-    <?php if ($result->num_rows > 0): ?>
-    <div class="movies-list">
-        <?php while ($row = $result->fetch_assoc()): ?>
-            <div class="movie-item">
-            <a href="../model/detail_movie.php?movie_id=<?= htmlspecialchars($row['movie_id']) ?>">
-                    <img src="<?= htmlspecialchars($row['poster_url']) ?>" alt="<?= htmlspecialchars($row['title']) ?>">
-            </a>
-                <h3><?= htmlspecialchars($row['title']) ?></h3>
-                <input type="checkbox" class="toggle-checkbox" id="toggle-<?= $row['movie_id'] ?>" style="display: none;">
-                <div class="movie-description">
-                    <?= htmlspecialchars($row['description']) ?>
-                </div>
-                <label for="toggle-<?= $row['movie_id'] ?>" class="toggle-label">Xem thêm</label>
-            </div>
-        <?php endwhile; ?>
-    </div>
-<?php else: ?>
-    <p>Không tìm thấy kết quả nào cho từ khóa.</p>
-<?php endif; ?>
+.search-form button:hover {
+    background-color: #0056b3;
+}
 
-<?php if ($suggest_movies_result->num_rows > 0): ?>
-    <div class="suggest-movies">
-        <h2>Hãy tham khảo phim khác</h2>
-        <div class="movies-list">
-            <?php while ($row = $suggest_movies_result->fetch_assoc()): ?>
-                <div class="movie-item">
-                    <a href="../model/detail_movie.php?movie_id=<?= htmlspecialchars($row['movie_id']) ?>">
-                        <img src="<?= htmlspecialchars($row['poster_url']) ?>" alt="<?= htmlspecialchars($row['title']) ?>">
-                    </a>
-                    <h3><?= htmlspecialchars($row['title']) ?></h3>
-                    <input type="checkbox" class="toggle-checkbox" id="toggle-<?= $row['movie_id'] ?>-suggest" style="display: none;">
-                    <div class="movie-description">
-                        <?= htmlspecialchars($row['description']) ?>
-                    </div>
-                    <label for="toggle-<?= $row['movie_id'] ?>-suggest" class="toggle-label">Xem thêm</label>
-                </div>
-            <?php endwhile; ?>
-        </div>
-    </div>
-<?php endif; ?>
-    </main>
+/* Tạo kiểu cho kết quả tìm kiếm */
+.row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
 
-     <!-- footer -->
-        <?php include("../model/footer.php"); ?>
-    <!-- /footer -->
+.col {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-</body>
-</html>
+.col:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.col img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.col .info {
+    padding: 10px;
+    text-align: center;
+}
+
+.col .info h3 {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #333;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.col .info p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.col .info .btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.col .info .btn:hover {
+    background-color: #0056b3;
+}
+</style>
+
+
+</style>
 
 <?php
-// Đóng kết nối
-$stmt->close();
-$conn->close();
+// Domain cơ sở để hoàn thiện URL
+$base_url = "https://phimimg.com/"; // Sửa lại URL cơ sở cho ảnh
+
+// Hàm gọi API tìm kiếm
+function searchFilms($keyword, $limit) {
+    $url = "https://phimapi.com/v1/api/tim-kiem?keyword=" . urlencode($keyword) . "&limit=" . intval($limit);
+    $response = @file_get_contents($url);
+
+    if ($response === false) {
+        echo "<p class='error'>Không thể kết nối đến API với URL: $url.</p>";
+        return null;
+    }
+
+    $data = json_decode($response, true);
+
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        echo "<p class='error'>Lỗi khi giải mã JSON: " . json_last_error_msg() . ".</p>";
+        return null;
+    }
+
+    return $data;
+}
+if (isset($_GET['keyword'])) {
+    $keyword = $_GET['keyword'];
+
+    // Gọi hàm tìm kiếm phim với từ khóa và số lượng
+    $films = searchFilms($keyword, 10);
+
+    if ($films && isset($films['data']['items']) && is_array($films['data']['items'])) {
+        echo "<h2>Kết quả tìm kiếm cho: '$keyword'</h2>";
+        echo '<div class="row">';
+        
+        // Hiển thị danh sách phim
+        foreach ($films['data']['items'] as $film) {
+            echo '<div class="col">';
+            
+            // Ảnh poster
+            echo '<a href="../model/detail.php?slug=' . urlencode($film['slug']) . '">';
+            $poster_url = strpos($film['poster_url'], 'http') === 0 ? $film['poster_url'] : $base_url . $film['poster_url'];
+            echo '<img src="' . htmlspecialchars($poster_url) . '" alt="' . htmlspecialchars($film['name']) . '" class="img-fluid">';
+            echo '</a>';
+            
+            // Thông tin phim
+            echo '<div class="info">';
+            echo '<h3>' . htmlspecialchars($film['name']) . '</h3>';
+            echo '<p>Năm: ' . htmlspecialchars($film['year'] ?? 'Không rõ') . '</p>';
+            echo '<p>Trạng thái: ' . htmlspecialchars($film['status'] ?? 'Không rõ') . '</p>';
+            echo '<a href="../model/detail.php?slug=' . urlencode($film['slug']) . '" class="btn">Xem Chi Tiết</a>';
+            echo '</div>'; // End .info
+            
+            echo '</div>'; // End .col
+        }
+        
+        echo '</div>'; // End .row
+    } else {
+        echo "<p>Không tìm thấy kết quả nào.</p>";
+    }
+} else {
+    echo "<p>Vui lòng nhập từ khóa và số lượng tìm kiếm.</p>";
+}
 ?>
