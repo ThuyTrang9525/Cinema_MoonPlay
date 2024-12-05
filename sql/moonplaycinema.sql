@@ -406,3 +406,6 @@ CREATE TABLE orders (
     note TEXT,                               -- Ghi chú đơn hàng
     total DECIMAL(15, 2) NOT NULL,           -- Tổng tiền (số có 2 chữ số thập phân)
 );
+
+ALTER TABLE users
+ADD COLUMN subscription_status TINYINT(1) DEFAULT 0 NOT NULL COMMENT '1: Đã đăng ký, 0: Chưa đăng ký';

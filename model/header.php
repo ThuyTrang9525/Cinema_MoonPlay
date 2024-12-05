@@ -24,18 +24,18 @@ $isLoggedIn = isset($_SESSION['username']);
             <li><a href="../view/contact.php">Liên hệ</a></li>
         </ul>
         <?php 
-            // Kiểm tra trạng thái đăng nhập
-           if ($isLoggedIn): ?>
-                <!-- Hiển thị thông tin người dùng nếu đã đăng nhập -->
-                <div class="user-info" style="margin-top: 15px; font-size: 18px;">
-                    <i><a href="../view/profile.php" class="fas fa-user"> </a></i>
-                    <span> <a href="../view/profile.php"> </a></span>
-                </div>
-            <?php else: ?>
-                <!-- Nút đăng nhập nếu chưa đăng nhập -->
-                <button class="login-btn" id="loginButton">Đăng nhập</button>
-            <?php endif; 
-            ?>
+        // Kiểm tra trạng thái đăng nhập
+        if ($isLoggedIn): ?>
+            <!-- Hiển thị thông tin người dùng nếu đã đăng nhập -->
+            <div class="user-info" style="margin-top: 15px; font-size: 18px;">
+                <i><a href="../view/profile.php" class="fas fa-user"> </a></i>
+                <span> <a href="../view/profile.php"> </a></span>
+            </div>
+        <?php else: ?>
+            <!-- Nút đăng nhập nếu chưa đăng nhập -->
+            <button class="login-btn" id="loginButton">Đăng nhập</button>
+        <?php endif; 
+        ?>
     </nav>    
 </header>
     <div class="header-right">
