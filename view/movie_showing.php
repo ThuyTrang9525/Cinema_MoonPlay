@@ -84,14 +84,14 @@
         }
         .content {
             color: aliceblue;
-            width: 700px;
+            width: 575px;
             margin: 0px 50px 0px 20px ;
             font-size: 18px;
             
 
         }
         .small1-container3 {
-            width: 1085px;
+            width: 1000px;
         }
 
         .follow {
@@ -168,7 +168,9 @@
         }
 
         /* small2-container3 */
-
+        .small2-container3{
+            margin-right: 10px;
+        }
         .small2-container3 .other {
             padding: 0px 35px 0px 15px;
         }
@@ -192,7 +194,7 @@
         }
         .small2-container3 .other p {
             color: aliceblue;
-            font-size: 26px;
+            font-size: 24px;
         }
         /* small2-container3 */
         .other {
