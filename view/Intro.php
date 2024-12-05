@@ -51,12 +51,6 @@
         <img src="../assets/image/Hình ảnh/Thiện.jpg" alt="Thành viên 2">
         <h3>Hồ Đức Thiện</h3>
       </div>
-
-      <div class="member">
-        <img src="../assets/image/Hình ảnh/Trang.img.jpg" alt="Thành viên 3">
-        <h3>Bùi Thị Thùy Trang</h3>
-      </div>
-
       <div class="member">
         <img src="../assets/image/Hình ảnh/Hà.img.jpg" alt="Thành viên 4">
         <h3>Hồ Thị Duyên Hà</h3>
@@ -65,7 +59,11 @@
       <div class="member">
         <img src="../assets/image/Hình ảnh/On.jpg" alt="Thành viên 5">
         <h3>Hồ Thị Ơn</h3>
-
+      </div>
+      
+      <div class="member">
+        <img src="../assets/image/Hình ảnh/Trang.img.jpg" alt="Thành viên 3">
+        <h3>Bùi Thị Thùy Trang</h3>
       </div>
     </div>
   </section>
