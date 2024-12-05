@@ -3,22 +3,26 @@
     <link rel="stylesheet" href="../assets/css/style.css">
 <style>
 .upcoming-movies {
-
+    display: flex;
+    flex-wrap: wrap; /* Cho phép các phần tử gói lại thành nhiều dòng */
+    gap: 35px;
+    width: 100%;
 }
 
 .upcoming-movies .movie {
-    display:flex;
-    gap: 35px
+    display: flex;
+    min-width: 290px;
+    flex-direction: row;
+    gap: 10px;
 }
 
 .upcoming-movies .movie a {
-    width: 290px;
-
+    width: 100%; /* Đảm bảo các liên kết chiếm toàn bộ chiều rộng của phần tử */
 }
 
 .upcoming-movies .movie img {
-    width: 290px;
-    height: 100%;
+    width: 100%; /* Đảm bảo ảnh chiếm toàn bộ chiều rộng của phần tử */
+    height: 100%; /* Giữ tỷ lệ khung hình của ảnh */
 }
 
 
