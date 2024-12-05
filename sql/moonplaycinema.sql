@@ -408,3 +408,6 @@ CREATE TABLE orders (
 );
 ALTER TABLE favorites
 ADD COLUMN favorite_id INT AUTO_INCREMENT UNIQUE FIRST;
+
+ALTER TABLE users
+ADD COLUMN subscription_status TINYINT(1) DEFAULT 0 NOT NULL COMMENT '1: Đã đăng ký, 0: Chưa đăng ký';

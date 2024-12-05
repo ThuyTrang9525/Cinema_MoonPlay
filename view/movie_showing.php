@@ -266,6 +266,7 @@
 <?php
     require_once('../model/connect.php');
 
+    
     // Lấy ID phim từ URL
     if (isset($_GET['id'])) {
         $movie_id = intval($_GET['id']);
