@@ -366,7 +366,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['comment_content'])) {
                             <input type="hidden" name="movie_id" value="<?php echo $movie_id; ?>">
                             <input type="hidden" name="action" value="<?php echo $is_favorite ? 'remove' : 'add'; ?>">
                             <button type="submit" class="favorite-btn <?php echo $is_favorite ? 'active' : ''; ?>">
-                                <i class="fa-solid fa-heart"></i> <?php echo $is_favorite ? 'Đã theo dõi' : 'Theo dõi'; ?>
+                                <i class="fa-solid fa-heart"></i> <?php echo $is_favorite ? 'Đã yêu thích' : 'Yêu thích'; ?>
                             </button>
                         </form>
                     </div>
