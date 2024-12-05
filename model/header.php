@@ -25,7 +25,7 @@ $isLoggedIn = isset($_SESSION['username']);
         </ul>
         <?php 
             // Kiểm tra trạng thái đăng nhập
-           if ($isLoggedIn): ?>
+           if ($isLoggedIn=true): ?>
                 <!-- Hiển thị thông tin người dùng nếu đã đăng nhập -->
                 <div class="user-info" style="margin-top: 15px; font-size: 18px;">
                     <i><a href="../view/profile.php" class="fas fa-user" style="font-size: 20px; color: white;"></a></i>
