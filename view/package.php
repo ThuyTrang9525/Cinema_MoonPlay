@@ -26,7 +26,7 @@
                         <li><i class="fa fa-check" style="color:red;"></i> Không quảng cáo, không phụ phí. Luôn luôn như vậy</li>
                     </ul>
                 </div>    
-                 <!-- Gói -->
+                <!-- Gói -->
                 <div class="box_price">
                     <!-- Box 1 -->
                         <div class="box1">
@@ -41,7 +41,7 @@
                                                             <p>Độ phân giải: 480p (HD)</p>
                                                             <p>Thiết bị được hỗ trợ: TV, máy tính, điện thoại di động, máy tính bảng</p>
                                                             <p>Số thiết bị được tải xuống: 1</p>
-                                                             <form method="POST" action="payment.php">
+                                                            <form method="POST" action="payment.php">
                                                                     <input type="hidden" name="package_name" value="1 Tháng">
                                                                     <input type="hidden" name="package_price" value="150000">
                                                                     <input type="hidden" name="package_quality" value="480p">
@@ -67,7 +67,7 @@
                                                                     <input type="hidden" name="package_price" value="400000 ">
                                                                     <input type="hidden" name="package_quality" value="720p">
                                                                     <button type="submit" name="submit">Dùng ngay</button>
-                                                             </form>
+                                                            </form>
 
                                                     </div>
                                             </div>
@@ -92,7 +92,7 @@
                                                                     <input type="hidden" name="package_price" value="750000">
                                                                     <input type="hidden" name="package_quality" value="1080p">
                                                                     <button type="submit" name="submit">Dùng ngay</button>
-                                                         </form>
+                                                        </form>
 
                                                 </div>
                                         </div>
@@ -118,30 +118,30 @@
                                                                     <input type="hidden" name="package_price" value="1200000">
                                                                     <input type="hidden" name="package_quality" value="4K+HDRp">
                                                                     <button type="submit" name="submit">Dùng ngay</button>
-                                                         </form>
+                                                        </form>
                                                 </div>
                                         </div>
 
 
                         </div>    
 
-                           
+
                     </div>    
                     <!-- text gợi ý -->
-                     <div class="text">
+                    <div class="text">
                             <p>Việc bạn có thể xem ở chế độ HD (720p), Full HD (1080p), Ultra HD (4K) và HDR hay không phụ thuộc vào dịch vụ internet và khả năng của thiết bị. Không phải tất cả nội dung đều có sẵn ở mọi độ phân giải. Xem <a href="">Điều khoản sử dụng</a> của chúng tôi để biết thêm chi tiết.</p>
 
                             <p>Chỉ những người sống cùng bạn mới có thể dùng tài khoản của bạn. Xem trên 4 thiết bị khác nhau cùng lúc với gói Cao cấp, 2 gói Tiêu chuẩn và 1 gói Cơ bản và Di động.</p>
-                     </div>
+                    </div>
 
             <!-- Footer -->
                 <div class="footer">
                     <p><b>Moonplay.com</b></p>
                     <p><i class="fa fa-lock"></i> Riêng tư</p>
-               </div>
-       <?php
+            </div>
+    <?php
         // require_once('../model/footer.php');
-       ?>
+    ?>
         
 </body>
 

@@ -16,15 +16,15 @@ require_once '../controllers/payment_back.php';
   <link rel="stylesheet" href="../assets/css/payment.css">
 </head>
 <body>
-             <!-- Header -->
-             <div class="header">
-                <div class="logo">
-                    <img src="../assets/image/Hình ảnh/logo.png">
-                </div>
-                <div class="exit">
-                    <b>Đăng xuất</b>
-                </div>
-            </div>
+        <!-- Header -->
+    <div class="header">
+      <div class="logo">
+          <img src="../assets/image/Hình ảnh/logo.png">
+      </div>
+      <div class="exit">
+          <b>Đăng xuất</b>
+      </div>
+  </div>
   <div class="container">
     <!-- Form Section -->
     <div class="form-section">
