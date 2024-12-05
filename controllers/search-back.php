@@ -1,5 +1,4 @@
 <style>
-    <style>
 /* Tạo kiểu cho form tìm kiếm */
 .search-form {
     display: flex;
