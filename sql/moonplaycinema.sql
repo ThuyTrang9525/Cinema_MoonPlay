@@ -406,3 +406,6 @@ CREATE TABLE orders (
     note TEXT,                               -- Ghi chú đơn hàng
     total DECIMAL(15, 2) NOT NULL,           -- Tổng tiền (số có 2 chữ số thập phân)
 );
+
+ALTER TABLE favorites
+ADD COLUMN favorite_id INT AUTO_INCREMENT UNIQUE FIRST;
