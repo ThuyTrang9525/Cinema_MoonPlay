@@ -3,22 +3,26 @@
     <link rel="stylesheet" href="../assets/css/style.css">
 <style>
 .upcoming-movies {
-
+    display: flex;
+    flex-wrap: wrap; /* Cho phép các phần tử gói lại thành nhiều dòng */
+    gap: 35px;
+    width: 100%;
 }
 
 .upcoming-movies .movie {
-    display:flex;
-    gap: 35px
+    display: flex;
+    min-width: 290px;
+    flex-direction: row;
+    gap: 10px;
 }
 
 .upcoming-movies .movie a {
-    width: 450px;
-
+    width: 100%; /* Đảm bảo các liên kết chiếm toàn bộ chiều rộng của phần tử */
 }
 
 .upcoming-movies .movie img {
-    width: 435px;
-    height: 100%;
+    width: 100%; /* Đảm bảo ảnh chiếm toàn bộ chiều rộng của phần tử */
+    height: 100%; /* Giữ tỷ lệ khung hình của ảnh */
 }
 
 
@@ -110,7 +114,7 @@
         <div class="upcoming-movies">
             <div class="movie">
                 <?php
-                    $query = "SELECT movie_id, poster_url FROM movies WHERE movie_id % 7 = 0 AND poster_url IS NOT NULL LIMIT 5";
+                    $query = "SELECT movie_id, poster_url FROM movies WHERE movie_id % 7 = 0 AND poster_url IS NOT NULL LIMIT 4";
                     $result = $conn->query($query);
 
                     if ($result && $result->num_rows > 0) {

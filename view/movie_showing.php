@@ -20,6 +20,7 @@
 // Kiểm tra xem người dùng đã đăng nhập hay chưa
 $user_id = $_SESSION['user_id'] ?? null;
 
+    
     // Lấy ID phim từ URL
 if (isset($_GET['id'])) {
     $movie_id = intval($_GET['id']);
