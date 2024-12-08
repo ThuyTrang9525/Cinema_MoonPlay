@@ -21,8 +21,7 @@ body {
   }
   .logo img {
       width:90px;
-
-      
+  
   }
 
   .container {
@@ -143,8 +142,10 @@ body {
     background-color: red;
     border-radius: 3px;
     border: none;
-    font-size: 15px;
+    font-size: 13px;
     color:white;
+    text-transform: uppercase;
+    height:30px;
 }
 .discount_button:hover{
      transform: scale(1,1);
