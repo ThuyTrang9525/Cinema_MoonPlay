@@ -1,9 +1,11 @@
 <?php
-
+session_start();
 // Kiểm tra xem người dùng đã đăng nhập hay chưa
-$isLoggedIn = isset($_SESSION['user_id']);
-$isLoggedIn = isset($_SESSION['username']);
-// $username = $isLoggedIn ? $_SESSION['username'] : null;
+$isLoggedIn = isset($_SESSION['user_id']) && isset($_SESSION['username']);
+$username = $isLoggedIn ? $_SESSION['username'] : null;
+ 
+// var_dump($isLoggedIn, $username); 
+
 ?>
 
 <link rel="stylesheet" href="../assets/css/style.css <?php echo time(); ?>">
@@ -28,8 +30,7 @@ $isLoggedIn = isset($_SESSION['username']);
            if ($isLoggedIn): ?>
                 <!-- Hiển thị thông tin người dùng nếu đã đăng nhập -->
                 <div class="user-info" style="margin-top: 15px; font-size: 18px;">
-                    <i><a href="../view/profile.php" class="fas fa-user" style="font-size: 20px; color: white;"></a></i>
-                    <span> <a href="../view/profile.php"> </a></span>
+                    <i><a href="../view/profile.php" class="fa fa-user" style="font-size: 20px; color: white;"></a></i>
                 </div>
             <?php else: ?>
                 <!-- Nút đăng nhập nếu chưa đăng nhập -->
