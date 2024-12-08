@@ -102,16 +102,16 @@ CREATE TABLE `movies` (
 CREATE TABLE discount_codes (
     discount_code_id INT AUTO_INCREMENT PRIMARY KEY,          -- ID mã giảm giá, tự động tăng
     code VARCHAR(50) NOT NULL UNIQUE,           -- Tên mã giảm giá (ví dụ: SALE10)
-    discount_percentage DECIMAL(5, 2) NOT NULL, -- Phần trăm giảm giá (10%, 20%, ...)
+     discount_percentage DECIMAL(5) NOT NULL,-- Phần trăm giảm giá (10%, 20%, ...)
     usage_limit INT NOT NULL DEFAULT 1          -- Số lần mã có thể được sử dụng
 );
 INSERT INTO discount_codes (code, discount_percentage, usage_limit)
 VALUES 
-    ('SALE10', 10.00, 100),
-    ('NEWUSER50', 50.00, 50),
-    ('BLACKFRIDAY', 30.00, 500),
-    ('CHRISTMAS20', 20.00, 200),
-    ('SUMMER15', 15.00, 300);
+    ('SALE10', 10, 100),
+    ('NEWUSER50', 50, 50),
+    ('BLACKFRIDAY', 30, 500),
+    ('CHRISTMAS20', 20, 200),
+    ('SUMMER15', 15, 300);
   -- create payments
 CREATE TABLE payments (
     payment_id INT AUTO_INCREMENT PRIMARY KEY,          -- ID thanh toán, tự động tăng
@@ -383,11 +383,11 @@ CREATE TABLE discount_codes (
 );
 INSERT INTO discount_codes (code, discount_percentage, usage_limit)
 VALUES 
-    ('SALE10', 10, 100),
-    ('NEWUSER50', 50, 50),
-    ('BLACKFRIDAY', 30, 500),
-    ('CHRISTMAS20', 20, 200),
-    ('SUMMER15', 15, 300);
+    ('SALE10', 10, 10),
+    ('NEWUSER50', 50, 10),
+    ('BLACKFRIDAY', 30, 10),
+    ('CHRISTMAS20', 20, 20),
+    ('SUMMER15', 15, 10);
 
 CREATE TABLE payments (
     payment_id INT AUTO_INCREMENT PRIMARY KEY,          -- ID thanh toán, tự động tăng
@@ -406,3 +406,9 @@ CREATE TABLE orders (
     note TEXT,                               -- Ghi chú đơn hàng
     total DECIMAL(15, 2) NOT NULL,           -- Tổng tiền (số có 2 chữ số thập phân)
 );
+
+ALTER TABLE orders
+ADD  ten_goi VARCHAR(50) NOT NULL,   -- Loại gói đăng ký
+ADD  start_date DATE NOT NULL,            -- Ngày bắt đầu
+ADD  end_date DATE NOT NULL,              -- Ngày hết hạn
+ADD   is_notified TINYINT(1) DEFAULT 0;    -- Trạng thái thông báo
