@@ -4,7 +4,7 @@ include_once '../model/connect.php'; // Chèn file kết nối cơ sở dữ li�
 
 // Kiểm tra session trước khi khởi tạo
 if (session_status() == PHP_SESSION_NONE) {
-    session_start();
+    // session_start();
 }
 
 

@@ -21,7 +21,6 @@ if (isset($_GET['message']) && $_GET['message'] == 'success') {
                     <p class="text-muted"> Vui lòng nhập thông tin đăng nhập của bạn!</p> 
                     <input type="text" name="username" placeholder="Tên đăng nhập"> 
                     <input type="password" name="password" placeholder="Mật khẩu"> 
-                    <input type="password" name="password" placeholder="Xác nhận mật khẩu"> 
                     <a class="forgot text-muted" href="forgot_pass.php">Quên mật khẩu?</a> 
                     <input type="submit" name="login" value="Đăng nhập"> 
                     <P class="registers" name="registers" style="color: white;">Không có tài khoản? <a style="color: white;" href="register.php">Đăng ký</a></P>
