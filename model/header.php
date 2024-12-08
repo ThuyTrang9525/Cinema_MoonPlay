@@ -6,8 +6,8 @@ $isLoggedIn = isset($_SESSION['username']);
 // $username = $isLoggedIn ? $_SESSION['username'] : null;
 ?>
 
-<link rel="stylesheet" href="../assets/css/style.css <?php echo time(); ?>">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/header.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 <header class="header">
     <div class="header-logo">
         <img src="../assets/image/logo.png" alt="Logo">
@@ -23,9 +23,20 @@ $isLoggedIn = isset($_SESSION['username']);
             <li><a href="../view/histori.php">Lịch sử</a></li>
             <li><a href="../view/contact.php">Liên hệ</a></li>
         </ul>
+        <div class="header-right">
+            <form method="POST" action="../controllers/search-back.php">
+                <div class="container-search" style="position: relative;">
+                <input style="border:2px grey solid;width:250px;height: 50px; border-radius: 100px;" type="text" name="search_query" placeholder="Nhập tên phim cần tìm..." required>
+                    <div style="height: 47px; align-items:center;border-radius:100px; position: absolute;bottom: 2px; right:0px;width: 47px; background-color: #222222;">
+                        <i style=" font-size: 20px; color:grey; margin-top:13px; margin-left: 14px;" class="fas fa-search"></i>
+                    </div>
+                </div>
+                <button style="border:2px grey solid; height:50px; width:100px; font-size: 15px;border-radius: 100px;" type="submit">Tìm kiếm</button>
+            </form>
+        </div>
         <?php 
             // Kiểm tra trạng thái đăng nhập
-           if ($isLoggedIn): ?>
+        if ($isLoggedIn): ?>
                 <!-- Hiển thị thông tin người dùng nếu đã đăng nhập -->
                 <div class="user-info" style="margin-top: 15px; font-size: 18px;">
                     <i><a href="../view/profile.php" class="fas fa-user" style="font-size: 20px; color: white;"></a></i>
@@ -36,20 +47,9 @@ $isLoggedIn = isset($_SESSION['username']);
                 <button class="login-btn" id="loginButton">Đăng nhập</button>
             <?php endif; 
             ?>
-    </nav>    
+    </nav>
+    <div class = "logout-button"><a href="../view/login.php"><i class="fa-solid fa-right-from-bracket"></i></a></div>    
 </header>
-    <div class="header-right">
-        <form method="POST" action="../controllers/search-back.php">
-            <div class="container-search" style="position: relative;">
-            <input style="border:2px grey solid;width:250px;height: 20px; border-radius: 100px;" type="text" name="search_query" placeholder="Nhập tên phim cần tìm..." required>
-                <div style="height: 43px; align-items:center;border-radius:100px; position: absolute;bottom: 2px; right:0px;width: 45px; background-color: #222222;">
-                    <i style=" font-size: 20px; color:grey; margin-top:13px; margin-left: 14px;" class="fas fa-search"></i>
-                </div>
-            </div>
-            <button style="border:2px grey solid; height:45px; font-size: 15px;border-radius: 100px;" type="submit">Tìm kiếm</button>
-        </form>
-        
-    </div>
     <script>
     document.getElementById('loginButton').addEventListener('click', function() {
         window.location.href = '../view/login.php'; // Đường dẫn tới trang đăng nhập

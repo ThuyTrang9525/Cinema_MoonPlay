@@ -8,11 +8,11 @@
 /* Subscribe Section */
 .footer__subscribe {
     display: flex;
-    margin-left: 220px !important;
+    margin-left: 220px;
     background: white;
     border: 1px solid transparent;
     border-radius: 50px;
-    width: 900px;
+    width: 1100px;
     
 }
 
@@ -24,6 +24,7 @@
     flex: 1;
     font-size: 16px;
     color: #333;
+    padding-left: 25px;
 }
 
 .footer__subscribe input::placeholder {
@@ -33,7 +34,7 @@
 .footer__subscribe button {
     border: none;
     outline: none;
-    padding: 20px 30px;
+    padding: 15px 25px;
     background-color: black;
     color: white;
     border-radius: 50px;
@@ -49,8 +50,10 @@
 /* Links Section */
 .footer__links {
     display: flex;
-    padding: 0px 70px 0px 150px;
-    gap: 50px;
+    justify-content: center;
+    justify-items: center;
+    padding-top: 50px;
+    gap: 60px;
 }
 
 .footer__column {
