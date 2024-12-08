@@ -1,7 +1,34 @@
 
 <link rel="stylesheet" href="../assets/css/detailMovie.css">
 <?php
-require_once('../model/connect.php');
+session_start();
+require_once '../model/connect.php';
+
+// Kiểm tra xem người dùng đã đăng nhập chưa
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../view/login.php"); // Chuyển hướng nếu chưa đăng nhập
+    exit();
+}
+
+$user_id = $_SESSION['user_id'];
+
+// Kiểm tra trạng thái đăng ký từ cơ sở dữ liệu và đồng bộ với $_SESSION
+$sql = "SELECT subscription_status FROM users WHERE user_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
+
+if (!$user || $user['subscription_status'] == 0) {
+    echo "<script>
+        alert('Bạn cần chọn gói dịch vụ để tiếp tục.');
+        window.location.href = '../view/package.php';
+    </script>";
+    exit();
+}
+$_SESSION['subscription_status'] = $user['subscription_status'];
+
 
 // Lấy và kiểm tra `movie_id` từ URL
 $movie_id = isset($_GET['movie_id']) ? intval($_GET['movie_id']) : 1;

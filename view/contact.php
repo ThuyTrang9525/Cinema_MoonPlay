@@ -1,3 +1,37 @@
+<?php
+// Kết nối cơ sở dữ liệu
+include_once '../model/connect.php'; // Chèn file kết nối cơ sở dữ liệu
+
+// Kiểm tra session trước khi khởi tạo
+if (session_status() == PHP_SESSION_NONE) {
+    // session_start();
+}
+
+
+
+// Kiểm tra xem người dùng đã đăng nhập hay chưa
+$user_id = $_SESSION['user_id'] ?? null;
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['feedback'])) {
+    if (is_null($user_id)) {
+        die("Bạn cần đăng nhập để bình luận.");
+    }
+
+    $content = trim($_POST['feedback']);
+    if (!empty($content)) {
+        // Sửa lỗi câu lệnh SQL
+        $sql_insert_comment = "INSERT INTO feedback (user_id, feed_content, time) VALUES (?, ?, NOW())";
+        $stmt_insert = $conn->prepare($sql_insert_comment);
+        $stmt_insert->bind_param("is", $user_id, $content); // Sửa kiểu dữ liệu
+        $stmt_insert->execute();
+        header("Location: contact.php?id=$movie_id");
+        exit();
+    }
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +57,7 @@
 
         <div class="comment">
             <div class="input_comment">
-                <form method="POST" action="/controllers/feedback-back.php">
+                <form method="POST" action="">
                     <label for="">Họ tên <input type="text" name="name" placeholder="Họ tên của bạn" required></label>
                     <label for="">Góp ý <input type="text" name="feedback" placeholder="Góp ý của bạn" required></label>
                     <button type="submit">Gửi ngay!</button>

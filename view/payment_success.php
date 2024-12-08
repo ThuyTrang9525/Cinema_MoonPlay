@@ -1,4 +1,6 @@
+
 <!-- Hàm gửi mail -->
+
 <?php
 session_start();
 require_once '../PHPMailer-master/src/PHPMailer.php';
@@ -7,14 +9,17 @@ require_once '../PHPMailer-master/src/Exception.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 require_once '../model/connect.php';
+
 $sum = $_SESSION['package'][1];
 $current_date = date('Y-m-d'); // Ngày hiện tại
 if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
     // Lấy dữ liệu từ form
+
     $name = $_POST['name'] ?? '';
     $phone = $_POST['phone'] ?? '';
     $email = $_POST['email'] ?? '';
     $note = $_POST['note'] ?? '';
+
     $total_money = $_SESSION['totalmoney']?? 0 ;
     // $start_date = $_SESSION['start_date'];
     $start_date = $current_date;
@@ -22,34 +27,28 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
 }
 
 
-function sendMail($name, $email, $subject, $content) {
-  $mail = new PHPMailer(true);
-    
-
-    try {
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
-        $mail->SMTPAuth = true;
-        $mail->Username = 'hothiduyenhai2005@gmail.com';
-        $mail->Password = 'ywpk ihvv monx ulxi';
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-        $mail->Port = 465;
-
-        $mail->setFrom('no-reply@moonplay.com', 'MoonPlay');
-        $mail->addAddress($email, $name);
-  
-        // Cấu hình mã hóa UTF-8
-        $mail->CharSet = 'UTF-8';
-
-        $mail->isHTML(true);
-        $mail->Subject = $subject;
-        $mail->Body = $content;
-
-        $mail->send();
-        // echo 'Gửi email thành công';
-    } catch (Exception $e) {
-        echo "Gửi email thất bại. Lỗi Mailer: {$mail->ErrorInfo}";
+    function sendMail($name, $email, $subject, $content) {
+        $mail = new PHPMailer(true);
+        try {
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'hothiduyenhai2005@gmail.com';
+            $mail->Password = 'ywpk ihvv monx ulxi';
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+            $mail->Port = 465;
+            $mail->setFrom('no-reply@moonplay.com', 'MoonPlay');
+            $mail->addAddress($email, $name);
+            $mail->CharSet = 'UTF-8';
+            $mail->isHTML(true);
+            $mail->Subject = $subject;
+            $mail->Body = $content;
+            $mail->send();
+        } catch (Exception $e) {
+            echo "Gửi email thất bại: {$mail->ErrorInfo}";
+        }
     }
+
 }
 if (!empty($email)) {
   // Khi gửi email, lấy tổng tiền từ session
@@ -66,10 +65,10 @@ if (!empty($email)) {
         // echo "Lưu đơn hàng thành công!";
     } else {
         echo "Lỗi khi lưu đơn hàng: " . mysqli_error($conn);
+
     }
 }
 ?>
-
 <link rel="stylesheet" href="../assets/css/payment_success.css">
 <body>
   <div class="success-page">
@@ -84,4 +83,3 @@ if (!empty($email)) {
     </div>
   </div>
 </body>
-</html>

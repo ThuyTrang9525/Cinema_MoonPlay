@@ -407,8 +407,16 @@ CREATE TABLE orders (
     total DECIMAL(15, 2) NOT NULL,           -- Tổng tiền (số có 2 chữ số thập phân)
 );
 
+
 ALTER TABLE orders
 ADD  ten_goi VARCHAR(50) NOT NULL,   -- Loại gói đăng ký
 ADD  start_date DATE NOT NULL,            -- Ngày bắt đầu
 ADD  end_date DATE NOT NULL,              -- Ngày hết hạn
 ADD   is_notified TINYINT(1) DEFAULT 0;    -- Trạng thái thông báo
+
+ALTER TABLE favorites
+ADD COLUMN favorite_id INT AUTO_INCREMENT UNIQUE FIRST;
+
+ALTER TABLE users
+ADD COLUMN subscription_status TINYINT(1) DEFAULT 0 NOT NULL COMMENT '1: Đã đăng ký, 0: Chưa đăng ký';
+

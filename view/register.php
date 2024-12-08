@@ -15,8 +15,9 @@
                 <h1>Đăng ký</h1>
                     <p class="text-muted"></p> 
                     <input type="text" name="username" placeholder="Tên đăng nhập"> 
-                    <input type="password" name="password" placeholder="Mật khẩu"> 
-                    <input type="email" name="email" placeholder="Email"> 
+                    <input type="password" name="password" placeholder="Mật khẩu" required> 
+                    <input type="password" name="confirm-password" placeholder="Xác nhận mật khẩu" required> 
+                    <input type="email" name="email" placeholder="Email" required> 
                     <input type="submit" name="signup" value="Sign Up"> 
                     <P class="registers" name="registers" style="color: white;">Đã có tài khoản? <a style="color:white;" href="login.php">Đăng nhập</a></P>
                     <div class="col-md-12"> 

@@ -9,23 +9,23 @@
 }
 .slideshow {
     display: flex;
-    width: 500%; /* Tổng chiều rộng là số lượng slide nhân 100% */
+    width: 100%; /* Tổng chiều rộng là số lượng slide nhân 100% */
+    height: 700px;
 }
 
 .slide {
     width: 100%; /* Mỗi slide chiếm toàn bộ chiều rộng slider */
     flex-shrink: 0; /* Đảm bảo kích thước không co lại */
 }
-/* Cập nhật ảnh cho phù hợp với chiều rộng và chiều cao */
 .slide img {
-    height: 1200px; /* Chiều cao cố định 1000px */
-    object-fit: cover; /* Đảm bảo ảnh không bị méo, cắt bỏ phần thừa */
-    display: block; /* Loại bỏ khoảng trắng dưới ảnh */
+    height: 100%;
+    width: 100%;
 }
 
 /* Nút đăng ký */
 .submit-button-banner {
     position: absolute;
+    top: 550px;
     bottom: 400px;
     left: 400px;
     transform: translateX(-50%);
@@ -52,8 +52,8 @@
 
 </style>
 
- <!-- Start Slider --> 
- <div class="slider">
+<!-- Start Slider --> 
+<div class="slider">
     <div class="slideshow">
         <?php
         $query = "SELECT movie_id, poster_url FROM movies WHERE poster_url IS NOT NULL LIMIT 5";
@@ -64,13 +64,8 @@
                 echo '
                 <div class="slide">
                     <a href="../model/detail_movie.php?movie_id=' . $movie['movie_id'] . '">
-                        <img src="' . htmlspecialchars($movie['poster_url']) . '" alt="Phim" style = "width: 100vw ; height: 1200px ">
+                        <img src="' . htmlspecialchars($movie['poster_url']) . '" alt="Phim" style="width: 100vw; height: 1200px;">
                     </a>
-                    <div class="submit-button-banner">
-                    <a href="register.php">
-                        <button type="button"><b>Đăng ký ngay</b></button>
-                    </a>
-                </div>
                 </div>
                 ';
             }
@@ -78,12 +73,13 @@
             echo '<p>Không có phim nào để hiển thị.</p>';
         }
         ?>
-        <!-- Nút đăng ký -->
-    
+    </div>
+    <div class="submit-button-banner">
+        <a href="../view/register.php">
+            <button type="button"><b>Đăng ký ngay</b></button>
+        </a>
     </div>
 </div>
-
-
 
 <!-- End slider -->
 

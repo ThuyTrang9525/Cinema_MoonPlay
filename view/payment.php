@@ -78,6 +78,7 @@ if( ($_SERVER['REQUEST_METHOD'] == 'POST')){
   <link rel="stylesheet" href="../assets/css/payment.css">
 </head>
 <body>
+
              <!-- Header -->
              <div class="header">
                 <div class="logo">
@@ -89,6 +90,7 @@ if( ($_SERVER['REQUEST_METHOD'] == 'POST')){
                     <b>Đăng xuất</b>
                 </div>
             </div>
+
   <div class="container">
     <!-- Form Section -->
     <div class="form-section">
