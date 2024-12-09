@@ -14,18 +14,7 @@ $username = $isLoggedIn ? $_SESSION['username'] : null;
     <div class="header-logo">
         <img src="../assets/image/logo.png" alt="Logo">
     </div>
-
-    <nav class="list">
-        <ul class="header-left">
-            <li><a href="../view/Intro.php">Giới thiệu</a></li>
-            <li><a href="../view/main.php">Trang chủ</a></li>
-            <li><a href="../model/category.php">Kho phim</a></li>
-            <li><a href="../view/package.php">Các gói</a></li>
-            <li><a href="#">Yêu thích</a></li>
-            <li><a href="../view/histori.php">Lịch sử</a></li>
-            <li><a href="../view/contact.php">Liên hệ</a></li>
-        </ul>
-        <div class="header-right">
+    <div class="header-right">
             <form method="POST" action="../controllers/search-back.php">
                 <div class="container-search" style="position: relative;">
                 <input style="border:2px grey solid;width:250px;height: 50px; border-radius: 100px;" type="text" name="search_query" placeholder="Nhập tên phim cần tìm..." required>
@@ -36,11 +25,22 @@ $username = $isLoggedIn ? $_SESSION['username'] : null;
                 <button style="border:2px grey solid; height:50px; width:100px; font-size: 15px;border-radius: 100px;" type="submit">Tìm kiếm</button>
             </form>
         </div>
+    <nav class="list">
+        <ul class="header-left">
+            <li><a href="../view/Intro.php">Giới thiệu</a></li>
+            <li><a href="../view/main.php">Trang chủ</a></li>
+            <li><a href="../model/category.php">Kho phim</a></li>
+            <li><a href="../view/package.php">Gói dịch vụ</a></li>
+            <li><a href="#">Yêu thích</a></li>
+            <li><a href="../view/histori.php">Lịch sử</a></li>
+            <li><a href="../view/contact.php">Liên hệ</a></li>
+        </ul>
+        
         <?php 
             // Kiểm tra trạng thái đăng nhập
         if ($isLoggedIn): ?>
                 <!-- Hiển thị thông tin người dùng nếu đã đăng nhập -->
-                <div class="user-info" style="margin-top: 15px; font-size: 18px;">
+                <div class="profile-btn">
                     <i><a href="../view/profile.php" class="fa fa-user" style="font-size: 20px; color: white;"></a></i>
                 </div>
             <?php else: ?>
