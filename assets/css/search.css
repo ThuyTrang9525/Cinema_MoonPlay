@@ -1,0 +1,91 @@
+/* Tạo kiểu cho form tìm kiếm */
+.search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.search-form input {
+    padding: 8px;
+    font-size: 14px;
+    margin-right: 10px;
+    width: 200px;
+}
+
+.search-form button {
+    padding: 8px 12px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Tạo kiểu cho kết quả tìm kiếm */
+.row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    background-color: black;
+}
+
+.col {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+}
+
+.col:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.col img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+}
+
+.col .info {
+    padding: 10px;
+    text-align: center;
+}
+
+.col .info h3 {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #333;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.col .info p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.col .info .btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.col .info .btn:hover {
+    background-color: #0056b3;
+}
