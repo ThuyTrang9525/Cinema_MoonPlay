@@ -20,7 +20,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $confirm_password =$_POST['confirm-password'];
     $email = $_POST['email'];
+
+    // Kiểm tra mật khẩu và xác nhận mật khẩu khớp nhau 
+    if ($password !== $confirm_password) { 
+        $_SESSION['error'] = "Mật khẩu và xác nhận mật khẩu không khớp!"; 
+        header("location:../view/register.php"); 
+        exit(); 
+    }
 
     // Mã hóa mật khẩu
     // $hashed_password = password_hash($password, PASSWORD_DEFAULT);

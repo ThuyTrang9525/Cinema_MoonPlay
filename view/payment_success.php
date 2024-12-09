@@ -1,19 +1,31 @@
+
+<!-- Hàm gửi mail -->
+
 <?php
 session_start();
-require '../PHPMailer-master/src/PHPMailer.php';
-require '../PHPMailer-master/src/SMTP.php';
-require '../PHPMailer-master/src/Exception.php';
-
+require_once '../PHPMailer-master/src/PHPMailer.php';
+require_once '../PHPMailer-master/src/SMTP.php';
+require_once '../PHPMailer-master/src/Exception.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 require_once '../model/connect.php';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+$sum = $_SESSION['package'][1];
+$current_date = date('Y-m-d'); // Ngày hiện tại
+if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
+    // Lấy dữ liệu từ form
+
     $name = $_POST['name'] ?? '';
     $phone = $_POST['phone'] ?? '';
     $email = $_POST['email'] ?? '';
     $note = $_POST['note'] ?? '';
-    $total_money = $_SESSION['totalmoney'] ?? 0;
+
+    $total_money = $_SESSION['totalmoney']?? 0 ;
+    // $start_date = $_SESSION['start_date'];
+    $start_date = $current_date;
+    $end_date=$_SESSION['end_date'];
+}
+
 
     function sendMail($name, $email, $subject, $content) {
         $mail = new PHPMailer(true);
@@ -37,24 +49,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    if (!empty($email)) {
-        $subject = "Thanh toán thành công";
-        $content = "Chào $name,<br><br>Cảm ơn bạn đã thanh toán. Bạn đã mua gói thành công với tổng số tiền là $total_money VNĐ.<br><br>Chúc bạn có những trải nghiệm thú vị và mới mẻ tại MoonPlay.";
-        sendMail($name, $email, $subject, $content);
+}
+if (!empty($email)) {
+  // Khi gửi email, lấy tổng tiền từ session
+  // $total_money = isset($_SESSION['totalmoney']) ? $_SESSION['totalmoney'] : 0;
+   $total_money = isset($_SESSION['totalmoney']) ? $_SESSION['totalmoney'] : $sum;
+    // Lấy tổng tiền sau khi áp dụng mã giảm giá
+    $subject = "Thanh toán thành công";
+    $content = "Chào $name,<br><br>Cảm ơn bạn đã thanh toán. Bạn đã mua gói thành công với tổng số tiền là $total_money VNĐ và gói đăng ký này sẽ hết hạn vào  $end_date .<br><br>Chúc bạn có những trải nghiệm thú vị và mới mẻ tại MoonPlay.";
+    sendMail($name, $email, $subject, $content);
+    // Lưu thông tin đơn hàng vào cơ sở dữ liệu
+    $sql = "INSERT INTO orders (order_name, phone, email, note, total, start_date, end_date, is_notified) 
+    VALUES ('$name', '$phone', '$email', '$note', '$total_money', '$start_date', '$end_date', 0)";
+    if (mysqli_query($conn, $sql)) {
+        // echo "Lưu đơn hàng thành công!";
+    } else {
+        echo "Lỗi khi lưu đơn hàng: " . mysqli_error($conn);
 
-        $sql = "INSERT INTO orders (order_name, phone, email, note, total) VALUES (?, ?, ?, ?, ?)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ssssi", $name, $phone, $email, $note, $total_money);
-        if ($stmt->execute()) {
-            $update_status_sql = "UPDATE users SET subscription_status = 1 WHERE user_id = ?";
-            $stmt = $conn->prepare($update_status_sql);
-            $stmt->bind_param("i", $_SESSION['user_id']);
-            if ($stmt->execute()) {
-                $_SESSION['subscription_status'] = 1;
-            }
-        } else {
-            echo "Lỗi khi lưu đơn hàng.";
-        }
     }
 }
 ?>
