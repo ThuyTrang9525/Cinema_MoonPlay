@@ -82,6 +82,18 @@
     <h3>3. Làm thế nào để thanh toán dịch vụ?</h3>
     <p>Chúng tôi chấp nhận nhiều hình thức thanh toán, bao gồm thẻ tín dụng, ví điện tử và chuyển khoản ngân hàng.</p>
   </div>
+  <div class="faq-item">
+    <h3>4. Có hỗ trợ khách hàng trực tuyến không?</h3>
+    <p>Có, chúng tôi cung cấp hỗ trợ khách hàng trực tuyến qua hotline. Chúng tôi sẽ hỗ trợ bạn 24/7.</p>
+  </div>
+  <div class="faq-item">
+    <h3>5. Làm thế nào để báo cáo nội dung không phù hợp?</h3>
+    <p>Nếu bạn phát hiện nội dung không phù hợp, vui lòng liên hệ trực tiếp với chúng tôi qua email hỗ trợ. Chúng tôi sẽ xem xét và xử lý nhanh chóng</p>
+  </div>
+  <div class="faq-item">
+    <h3>6. Có thời gian dùng thử miễn phí không?</h3>
+    <p>Hiện tại chúng tôi chưa cung cấp thời gian dùng thử miễn phí cho người dùng mới. Bạn có thể đăng ký tài khoản và mua gói dịch vụ để có thể xem tất cả các bộ phim</p>
+  </div>
 </section>
 
   <?php include('../model/footer.php'); ?>

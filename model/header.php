@@ -49,7 +49,7 @@ $username = $isLoggedIn ? $_SESSION['username'] : null;
             <?php endif; 
             ?>
     </nav>
-    <div class = "logout-button"><a href="../view/login.php"><i class="fa-solid fa-right-from-bracket"></i></a></div>    
+    <div style="background-color: black;" class = "logout-button"><a href="../view/login.php"><i style="font-size: 30px; margin-bottom: 15px;" class="fa-solid fa-right-from-bracket"></i></a></div>    
 </header>
     <script>
     document.getElementById('loginButton').addEventListener('click', function() {
