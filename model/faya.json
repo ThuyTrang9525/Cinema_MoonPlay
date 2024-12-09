@@ -1,0 +1,170 @@
+{
+    "status": true,
+    "msg": "",
+    "movie": {
+      "tmdb": {
+        "type": "tv",
+        "id": "62852",
+        "season": 7,
+        "vote_average": 7.737,
+        "vote_count": 896
+      },
+      "imdb": {
+        "id": null
+      },
+      "created": {
+        "time": "2024-12-07T17:03:57.000Z"
+      },
+      "modified": {
+        "time": "2024-12-08T09:29:50.000Z"
+      },
+      "_id": "d117bf0c366f8484dd9f755301711778",
+      "name": "Cuộc chơi bạc tỷ (Phần 4)",
+      "slug": "cuoc-choi-bac-ty-phan-4",
+      "origin_name": "Billions (Season 4)",
+      "content": "Bỏ lại mối cừu hận phía sau, Chuck và Axe bắt đầu giúp đỡ lẫn nhau khi họ tiếp tục lao vào cuộc chiến điên cuồng để giành tiền tài, địa vị – và trả thù.",
+      "type": "series",
+      "status": "completed",
+      "poster_url": "https://phimimg.com/upload/vod/20241207-1/741f02419fe1c98ca832180b72f0d8c1.jpg",
+      "thumb_url": "https://phimimg.com/upload/vod/20241207-1/79c8917d3133c928039f0a32bedc2a2c.jpg",
+      "is_copyright": false,
+      "sub_docquyen": false,
+      "chieurap": false,
+      "trailer_url": "",
+      "time": "59 phút/tập",
+      "episode_current": "Hoàn Tất (12/12)",
+      "episode_total": "12",
+      "quality": "FHD",
+      "lang": "Vietsub",
+      "notify": "",
+      "showtimes": "",
+      "year": 2019,
+      "view": 0,
+      "actor": [
+        "Paul Giamatti",
+        "Damian Lewis",
+        "Maggie Siff",
+        "Malin Akerman",
+        "David Costabile",
+        "Asia Kate Dillon",
+        "Toby Leonard Moore",
+        "Condola Rashad",
+        "Kelly AuCoin",
+        "Jeffrey DeMunn",
+        "Dan Soder",
+        "David Strathairn",
+        "Mary-Louise Parker",
+        "Clancy Brown",
+        "John Malkovich"
+      ],
+      "director": [
+        "Đang cập nhật"
+      ],
+      "category": [
+        {
+          "id": "37a7b38b6184a5ebd3c43015aa20709d",
+          "name": "Chính Kịch",
+          "slug": "chinh-kich"
+        }
+      ],
+      "country": [
+        {
+          "id": "74d9fa92f4dea9ecea8fc2233dc7921a",
+          "name": "Âu Mỹ",
+          "slug": "au-my"
+        }
+      ]
+    },
+    "episodes": [
+      {
+        "server_name": "#Hà Nội (Vietsub)",
+        "server_data": [
+          {
+            "name": "Tập 01",
+            "slug": "tap-01",
+            "filename": "Cuộc chơi bạc tỷ (Phần 4) - Billions (Season 4) - 2019 - 1080p - Vietsub - Tập 01",
+            "link_embed": "https://player.phimapi.com/player/?url=https://s5.phim1280.tv/20241207/rYSmPlhJ/index.m3u8",
+            "link_m3u8": "https://s5.phim1280.tv/20241207/rYSmPlhJ/index.m3u8"
+          },
+          {
+            "name": "Tập 02",
+            "slug": "tap-02",
+            "filename": "Cuộc chơi bạc tỷ (Phần 4) - Billions (Season 4) - 2019 - 1080p - Vietsub - Tập 02",
+            "link_embed": "https://player.phimapi.com/player/?url=https://s5.phim1280.tv/20241207/wL0k1COB/index.m3u8",
+            "link_m3u8": "https://s5.phim1280.tv/20241207/wL0k1COB/index.m3u8"
+          },
+          {
+            "name": "Tập 03",
+            "slug": "tap-03",
+            "filename": "Cuộc chơi bạc tỷ (Phần 4) - Billions (Season 4) - 2019 - 1080p - Vietsub - Tập 03",
+            "link_embed": "https://player.phimapi.com/player/?url=https://s5.phim1280.tv/20241207/9i0WQ6Ft/index.m3u8",
+            "link_m3u8": "https://s5.phim1280.tv/20241207/9i0WQ6Ft/index.m3u8"
+          },
+          {
+            "name": "Tập 04",
+            "slug": "tap-04",
+            "filename": "Cuộc chơi bạc tỷ (Phần 4) - Billions (Season 4) - 2019 - 1080p - Vietsub - Tập 04",
+            "link_embed": "https://player.phimapi.com/player/?url=https://s5.phim1280.tv/20241207/HYqStHq3/index.m3u8",
+            "link_m3u8": "https://s5.phim1280.tv/20241207/HYqStHq3/index.m3u8"
+          },
+          {
+            "name": "Tập 05",
+            "slug": "tap-05",
+            "filename": "Cuộc chơi bạc tỷ (Phần 4) - Billions (Season 4) - 2019 - 1080p - Vietsub - Tập 05",
+            "link_embed": "https://player.phimapi.com/player/?url=https://s5.phim1280.tv/20241207/uSkQJ0NV/index.m3u8",
+            "link_m3u8": "https://s5.phim1280.tv/20241207/uSkQJ0NV/index.m3u8"
+          },
+          {
+            "name": "Tập 06",
+            "slug": "tap-06",
+            "filename": "Cuộc chơi bạc tỷ (Phần 4) - Billions (Season 4) - 2019 - 1080p - Vietsub - Tập 06",
+            "link_embed": "https://player.phimapi.com/player/?url=https://s5.phim1280.tv/20241207/hqjusVSU/index.m3u8",
+            "link_m3u8": "https://s5.phim1280.tv/20241207/hqjusVSU/index.m3u8"
+          },
+          {
+            "name": "Tập 07",
+            "slug": "tap-07",
+            "filename": "Cuộc chơi bạc tỷ (Phần 4) - Billions (Season 4) - 2019 - 1080p - Vietsub - Tập 07",
+            "link_embed": "https://player.phimapi.com/player/?url=https://s5.phim1280.tv/20241207/9P9iBkWe/index.m3u8",
+            "link_m3u8": "https://s5.phim1280.tv/20241207/9P9iBkWe/index.m3u8"
+          },
+          {
+            "name": "Tập 08",
+            "slug": "tap-08",
+            "filename": "Cuộc chơi bạc tỷ (Phần 4) - Billions (Season 4) - 2019 - 1080p - Vietsub - Tập 08",
+            "link_embed": "https://player.phimapi.com/player/?url=https://s5.phim1280.tv/20241207/dpubC3Xm/index.m3u8",
+            "link_m3u8": "https://s5.phim1280.tv/20241207/dpubC3Xm/index.m3u8"
+          },
+          {
+            "name": "Tập 09",
+            "slug": "tap-09",
+            "filename": "Cuộc chơi bạc tỷ (Phần 4) - Billions (Season 4) - 2019 - 1080p - Vietsub - Tập 09",
+            "link_embed": "https://player.phimapi.com/player/?url=https://s5.phim1280.tv/20241207/j7YECE1K/index.m3u8",
+            "link_m3u8": "https://s5.phim1280.tv/20241207/j7YECE1K/index.m3u8"
+          },
+          {
+            "name": "Tập 10",
+            "slug": "tap-10",
+            "filename": "Cuộc chơi bạc tỷ (Phần 4) - Billions (Season 4) - 2019 - 1080p - Vietsub - Tập 10",
+            "link_embed": "https://player.phimapi.com/player/?url=https://s5.phim1280.tv/20241207/puOS6mCh/index.m3u8",
+            "link_m3u8": "https://s5.phim1280.tv/20241207/puOS6mCh/index.m3u8"
+          },
+          {
+            "name": "Tập 11",
+            "slug": "tap-11",
+            "filename": "Cuộc chơi bạc tỷ (Phần 4) - Billions (Season 4) - 2019 - 1080p - Vietsub - Tập 11",
+            "link_embed": "https://player.phimapi.com/player/?url=https://s5.phim1280.tv/20241207/cmlb3rya/index.m3u8",
+            "link_m3u8": "https://s5.phim1280.tv/20241207/cmlb3rya/index.m3u8"
+          },
+          {
+            "name": "Tập 12",
+            "slug": "tap-12",
+            "filename": "Cuộc chơi bạc tỷ (Phần 4) - Billions (Season 4) - 2019 - 1080p - Vietsub - Tập 12",
+            "link_embed": "https://player.phimapi.com/player/?url=https://s5.phim1280.tv/20241207/JedRYVO7/index.m3u8",
+            "link_m3u8": "https://s5.phim1280.tv/20241207/JedRYVO7/index.m3u8"
+          }
+        ]
+      }
+    ]
+  }
+  

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Streaming Website</title>
     <link rel="stylesheet" href="styles.css<?php echo time(); ?>">
+
 </head>
 <body>
     <?php include('../model/header.php'); ?>
