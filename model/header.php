@@ -35,7 +35,7 @@ $username = $isLoggedIn ? $_SESSION['username'] : null;
             <li><a href="../view/favorite.php">Yêu thích</a></li>
 =======
             <li><a href="../view/package.php">Gói dịch vụ</a></li>
-            <li><a href="#">Yêu thích</a></li>
+            <li><a href="../view/favorite.php">Yêu thích</a></li>
 >>>>>>> 35e0e24ecffd55b67e6122cc1e726a147eb7b1d5
             <li><a href="../view/histori.php">Lịch sử</a></li>
             <li><a href="../view/contact.php">Liên hệ</a></li>
