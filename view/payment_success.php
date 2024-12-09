@@ -49,7 +49,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
         }
     }
 
-}
+
 if (!empty($email)) {
   // Khi gửi email, lấy tổng tiền từ session
   // $total_money = isset($_SESSION['totalmoney']) ? $_SESSION['totalmoney'] : 0;

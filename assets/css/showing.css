@@ -1,0 +1,257 @@
+body {
+    background-color: black;
+    color: #fff;
+}
+body.movieShow{
+    background-color: black;
+    color: #fff;
+}
+.screen {
+    width: 100%;
+    height: 700px;
+}
+.video {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+
+/* container2 */
+.container2 {
+    display: flex;
+    color: aliceblue;
+    padding: 30px;
+}
+
+.container2 .title {
+    color: aliceblue;
+    margin: 0px;
+}
+.title-main {
+    font-size: 50px;
+    margin: 0;
+    padding-right: 80px ;
+    font-weight: bold;
+}
+.title-extra {
+    font-size: 26px;
+
+}
+
+
+.star-rating {
+    display: flex;
+    color: yellow;
+    padding-top: 15px;
+
+}
+.star i {
+    font-size: 40px;
+    padding-right: 10px;
+}
+
+/* Big container3 */
+.big-container3 {
+    display: flex;
+    padding: 0px 65px 0px ;
+}
+.describe {
+    display: flex;
+    width: 1450px;
+}
+
+.poster {
+    width: 300px;
+    height: 400px;
+    padding-top: 20px;
+}
+.poster img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.title-pos-main {
+    color: aliceblue;
+    font-size: 25px;
+    text-align: center;
+}
+.content {
+    color: aliceblue;
+    width: 575px;
+    margin: 0px 50px 0px 20px ;
+    font-size: 18px;
+    
+
+}
+.small1-container3 {
+    width: 1000px;
+}
+
+.follow {
+    padding: 30px 0px;
+}
+.follow a {
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 26px;
+
+}
+.follow a:hover {
+    color: red;
+    transition: all 0.5s ease;
+
+}
+
+/* Comment */
+/* box-cmt1 */
+
+.comment .box-cmt1 input[type="text"] {
+    width: calc(100% - 60px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #444;
+    color: #fff;
+    outline: none;
+    margin-right: 10px;
+    font-size: 20px;
+    transition: background-color 0.3s;
+    margin-top: 70px;
+}
+.comment .box-cmt1 input[type="text"]:focus {
+    background-color: #555;
+}
+.comment .box-cmt1 button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #f56;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.comment .box-cmt1 button:hover {
+    background-color: #f33;
+}
+
+
+
+/* box-cmt2 */
+.comment .box-cmt2 {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+.comment .box-cmt2 .avt img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.comment .box-cmt2 .commented {
+    flex: 1;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 8px;
+}
+.comment .box-cmt2 .commented .name {
+    font-weight: bold;
+}
+
+/* small2-container3 */
+.small2-container3{
+    margin-right: 10px;
+}
+.small2-container3 .other {
+    padding: 0px 35px 0px 15px;
+}
+
+.small2-container3 .other_movies {
+    width: 270px;
+    height: 170px;
+    padding-bottom: 20px ;
+    transition: transform 0.3s ease;
+}
+.small2-container3 .other_movies:hover {
+    transform: scale(1.1);
+
+}
+
+.small2-container3 .other_movies img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+
+}
+.small2-container3 .other p {
+    color: aliceblue;
+    font-size: 24px;
+}
+/* small2-container3 */
+.other {
+padding: 0px 20px;
+}
+
+.other_movies {
+    width: 270px;
+    height: 170px;
+    padding-bottom: 20px ;
+    transition: transform 0.3s ease;
+
+}
+.other_movies:hover {
+    transform: scale(1.1);
+}
+.other_movies img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.other p {
+    color: aliceblue;
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+
+
+/* Container4 */
+.container4 {
+    padding: 150px 0px 35px 65px;
+}
+.recommend {
+    color: aliceblue;
+    font-size: 26px;
+}
+
+.movies {
+    display: flex;
+}
+.movies div  {
+    width: 1700px;
+    height: 450px;
+    padding: 10px 65px 50px 0px;
+    transition: transform 0.3s ease;
+}
+.movies div:hover {
+    transform: scale(1.1);
+
+}
+.movies img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+
+.movies .recommend-type {
+    color: aliceblue;
+    font-size: 20px;
+    text-align: center;
+}
