@@ -406,6 +406,13 @@ CREATE TABLE orders (
     note TEXT,                               -- Ghi chú đơn hàng
     total DECIMAL(15, 2) NOT NULL,           -- Tổng tiền (số có 2 chữ số thập phân)
 );
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+ALTER TABLE favorites
+ADD COLUMN favorite_id INT AUTO_INCREMENT UNIQUE FIRST;
+=======
+=======
 
 
 ALTER TABLE orders
@@ -414,9 +421,14 @@ ADD  start_date DATE NOT NULL,            -- Ngày bắt đầu
 ADD  end_date DATE NOT NULL,              -- Ngày hết hạn
 ADD   is_notified TINYINT(1) DEFAULT 0;    -- Trạng thái thông báo
 
+>>>>>>> 35e0e24ecffd55b67e6122cc1e726a147eb7b1d5
 ALTER TABLE favorites
 ADD COLUMN favorite_id INT AUTO_INCREMENT UNIQUE FIRST;
 
 ALTER TABLE users
 ADD COLUMN subscription_status TINYINT(1) DEFAULT 0 NOT NULL COMMENT '1: Đã đăng ký, 0: Chưa đăng ký';
+<<<<<<< HEAD
+>>>>>>> bdbc25dc5217dce63d9c7a8e7c1d4ceeca318054
+=======
 
+>>>>>>> 35e0e24ecffd55b67e6122cc1e726a147eb7b1d5

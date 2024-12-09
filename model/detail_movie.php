@@ -13,9 +13,19 @@ if (!isset($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id'];
 
 // Kiểm tra trạng thái đăng ký từ cơ sở dữ liệu và đồng bộ với $_SESSION
-$sql = "SELECT subscription_status FROM users WHERE user_id = ?";
+// Chuẩn bị truy vấn
+$sql = "SELECT * FROM users WHERE user_id = ?";
 $stmt = $conn->prepare($sql);
+if (!$stmt) {
+    die("Lỗi prepare: " . $conn->error); // Hiển thị lỗi nếu truy vấn sai
+}
+
 $stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+if (!$result) {
+    die("Lỗi truy vấn: " . $conn->error);
+}
 $stmt->execute();
 $result = $stmt->get_result();
 $user = $result->fetch_assoc();
