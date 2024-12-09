@@ -1,5 +1,5 @@
+<link rel="stylesheet" href="../assets/css/showing.css">
 <?php
-
 // Hàm lấy thông tin chi tiết phim từ API
 function getFilmDetails($slug) {
     $url = "https://phimapi.com/phim/" . urlencode($slug); 
@@ -29,7 +29,23 @@ if ($slug) {
 
     if ($film && isset($film['movie'])) {
         $filmData = $film['movie'];
+        if ($film && isset($film['episodes'][0]['server_data'])) {
+            // Lấy danh sách server_data
+            $serverData = $film['episodes'][0]['server_data'];
+        
+            // Kiểm tra và lấy link_embed của tập đầu tiên
+            if (!empty($serverData[0]['link_embed'])) {
+                $videoLink = $serverData[0]['link_embed'];
+            } else {
+                echo "Không tìm thấy link video!";
+            }
+        }
         ?>
+        <!-- Video Player -->
+        <div class="movie-player">
+            <div class="screen">
+                <iframe class="video" src="<?php echo  $videoLink; ?>" frameborder="0" allowfullscreen></iframe>
+            </div>
         <div class="movie-showing">
             <!-- Thông tin phim -->
             <div class="infor-movie">
@@ -42,10 +58,6 @@ if ($slug) {
                     <p><?php echo htmlspecialchars($filmData['content']); ?></p>
                 </div>
             </div>
-
-            <!-- Video Player -->
-            <div class="movie-player">
-            <div class="screen">
     <?php
     // Kiểm tra nếu 'episodes' tồn tại và là một mảng hợp lệ
     if (isset($filmData['episodes']) && is_array($filmData['episodes']) && !empty($filmData['episodes'])) {
@@ -67,9 +79,7 @@ if ($slug) {
                 echo '<p>Không có server data cho tập này.</p>';
             }
         }
-    } else {
-        echo '<p>Không có tập phim nào để hiển thị.</p>';
-    }
+    } 
     ?>
 </div>
             </div>

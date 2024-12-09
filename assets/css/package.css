@@ -122,3 +122,29 @@ body{
     height: 4px; /* Độ dày đường kẻ */
     background-color: black; /* Màu đường kẻ */
 }
+
+.discount-title{
+    font-size: 25px;
+    color: red;
+    margin:30px 30px;
+    text-align: center;
+}
+.all-discount{
+    display:flex;
+    gap:30px;
+    margin-left: 30px;
+
+}
+.discount{
+    display:flex;
+
+}
+.voucher{
+    width:550px;
+    background-color:#dde0dd;
+    margin-bottom: 20px;
+}
+.text-voucher p:first-child{
+    color:red;
+    font-weight: bold;
+}

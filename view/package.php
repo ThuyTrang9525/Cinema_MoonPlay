@@ -2,10 +2,14 @@
 <link rel="stylesheet" href="../assets/css/package.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
+    
             <!-- Header -->
             <div class="header">
-                <div class="logo">
-                    <img src="../assets/image/Hình ảnh/logo.png">
+                <div class="logo" >
+                   <!-- Thẻ <a> bao bọc toàn bộ logo -->
+                <a href="../view/main.php">
+                    <img src="../assets/image/Hình ảnh/logo.png" alt="Logo">
+                </a>
                 </div>
                 <div class="exit">
                     <b>Đăng xuất</b>
@@ -16,7 +20,7 @@
                 <!-- Phần bên trên-->
                 <div class="section">
                     
-                    <p><b>Chọn gói dịch vụ phù hợp với bạn</b></p>
+                        <p><b>Chọn gói dịch vụ phù hợp với bạn</b></p>
                     <ul>
                         <li><i class="fa fa-check" style="color:red;"></i> Xem mọi nội dung bạn muốn. Không có quảng cáo.</li>
                         <li><i class="fa fa-check" style="color:red;"></i> Đề xuất dành riêng cho bạn.</li>
@@ -26,7 +30,86 @@
                         <li><i class="fa fa-check" style="color:red;"></i> Không quảng cáo, không phụ phí. Luôn luôn như vậy</li>
                     </ul>
                 </div>    
+
+                <div class="discount-big">
+                        <p class="discount-title"><b>Mã giảm giá bạn có thể áp dụng</b></p>
+                        <div class="all-discount">
+                            <!-- discount1 -->
+                             <div class="voucher1">
+                                <div class="voucher">
+                                    <div class="discount">
+                                        <div class="box-logo">
+                                            <img class="logo" src="../assets/image/Hình ảnh/logo.png">
+                                        </div>
+                                        <div class="detail-discount">
+                                            <div class="text-voucher">
+                                                <p>SALE10</p>
+                                                <p style="color:red;">Giảm ngay 10% cho hóa đơn trên 100k!</p>
+                                                <p>Chỉ áp dụng cho 1 số gói nhất định </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!-- discount2 -->
+                                <div class="voucher">
+                                    <div class="discount">
+                                        <div class="box-logo">
+                                            <img class="logo" src="../assets/image/Hình ảnh/logo.png">
+                                        </div>
+                                        <div class="detail-discount">
+                                            <div class="text-voucher">
+                                                <p>SUMMER15</p>
+                                                <p style="color:red;">Giảm ngay 10%,15%cho hóa đơn trên 300k!</p>
+                                                <p>Chỉ áp dụng cho 1 số gói nhất định </p>
+                                        
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="voucher2">
+                                  <!-- discount3 -->
+                                    <div class="voucher">
+                                        <div class="discount">
+                                            <div class="box-logo">
+                                                <img class="logo" src="../assets/image/Hình ảnh/logo.png">
+                                            </div>
+                                            <div class="detail-discount">
+                                                <div class="text-voucher">
+                                                    <p>CHRISTMAS20</p>
+                                                    <p style="color:red;">Giảm ngay 15%,20% cho hóa đơn trên 700k!</p>
+                                                    <p>Chỉ áp dụng cho 1 số gói nhất định </p>
+                                            
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- discount 4 -->
+                                    <div class="voucher">
+                                        <div class="discount">
+                                            <div class="box-logo">
+                                                <img class="logo" src="../assets/image/Hình ảnh/logo.png">
+                                            </div>
+                                            <div class="detail-discount">
+                                                <div class="text-voucher">
+                                                    <p>NEWUSER50</p>
+                                                    <p style="color:red;">Giảm ngay  20%,50%cho hóa đơn trên 1.000.000k!</p>
+                                                    <p>Chỉ áp dụng cho 1 số gói nhất định </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                            </div>
+                          
+                           
+             
+                        </div>
+                    </div>
+                 <!-- Gói -->
+
                 <!-- Gói -->
+
                 <div class="box_price">
                     <!-- Box 1 -->
                         <div class="box1">
@@ -45,6 +128,8 @@
                                                                     <input type="hidden" name="package_name" value="1 Tháng">
                                                                     <input type="hidden" name="package_price" value="150000">
                                                                     <input type="hidden" name="package_quality" value="480p">
+                                                                    <!-- Thêm thời gian đăng ký -->
+                                                             
                                                                     <button type="submit"name="submit" >Dùng ngay</button>
                                                             </form>
 
@@ -66,6 +151,7 @@
                                                                     <input type="hidden" name="package_name" value="3 Tháng">
                                                                     <input type="hidden" name="package_price" value="400000 ">
                                                                     <input type="hidden" name="package_quality" value="720p">
+                                                                    <!-- Thêm thời gian đăng ký -->
                                                                     <button type="submit" name="submit">Dùng ngay</button>
                                                             </form>
 
@@ -91,6 +177,7 @@
                                                                     <input type="hidden" name="package_name" value="7 Tháng">
                                                                     <input type="hidden" name="package_price" value="750000">
                                                                     <input type="hidden" name="package_quality" value="1080p">
+                                                                    <!-- Thêm thời gian đăng ký -->
                                                                     <button type="submit" name="submit">Dùng ngay</button>
                                                         </form>
 
@@ -117,6 +204,7 @@
                                                                     <input type="hidden" name="package_name" value="12 Tháng">
                                                                     <input type="hidden" name="package_price" value="1200000">
                                                                     <input type="hidden" name="package_quality" value="4K+HDRp">
+                                                                    <!-- Thêm thời gian đăng ký -->
                                                                     <button type="submit" name="submit">Dùng ngay</button>
                                                         </form>
                                                 </div>

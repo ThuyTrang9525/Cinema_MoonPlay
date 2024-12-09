@@ -5,9 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Screening</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/showing.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="../assets/css//movie_showing.css">
     
+=======
+    <style>
+        
+
+</style>
+
+>>>>>>> 35e0e24ecffd55b67e6122cc1e726a147eb7b1d5
 <?php
     require_once('../model/connect.php');
 

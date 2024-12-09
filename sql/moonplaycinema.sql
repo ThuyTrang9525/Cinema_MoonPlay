@@ -102,16 +102,16 @@ CREATE TABLE `movies` (
 CREATE TABLE discount_codes (
     discount_code_id INT AUTO_INCREMENT PRIMARY KEY,          -- ID mã giảm giá, tự động tăng
     code VARCHAR(50) NOT NULL UNIQUE,           -- Tên mã giảm giá (ví dụ: SALE10)
-    discount_percentage DECIMAL(5, 2) NOT NULL, -- Phần trăm giảm giá (10%, 20%, ...)
+     discount_percentage DECIMAL(5) NOT NULL,-- Phần trăm giảm giá (10%, 20%, ...)
     usage_limit INT NOT NULL DEFAULT 1          -- Số lần mã có thể được sử dụng
 );
 INSERT INTO discount_codes (code, discount_percentage, usage_limit)
 VALUES 
-    ('SALE10', 10.00, 100),
-    ('NEWUSER50', 50.00, 50),
-    ('BLACKFRIDAY', 30.00, 500),
-    ('CHRISTMAS20', 20.00, 200),
-    ('SUMMER15', 15.00, 300);
+    ('SALE10', 10, 100),
+    ('NEWUSER50', 50, 50),
+    ('BLACKFRIDAY', 30, 500),
+    ('CHRISTMAS20', 20, 200),
+    ('SUMMER15', 15, 300);
   -- create payments
 CREATE TABLE payments (
     payment_id INT AUTO_INCREMENT PRIMARY KEY,          -- ID thanh toán, tự động tăng
@@ -383,11 +383,11 @@ CREATE TABLE discount_codes (
 );
 INSERT INTO discount_codes (code, discount_percentage, usage_limit)
 VALUES 
-    ('SALE10', 10, 100),
-    ('NEWUSER50', 50, 50),
-    ('BLACKFRIDAY', 30, 500),
-    ('CHRISTMAS20', 20, 200),
-    ('SUMMER15', 15, 300);
+    ('SALE10', 10, 10),
+    ('NEWUSER50', 50, 10),
+    ('BLACKFRIDAY', 30, 10),
+    ('CHRISTMAS20', 20, 20),
+    ('SUMMER15', 15, 10);
 
 CREATE TABLE payments (
     payment_id INT AUTO_INCREMENT PRIMARY KEY,          -- ID thanh toán, tự động tăng
@@ -407,13 +407,28 @@ CREATE TABLE orders (
     total DECIMAL(15, 2) NOT NULL,           -- Tổng tiền (số có 2 chữ số thập phân)
 );
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ALTER TABLE favorites
 ADD COLUMN favorite_id INT AUTO_INCREMENT UNIQUE FIRST;
 =======
+=======
+
+
+ALTER TABLE orders
+ADD  ten_goi VARCHAR(50) NOT NULL,   -- Loại gói đăng ký
+ADD  start_date DATE NOT NULL,            -- Ngày bắt đầu
+ADD  end_date DATE NOT NULL,              -- Ngày hết hạn
+ADD   is_notified TINYINT(1) DEFAULT 0;    -- Trạng thái thông báo
+
+>>>>>>> 35e0e24ecffd55b67e6122cc1e726a147eb7b1d5
 ALTER TABLE favorites
 ADD COLUMN favorite_id INT AUTO_INCREMENT UNIQUE FIRST;
 
 ALTER TABLE users
 ADD COLUMN subscription_status TINYINT(1) DEFAULT 0 NOT NULL COMMENT '1: Đã đăng ký, 0: Chưa đăng ký';
+<<<<<<< HEAD
 >>>>>>> bdbc25dc5217dce63d9c7a8e7c1d4ceeca318054
+=======
+
+>>>>>>> 35e0e24ecffd55b67e6122cc1e726a147eb7b1d5

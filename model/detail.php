@@ -295,70 +295,89 @@ if ($slug) {
 
     if ($film && isset($film['movie'])) {
         $filmData = $film['movie']; // Lấy thông tin chi tiết phim
-// Ánh xạ tiêu đề có dấu
-$typeTitles = [
-    "phim-le" => "Phim lẻ",
-    "phim-bo" => "Phim bộ",
-    "hoat-hinh" => "Hoạt hình",
-    "tv-shows" => "TV Shows"
-];
-$actors = isset($filmData['actor']) ? $filmData['actor'] : [];
-        // Hiển thị thông tin phim
-        ?>
-        <div class="detailMovie">
-            <!-- Background -->
-            <div class="background">
-                <img src="<?php echo htmlspecialchars($filmData['thumb_url']); ?>" alt="<?php echo htmlspecialchars($filmData['name']); ?>">
-                <div class="type">
-                    <div><?php echo htmlspecialchars($filmData['type']); ?></div>
-                </div>
-            </div>
+      
+    
 
-            <!-- Thông tin phim -->
-            <div class="infor-movie">
-                <div class="poster">
-                    <div class="poster-img">
-                        <img src="<?php echo htmlspecialchars($filmData['poster_url']); ?>" alt="<?php echo htmlspecialchars($filmData['name']); ?>">
+        if ($film && isset($film['episodes'][0]['server_data'])) {
+            // Lấy danh sách server_data
+            $serverData = $film['episodes'][0]['server_data'];
+        
+            // Kiểm tra và lấy link_embed của tập đầu tiên
+            if (!empty($serverData[0]['link_embed'])) {
+                $videoLink = $serverData[0]['link_embed'];
+                echo "Link video đầu tiên: " . $videoLink;
+            } else {
+                echo "Không tìm thấy link video!";
+            }
+        }
+     
+        // Ánh xạ tiêu đề có dấu
+        $typeTitles = [
+            "phim-le" => "Phim lẻ",
+            "phim-bo" => "Phim bộ",
+            "hoat-hinh" => "Hoạt hình",
+            "tv-shows" => "TV Shows"
+        ];
+        
+     
+        $actors = isset($filmData['actor']) ? $filmData['actor'] : [];
+                // Hiển thị thông tin phim
+                ?>
+                <div class="detailMovie">
+                    <!-- Background -->
+                    <div class="background">
+                        <img src="<?php echo htmlspecialchars($filmData['thumb_url']); ?>" alt="<?php echo htmlspecialchars($filmData['name']); ?>">
+                        <div class="type">
+                            <div><?php echo htmlspecialchars($filmData['type']); ?></div>
+                        </div>
                     </div>
-                    <button onclick="window.location.href='../view/showing.php?slug=<?php echo urlencode($slug); ?>'"><i class="fa-solid fa-play"></i> Xem ngay</button>
-                </div>
-                <div class="infor">
-                    <div class="name">
-                        <h1><?php echo htmlspecialchars($filmData['name']); ?></h1>
-                        
-                    </div>
-                    <div class="detail">
-                        <p>Thể loại: <?php echo htmlspecialchars($filmData['type']); ?> </p>
-                        <p class="time"><i class="fa-regular fa-clock"></i> <?php echo intval($filmData['time']); ?> phút</p>
-                        <p>Khởi chiếu: <?php echo intval($filmData['year']); ?> </p>
-                        <p>Tên gốc: <?php echo htmlspecialchars($filmData['origin_name']); ?></p>
-                        <p>Thời lượng: <?php echo intval($filmData['time']); ?> phút</p>
-                        <p>Diễn viên:</p>
-                        <?php
-                            if (!empty($actors)) {
-                                // Chuyển mảng thành chuỗi, ngăn cách bằng dấu phẩy
-                                echo "<p class='actor-list'>" . htmlspecialchars(implode(', ', $actors)) . "</p>";
-                            } else {
-                                echo "<p>Không có thông tin diễn viên.</p>";
-                            }
-                        ?>
 
-                    </div>
-                </div>
-            </div>
+                    <!-- Thông tin phim -->
+                    <div class="infor-movie">
+                        <div class="poster">
+                            <div class="poster-img">
+                                <img src="<?php echo htmlspecialchars($filmData['poster_url']); ?>" alt="<?php echo htmlspecialchars($filmData['name']); ?>">
+                            </div>
+                            <button onclick="window.location.href='../view/showing.php?slug=<?php echo urlencode($slug); ?>'"><i class="fa-solid fa-play"></i> Xem ngay</button>
+                        </div>
+                        <div class="infor">
+                            <div class="name">
+                                <h1><?php echo htmlspecialchars($filmData['name']); ?></h1>
+                                
+                            </div>
+                            <div class="detail">
+                                
+                                <p>Thể loại: <?php echo htmlspecialchars($filmData['type']); ?> </p>
+                                <p class="time"><i class="fa-regular fa-clock"></i> <?php echo intval($filmData['time']); ?> phút</p>
+                                <p>Khởi chiếu: <?php echo intval($filmData['year']); ?> </p>
+                                <p>Tên gốc: <?php echo htmlspecialchars($filmData['origin_name']); ?></p>
+                                <p>Thời lượng: <?php echo intval($filmData['time']); ?> phút</p>
+                                <p>Diễn viên:</p>
+                                <?php
+                                    if (!empty($actors)) {
+                                        // Chuyển mảng thành chuỗi, ngăn cách bằng dấu phẩy
+                                        echo "<p class='actor-list'>" . htmlspecialchars(implode(', ', $actors)) . "</p>";
+                                    } else {
+                                        echo "<p>Không có thông tin diễn viên.</p>";
+                                    }
+                                ?>
 
-            <!-- Mô tả phim -->
-            <div class="describe-movie">
-                <p><?php echo htmlspecialchars($filmData['content']); ?></p>
-            </div> 
-                    
-        </div>
-        <?php
-    } else {
-        echo "<p>Không tìm thấy thông tin phim.</p>";
-    }
-} else {
-    echo "<p>Slug phim không được cung cấp.</p>";
-}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mô tả phim -->
+                    <div class="describe-movie">
+                        <p><?php echo htmlspecialchars($filmData['content']); ?></p>
+                    </div> 
+                            
+                </div>
+                <?php
+            } else {
+                echo "<p>Không tìm thấy thông tin phim.</p>";
+            }
+        } else {
+            echo "<p>Slug phim không được cung cấp.</p>";
+        }
 
 
