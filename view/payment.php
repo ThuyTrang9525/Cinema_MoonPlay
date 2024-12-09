@@ -181,46 +181,48 @@ if (isset($_POST['apply_discount']) && !empty($_POST['discount_code'])) {
   }
 
   // Kiểm tra mã giảm giá có hợp lệ trong danh sách hay không
-  if (!in_array($discount_code, $valid_discount_codes)) {
-      // Kiểm tra nếu mã giảm giá có tồn tại trong cơ sở dữ liệu
-      $sql = "SELECT * FROM discount_codes WHERE code = '$discount_code' AND usage_limit > 0";
-      $result = mysqli_query($conn, $sql);
+// Kiểm tra mã giảm giá có hợp lệ trong danh sách của gói hiện tại không
+if (!in_array($discount_code, $valid_discount_codes)) {
+  // Trường hợp mã không hợp lệ cho gói hiện tại nhưng có tồn tại trong cơ sở dữ liệu
+  $sql = "SELECT * FROM discount_codes WHERE code = '$discount_code'";
+  $result = mysqli_query($conn, $sql);
 
-      if (mysqli_num_rows($result) > 0) {
-          // Nếu mã giảm giá tồn tại trong cơ sở dữ liệu nhưng không áp dụng cho gói dịch vụ này
-          echo "<p style='color: red;'>Mã giảm giá không áp dụng cho gói này</p>";
-          unset($_SESSION['totalmoney']); // Xóa giá trị cũ nếu mã giảm giá không áp dụng cho gói này
-      } else {
-          // Nếu mã giảm giá không hợp lệ
-          echo "<p style='color: red;'>Mã giảm giá không hợp lệ</p>";
-          unset($_SESSION['totalmoney']); // Xóa giá trị cũ nếu mã giảm giá không hợp lệ
-      }
+  if (mysqli_num_rows($result) > 0) {
+      // Nếu mã giảm giá tồn tại nhưng không áp dụng cho gói hiện tại
+      echo "<p style='color: red;'>Mã giảm giá không áp dụng cho gói này</p>";
+      unset($_SESSION['totalmoney']); // Xóa giá trị cũ
   } else {
-      // Truy vấn cơ sở dữ liệu để kiểm tra mã giảm giá
-      $sql = "SELECT * FROM discount_codes WHERE code = '$discount_code' AND usage_limit > 0";
-      $result = mysqli_query($conn, $sql);
-
-      if (mysqli_num_rows($result) > 0) {
-          $row = mysqli_fetch_assoc($result);
-          $discount_percent = $row['discount_percentage'];  
-
-          // Giảm số lượng mã sử dụng
-          $update_discount = "UPDATE discount_codes SET usage_limit = usage_limit - 1 WHERE code = '$discount_code'";
-          mysqli_query($conn, $update_discount);
-
-          echo "<p style='color: green;'>Mã giảm giá hợp lệ! Giảm $discount_percent%</p>";
-
-          // Tính tổng tiền sau khi giảm giá
-          $sum = $_SESSION['package'][1];
-          $sum_after_percent = $sum - ($sum * $discount_percent / 100);
-
-          // Lưu tổng tiền sau khi giảm giá vào session
-          $_SESSION['totalmoney'] = $sum_after_percent;
-      } else {
-          echo "<p style='color: red;'>Mã giảm giá không hợp lệ hoặc đã hết lượt sử dụng</p>";
-          unset($_SESSION['totalmoney']); // Xóa giá trị cũ nếu mã giảm giá không hợp lệ
-      }
+      // Nếu mã giảm giá không tồn tại trong cơ sở dữ liệu
+      echo "<p style='color: red;'>Mã giảm giá không hợp lệ</p>";
+      unset($_SESSION['totalmoney']); // Xóa giá trị cũ
   }
+} else {
+  // Nếu mã giảm giá nằm trong danh sách hợp lệ
+  $sql = "SELECT * FROM discount_codes WHERE code = '$discount_code' AND usage_limit > 0";
+  $result = mysqli_query($conn, $sql);
+
+  if (mysqli_num_rows($result) > 0) {
+      $row = mysqli_fetch_assoc($result);
+      $discount_percent = $row['discount_percentage'];
+
+      // Giảm số lượng mã sử dụng
+      $update_discount = "UPDATE discount_codes SET usage_limit = usage_limit - 1 WHERE code = '$discount_code'";
+      mysqli_query($conn, $update_discount);
+
+      echo "<p style='color: green;'>Mã giảm giá hợp lệ! Giảm $discount_percent%</p>";
+
+      // Tính tổng tiền sau khi giảm giá
+      $sum = $_SESSION['package'][1];
+      $sum_after_percent = $sum - ($sum * $discount_percent / 100);
+
+      // Lưu tổng tiền sau khi giảm giá vào session
+      $_SESSION['totalmoney'] = $sum_after_percent;
+  } else {
+      echo "<p style='color: red;'>Mã giảm giá không hợp lệ hoặc đã hết lượt sử dụng</p>";
+      unset($_SESSION['totalmoney']); // Xóa giá trị cũ nếu mã giảm giá không hợp lệ
+  }
+}
+
 } else {
   unset($_SESSION['totalmoney']); // Xóa giá trị cũ nếu không nhập mã giảm giá
 }
