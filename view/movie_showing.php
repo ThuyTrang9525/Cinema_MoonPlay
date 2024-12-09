@@ -97,6 +97,9 @@ if (isset($_GET['id'])) {
 
 
 
+
+
+
 ?>
 
 <body class="movieShow">
@@ -139,20 +142,28 @@ if (isset($_GET['id'])) {
                 </div>
             </div>
             -------------------------------------------------
-            <div class="comment">
+          <div class="comment">
                 <!-- Form nhập bình luận -->
                 <div class="box-cmt1">
-                    <form method="POST">
-                        <input type="text" name="comment_content" placeholder="Viết bình luận của bạn..." required>
-                        <button class="submit" type="submit">Gửi</button>
-                    </form>
+                    <div class="box-cmt1">
+                        <form method="POST" action="../view/comment.php">
+                            <input type="text" name="comment_content" placeholder="Viết bình luận của bạn..." required>
+                            
+                            <!-- Ẩn các input movie_id và user_id (được lấy từ session) -->
+                            <input type="hidden" name="movie_id" value="<?php echo htmlspecialchars($movie_id); ?>">
+                            <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($user_id); ?>">
+                            
+                            <button class="submit" type="submit">Gửi</button>
+                        </form>
+                    </div>
+
                 </div>
 
                 <!-- Hiển thị danh sách bình luận -->
                 <?php while ($comment = $result_comments->fetch_assoc()): ?>
                     <div class="box-cmt2">
                         <div class="avt">
-                            <img src="<?php echo htmlspecialchars($comment['avatar_url']); ?>" alt="Avatar">
+                            <img src="<?php echo htmlspecialchars($comment['avatar']); ?>" alt="Avatar">
                         </div>
                         <div class="commented">
                             <p class="name"><?php echo htmlspecialchars($comment['username']); ?></p>
