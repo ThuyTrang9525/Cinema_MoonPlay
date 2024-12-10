@@ -169,10 +169,10 @@ if (isset($_POST['apply_discount']) && !empty($_POST['discount_code'])) {
           $valid_discount_codes = ['SALE10', 'SUMMER15'];
           break;
       case '7 tháng':
-          $valid_discount_codes = ['SUMMER15', 'CHRISTMAS20'];
+          $valid_discount_codes = ['SALE10','SUMMER15', 'CHRISTMAS20'];
           break;
       case '12 tháng':
-          $valid_discount_codes = ['NEWUSER50'];
+          $valid_discount_codes = ['SALE10','SUMMER15', 'CHRISTMAS20','NEWUSER50'];
           break;
       default:
           // Nếu gói dịch vụ không hợp lệ, không cho áp dụng mã giảm giá
