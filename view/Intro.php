@@ -17,10 +17,10 @@ $user_id = $_SESSION['user_id'] ?? null;
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Giới Thiệu MoonPlay Cinema  </title>
   <link rel="stylesheet" href="../assets/css/intro.css">
-  <link rel="stylesheet" href="../assets/css/style.css">
+
 </head>
 <body>
-<?php include('../model/header.php'); ?>
+<?php require_once('../model/header.php'); ?>
   <!-- Hero Section -->
   <section class="hero">
     <h1>MoonPlay Cinema - Nền tảng xem phim trực tuyến hàng đầu!</h1>
