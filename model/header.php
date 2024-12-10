@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 // Kiểm tra xem người dùng đã đăng nhập hay chưa
 $isLoggedIn = isset($_SESSION['user_id']) && isset($_SESSION['username']);
 $username = $isLoggedIn ? $_SESSION['username'] : null;
@@ -17,12 +17,12 @@ $username = $isLoggedIn ? $_SESSION['username'] : null;
     <div class="header-right">
             <form method="POST" action="../controllers/search-back.php">
                 <div class="container-search" style="position: relative;">
-                <input style="border:2px grey solid;width:250px;height: 50px; border-radius: 100px;" type="text" name="search_query" placeholder="Nhập tên phim cần tìm..." required>
-                    <div style="height: 47px; align-items:center;border-radius:100px; position: absolute;bottom: 2px; right:0px;width: 47px; background-color: #222222;">
-                        <i style=" font-size: 20px; color:grey; margin-top:13px; margin-left: 14px;" class="fas fa-search"></i>
-                    </div>
+                    <input style="border:2px grey solid;width:250px;height: 50px; border-radius: 100px;" type="text" name="search_query" placeholder="Nhập tên phim cần tìm..." required>
+                        <div style="height: 55px; align-items:center;border-radius:100px; position: absolute;bottom: 0px; right:0px;width: 55px; background-color: #222222;">
+                            <i style=" font-size: 20px; color:grey; margin-top:18px; margin-left: 17px;" class="fas fa-search"></i>
+                        </div>
                 </div>
-                <button style="border:2px grey solid; height:50px; width:100px; font-size: 15px;border-radius: 100px;" type="submit">Tìm kiếm</button>
+                <button style="border:2px grey solid; height:55px; width:100px; font-size: 15px;border-radius: 100px;" type="submit">Tìm kiếm</button>
             </form>
         </div>
     <nav class="list">

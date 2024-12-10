@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // Kết nối cơ sở dữ liệu
 include('../model/connect.php'); // Đảm bảo file kết nối được gọi
 
