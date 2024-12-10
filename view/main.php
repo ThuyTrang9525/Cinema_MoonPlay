@@ -8,7 +8,7 @@
 
 </head>
 <body>
-    <?php include('../model/header.php'); ?>
+    <?php require_once('../model/header.php'); ?>
     <?php include('../model/banner.php'); ?>
    
     <?php include('../model/typeMovie.php'); ?>

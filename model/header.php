@@ -198,7 +198,7 @@ $username = $isLoggedIn ? $_SESSION['username'] : null;
     <div class="header-right">
             <form method="POST" action="../controllers/search-back.php">
                 <div class="container-search" style="position: relative;">
-                <input style="border:2px grey solid;width:250px;height: 50px; border-radius: 100px;" type="text" name="search_query" placeholder="Nhập tên phim cần tìm..." required>
+                <input class="searchmovienow"style="border:2px grey solid;width:250px;height: 40px; border-radius: 100px;" type="text" name="search_query" placeholder="Nhập tên phim cần tìm..." required>
                     <div style="height: 47px; align-items:center;border-radius:100px; position: absolute;bottom: 2px; right:0px;width: 47px; background-color: #222222;">
                         <i style=" font-size: 20px; color:grey; margin-top:13px; margin-left: 14px;" class="fas fa-search"></i>
                     </div>
