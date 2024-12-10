@@ -2,15 +2,15 @@
 // Kết nối cơ sở dữ liệu
 include_once '../model/connect.php'; // Chèn file kết nối cơ sở dữ liệu
 
-// Kiểm tra session trước khi khởi tạo
+// Khởi tạo session
 if (session_status() == PHP_SESSION_NONE) {
-    // session_start();
+    session_start();
 }
-
-
 
 // Kiểm tra xem người dùng đã đăng nhập hay chưa
 $user_id = $_SESSION['user_id'] ?? null;
+
+$success_message = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['feedback'])) {
     if (is_null($user_id)) {
@@ -22,13 +22,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['feedback'])) {
         // Sửa lỗi câu lệnh SQL
         $sql_insert_comment = "INSERT INTO feedback (user_id, feed_content, time) VALUES (?, ?, NOW())";
         $stmt_insert = $conn->prepare($sql_insert_comment);
-        $stmt_insert->bind_param("is", $user_id, $content); // Sửa kiểu dữ liệu
-        $stmt_insert->execute();
-        header("Location: contact.php?id=$movie_id");
-        exit();
+        $stmt_insert->bind_param("is", $user_id, $content);
+        
+        // Kiểm tra lỗi SQL
+        if ($stmt_insert->execute()) {
+            // Gửi feedback thành công
+            $success_message = "Bạn đã gửi feedback thành công!";
+        } else {
+            die("Lỗi SQL: " . $stmt_insert->error);
+        }
+    } else {
+        die("Nội dung feedback không được để trống.");
     }
 }
 ?>
+
 
 
 
@@ -43,6 +51,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['feedback'])) {
 <body>
     <!-- Header -->
      <?php include('../model/header.php'); ?>
+
+     <?php if (!empty($success_message)): ?>
+        <p style="color: green;"><?php echo $success_message; ?></p>
+    <?php endif; ?>
 
 
      <!-- Main content -->

@@ -7,16 +7,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/showing.css">
     <link rel="stylesheet" href="../assets/css/style.css">
-<<<<<<< HEAD
     <link rel="stylesheet" href="../assets/css//movie_showing.css">
     
-=======
-    <style>
-        
 
-</style>
-
->>>>>>> 35e0e24ecffd55b67e6122cc1e726a147eb7b1d5
 <?php
     require_once('../model/connect.php');
 
@@ -104,8 +97,34 @@ if (isset($_GET['id'])) {
         exit();
     }
 
+    // Truy vấn lấy danh sách bình luận
+    $sql_comments = "SELECT comments.content, comments.commented_at, users.username, users.avatar
+                     FROM comments
+                     JOIN users ON comments.user_id = users.user_id
+                     WHERE comments.movie_id = ?
+                     ORDER BY comments.commented_at DESC";
+    $stmt_comments = $conn->prepare($sql_comments);
+    $stmt_comments->bind_param("i", $movie_id);
+    $stmt_comments->execute();
+    $result_comments = $stmt_comments->get_result();
 
 
+
+// Xử lý thêm bình luận
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['comment_content'])) {
+if (is_null($user_id)) { // Kiểm tra xem user_id có tồn tại không
+    die("Bạn cần đăng nhập để bình luận.");
+}
+$content = trim($_POST['comment_content']);
+if (!empty($content)) {
+    $sql_insert_comment = "INSERT INTO comments (movie_id, user_id, content) VALUES (?, ?, ?)";
+    $stmt_insert = $conn->prepare($sql_insert_comment);
+    $stmt_insert->bind_param("iis", $movie_id, $user_id, $content);
+    $stmt_insert->execute();
+    header("Location: movie_showing.php?id=$movie_id");
+    exit();
+}
+}
 
 
 
@@ -151,11 +170,11 @@ if (isset($_GET['id'])) {
                 </div>
             </div>
             -------------------------------------------------
-          <div class="comment">
+            <div class="comment">
                 <!-- Form nhập bình luận -->
                 <div class="box-cmt1">
                     <div class="box-cmt1">
-                        <form method="POST" action="../view/comment.php">
+                        <form method="POST" action=" ">
                             <input type="text" name="comment_content" placeholder="Viết bình luận của bạn..." required>
                             
                             <!-- Ẩn các input movie_id và user_id (được lấy từ session) -->

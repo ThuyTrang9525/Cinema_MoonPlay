@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 // Kiểm tra xem người dùng đã đăng nhập hay chưa
 $isLoggedIn = isset($_SESSION['user_id']) && isset($_SESSION['username']);
 $username = $isLoggedIn ? $_SESSION['username'] : null;
@@ -203,7 +203,7 @@ $username = $isLoggedIn ? $_SESSION['username'] : null;
                         <i style=" font-size: 20px; color:grey; margin-top:13px; margin-left: 14px;" class="fas fa-search"></i>
                     </div>
                 </div>
-                <button style="border:2px grey solid; height:50px; width:100px; font-size: 15px;border-radius: 100px;" type="submit">Tìm kiếm</button>
+                <button style="border:2px grey solid; height:55px; width:100px; font-size: 15px;border-radius: 100px;" type="submit">Tìm kiếm</button>
             </form>
         </div>
     <nav class="list">
