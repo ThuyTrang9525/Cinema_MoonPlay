@@ -59,7 +59,7 @@
                                         <div class="detail-discount">
                                             <div class="text-voucher">
                                                 <p>SUMMER15</p>
-                                                <p style="color:red;">Giảm ngay 15%cho hóa đơn trên 300.000 VNĐ!</p>
+                                                <p style="color:red;">Giảm ngay 15% cho hóa đơn trên 300.000 VNĐ!</p>
                                                 <p>Chỉ áp dụng cho 1 số gói nhất định </p>
                                         
                                             </div>
@@ -93,7 +93,7 @@
                                             <div class="detail-discount">
                                                 <div class="text-voucher">
                                                     <p>NEWUSER50</p>
-                                                    <p style="color:red;">Giảm ngay 50%cho hóa đơn trên 1.000.000 VNĐ!</p>
+                                                    <p style="color:red;">Giảm ngay 50% cho hóa đơn trên 1.000.000 VNĐ!</p>
                                                     <p>Chỉ áp dụng cho 1 số gói nhất định </p>
                                                 </div>
                                             </div>
