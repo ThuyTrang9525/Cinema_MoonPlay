@@ -8,6 +8,7 @@
 
 </head>
 <body>
+    <?php session_start(); ?>
     <?php require_once('../model/header.php'); ?>
     <?php include('../model/banner.php'); ?>
    

@@ -42,6 +42,7 @@ function getMoviesByCategory($conn, $type) {
 </head>
 <body>
     <!-- Header -->
+    <?php session_start(); ?>
     <?php include('../model/header.php'); ?>
 <div class="container-category">
     <!-- Danh sách các thể loại -->
