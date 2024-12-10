@@ -212,7 +212,7 @@ $username = $isLoggedIn ? $_SESSION['username'] : null;
             <li><a href="../view/main.php">Trang chủ</a></li>
             <li><a href="../model/category.php">Kho phim</a></li>
             <li><a href="../view/package.php">Gói dịch vụ</a></li>
-            <li><a href="#">Yêu thích</a></li>
+            <li><a href="../view/favorite.php">Yêu thích</a></li>
             <li><a href="../view/histori.php">Lịch sử</a></li>
             <li><a href="../view/contact.php">Liên hệ</a></li>
         </ul>
@@ -230,7 +230,7 @@ $username = $isLoggedIn ? $_SESSION['username'] : null;
             <?php endif; 
             ?>
     </nav>
-    <div class = "logout-button"><a href="../view/login.php"><i class="fa-solid fa-right-from-bracket"></i></a></div>    
+    <div style="background-color: black;" class = "logout-button"><a href="../view/login.php"><i style="font-size: 30px; margin-bottom: 15px;" class="fa-solid fa-right-from-bracket"></i></a></div>    
 </header>
     <script>
     document.getElementById('loginButton').addEventListener('click', function() {
