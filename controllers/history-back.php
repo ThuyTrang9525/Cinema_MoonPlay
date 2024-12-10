@@ -7,6 +7,14 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+// Khởi tạo session
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Kiểm tra xem người dùng đã đăng nhập hay chưa
+$user_id = $_SESSION['user_id'] ?? null;
+
 
 
 // Lấy giá trị từ tham số GET

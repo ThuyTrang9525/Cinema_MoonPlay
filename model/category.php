@@ -70,6 +70,8 @@ function getMoviesByCategory($conn, $type) {
     }
     ?>
 </div>
+<!-- Footer -->
+<?php include('../model/footer.php'); ?>
 
 </body>
 </html>
